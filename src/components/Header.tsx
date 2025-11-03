@@ -24,7 +24,7 @@ const Header = () => {
             <div className="p-2 rounded-lg bg-primary/10 group-hover:bg-primary/20 transition-colors">
               <Monitor className="w-6 h-6 text-primary" />
             </div>
-            <span className="text-xl font-bold text-gradient">CarScreen Pro</span>
+            <span className="text-xl font-bold text-gradient">VinMap</span>
           </Link>
 
           {/* Desktop Navigation */}
