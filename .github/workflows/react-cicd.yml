@@ -26,7 +26,28 @@ jobs:
     - name: Build
       run: npm run build
     
-    - name: Deploy to Server via FTP
+    - name: Copy web.config to dist
+      run: cp web.config dist/web.config
+    
+    - name: Create app_offline.htm
+      run: echo "<html><body><h1>Updating...</h1></body></html>" > dist/app_offline.htm
+    
+    - name: Upload app_offline first to stop IIS
+      uses: SamKirkland/FTP-Deploy-Action@4.3.0
+      with:
+        server: ${{ secrets.FTP_SERVER }}
+        username: ${{ secrets.FTP_USERNAME }}
+        password: ${{ secrets.FTP_PASSWORD }}
+        local-dir: ./dist/
+        server-dir: ${{ secrets.FTP_PATH }}/
+        
+    - name: Wait for IIS to release files
+      run: sleep 5
+    
+    - name: Remove app_offline before final deploy
+      run: rm dist/app_offline.htm
+    
+    - name: Deploy all files to Server
       uses: SamKirkland/FTP-Deploy-Action@4.3.0
       with:
         server: ${{ secrets.FTP_SERVER }}
