@@ -26,9 +26,7 @@ jobs:
     - name: Build
       run: npm run build
     
-    - name: Copy web.config to dist
-      run: cp web.config dist/web.config
-    
+       
     - name: Create app_offline.htm
       run: echo "<html><body><h1>Updating...</h1></body></html>" > dist/app_offline.htm
     
