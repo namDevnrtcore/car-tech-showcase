@@ -12,7 +12,7 @@ dotenv.config()
 
 const app = Fastify({ logger: true })
 
-app.register(cors,   { origin: "http://localhost:5173" })
+app.register(cors,   { origin: "*" })
 app.register(helmet, { contentSecurityPolicy: false })
 
 app.register(screenRoutes,  { prefix: "/api/screens" })
@@ -23,6 +23,9 @@ app.register(newsRoutes,    { prefix: "/api/news" })
 
 app.get("/health", async () => ({ status: "ok" }))
 
-app.listen({ port: Number(process.env.PORT) || 3001 }, (err) => {
+app.listen({ 
+    port: Number(process.env.PORT) || 3001,
+    host: "0.0.0.0"
+}, (err) => {
     if (err) { app.log.error(err); process.exit(1) }
 })
