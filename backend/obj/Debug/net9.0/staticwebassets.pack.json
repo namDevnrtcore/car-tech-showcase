@@ -1,0 +1,97 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\PC\\Code\\car-tech-showcase\\backend\\wwwroot\\assets\\hero-car-screen-BGICaDwX.jpg",
+      "PackagePath": "staticwebassets\\assets\\hero-car-screen-BGICaDwX.jpg"
+    },
+    {
+      "Id": "C:\\Users\\PC\\Code\\car-tech-showcase\\backend\\wwwroot\\assets\\honda-Bf-JU6ed.png",
+      "PackagePath": "staticwebassets\\assets\\honda-Bf-JU6ed.png"
+    },
+    {
+      "Id": "C:\\Users\\PC\\Code\\car-tech-showcase\\backend\\wwwroot\\assets\\hyundai-Coc5FB8L.webp",
+      "PackagePath": "staticwebassets\\assets\\hyundai-Coc5FB8L.webp"
+    },
+    {
+      "Id": "C:\\Users\\PC\\Code\\car-tech-showcase\\backend\\wwwroot\\assets\\index-A1MN-18C.css",
+      "PackagePath": "staticwebassets\\assets\\index-A1MN-18C.css"
+    },
+    {
+      "Id": "C:\\Users\\PC\\Code\\car-tech-showcase\\backend\\wwwroot\\assets\\index-BV7yoijM.js",
+      "PackagePath": "staticwebassets\\assets\\index-BV7yoijM.js"
+    },
+    {
+      "Id": "C:\\Users\\PC\\Code\\car-tech-showcase\\backend\\wwwroot\\assets\\kia-B8AHAezr.png",
+      "PackagePath": "staticwebassets\\assets\\kia-B8AHAezr.png"
+    },
+    {
+      "Id": "C:\\Users\\PC\\Code\\car-tech-showcase\\backend\\wwwroot\\assets\\mazda-AV7OHKM5.png",
+      "PackagePath": "staticwebassets\\assets\\mazda-AV7OHKM5.png"
+    },
+    {
+      "Id": "C:\\Users\\PC\\Code\\car-tech-showcase\\backend\\wwwroot\\assets\\mercedes-VM-OdA4a.png",
+      "PackagePath": "staticwebassets\\assets\\mercedes-VM-OdA4a.png"
+    },
+    {
+      "Id": "C:\\Users\\PC\\Code\\car-tech-showcase\\backend\\wwwroot\\assets\\product-1-BKaD7fdv.jpg",
+      "PackagePath": "staticwebassets\\assets\\product-1-BKaD7fdv.jpg"
+    },
+    {
+      "Id": "C:\\Users\\PC\\Code\\car-tech-showcase\\backend\\wwwroot\\assets\\product-2-BGndsIgt.jpg",
+      "PackagePath": "staticwebassets\\assets\\product-2-BGndsIgt.jpg"
+    },
+    {
+      "Id": "C:\\Users\\PC\\Code\\car-tech-showcase\\backend\\wwwroot\\assets\\product-3-EJdHebjA.jpg",
+      "PackagePath": "staticwebassets\\assets\\product-3-EJdHebjA.jpg"
+    },
+    {
+      "Id": "C:\\Users\\PC\\Code\\car-tech-showcase\\backend\\wwwroot\\assets\\product-4-KE-TgeTn.jpg",
+      "PackagePath": "staticwebassets\\assets\\product-4-KE-TgeTn.jpg"
+    },
+    {
+      "Id": "C:\\Users\\PC\\Code\\car-tech-showcase\\backend\\wwwroot\\assets\\toyota-BsxWqSko.png",
+      "PackagePath": "staticwebassets\\assets\\toyota-BsxWqSko.png"
+    },
+    {
+      "Id": "C:\\Users\\PC\\Code\\car-tech-showcase\\backend\\wwwroot\\favicon.ico",
+      "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "C:\\Users\\PC\\Code\\car-tech-showcase\\backend\\wwwroot\\index.html",
+      "PackagePath": "staticwebassets\\index.html"
+    },
+    {
+      "Id": "C:\\Users\\PC\\Code\\car-tech-showcase\\backend\\wwwroot\\placeholder.svg",
+      "PackagePath": "staticwebassets\\placeholder.svg"
+    },
+    {
+      "Id": "C:\\Users\\PC\\Code\\car-tech-showcase\\backend\\wwwroot\\robots.txt",
+      "PackagePath": "staticwebassets\\robots.txt"
+    },
+    {
+      "Id": "C:\\Users\\PC\\Code\\car-tech-showcase\\backend\\wwwroot\\web.config",
+      "PackagePath": "staticwebassets\\web.config"
+    },
+    {
+      "Id": "obj\\Debug\\net9.0\\staticwebassets\\msbuild.CarTechShowcase.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssetEndpoints.props"
+    },
+    {
+      "Id": "obj\\Debug\\net9.0\\staticwebassets\\msbuild.CarTechShowcase.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net9.0\\staticwebassets\\msbuild.build.CarTechShowcase.props",
+      "PackagePath": "build\\CarTechShowcase.props"
+    },
+    {
+      "Id": "obj\\Debug\\net9.0\\staticwebassets\\msbuild.buildMultiTargeting.CarTechShowcase.props",
+      "PackagePath": "buildMultiTargeting\\CarTechShowcase.props"
+    },
+    {
+      "Id": "obj\\Debug\\net9.0\\staticwebassets\\msbuild.buildTransitive.CarTechShowcase.props",
+      "PackagePath": "buildTransitive\\CarTechShowcase.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

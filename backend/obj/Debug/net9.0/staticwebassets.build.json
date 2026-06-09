@@ -1,0 +1,3298 @@
+{
+  "Version": 1,
+  "Hash": "mkZhILBqEIksAZmh/RPARJ7KH5mPjqsFOzRZkS0cECU=",
+  "Source": "CarTechShowcase",
+  "BasePath": "_content/CarTechShowcase",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "CarTechShowcase\\wwwroot",
+      "Source": "CarTechShowcase",
+      "ContentRoot": "C:\\Users\\PC\\Code\\car-tech-showcase\\backend\\wwwroot\\",
+      "BasePath": "_content/CarTechShowcase",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "C:\\Users\\PC\\Code\\car-tech-showcase\\backend\\obj\\Debug\\net9.0\\compressed\\2br9strzja-p48kibin6s.gz",
+      "SourceId": "CarTechShowcase",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\PC\\Code\\car-tech-showcase\\backend\\obj\\Debug\\net9.0\\compressed\\",
+      "BasePath": "_content/CarTechShowcase",
+      "RelativePath": "favicon#[.{fingerprint=p48kibin6s}]?.ico.gz",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "C:\\Users\\PC\\Code\\car-tech-showcase\\backend\\wwwroot\\favicon.ico",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "Fingerprint": "p6lmn0ktxg",
+      "Integrity": "P/TGujRp+bGUgsJOhCw81aLonRU41R5h00p0ggOcRcg=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\PC\\Code\\car-tech-showcase\\backend\\wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "C:\\Users\\PC\\Code\\car-tech-showcase\\backend\\obj\\Debug\\net9.0\\compressed\\8hbuflml5g-eklitpdl2h.gz",
+      "SourceId": "CarTechShowcase",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\PC\\Code\\car-tech-showcase\\backend\\obj\\Debug\\net9.0\\compressed\\",
+      "BasePath": "_content/CarTechShowcase",
+      "RelativePath": "robots#[.{fingerprint=eklitpdl2h}]?.txt.gz",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "C:\\Users\\PC\\Code\\car-tech-showcase\\backend\\wwwroot\\robots.txt",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "Fingerprint": "po47mjrxyn",
+      "Integrity": "eQWOR4X8t+s7bzma2+ndXh6wsM/Gqw0mnYN65my11To=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\PC\\Code\\car-tech-showcase\\backend\\wwwroot\\robots.txt"
+    },
+    {
+      "Identity": "C:\\Users\\PC\\Code\\car-tech-showcase\\backend\\obj\\Debug\\net9.0\\compressed\\9izdm0rl9q-z26enarv5w.gz",
+      "SourceId": "CarTechShowcase",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\PC\\Code\\car-tech-showcase\\backend\\obj\\Debug\\net9.0\\compressed\\",
+      "BasePath": "_content/CarTechShowcase",
+      "RelativePath": "assets/index-BV7yoijM#[.{fingerprint=z26enarv5w}]?.js.gz",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "C:\\Users\\PC\\Code\\car-tech-showcase\\backend\\wwwroot\\assets\\index-BV7yoijM.js",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "Fingerprint": "n3rl9hs5m9",
+      "Integrity": "jfbdr1cIHf/rdSntp7dbo48qMa6n0Cr2MmD/RfQdU1A=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\PC\\Code\\car-tech-showcase\\backend\\wwwroot\\assets\\index-BV7yoijM.js"
+    },
+    {
+      "Identity": "C:\\Users\\PC\\Code\\car-tech-showcase\\backend\\obj\\Debug\\net9.0\\compressed\\9sebq2jtw1-5lmq0lc5oy.gz",
+      "SourceId": "CarTechShowcase",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\PC\\Code\\car-tech-showcase\\backend\\obj\\Debug\\net9.0\\compressed\\",
+      "BasePath": "_content/CarTechShowcase",
+      "RelativePath": "assets/index-A1MN-18C#[.{fingerprint=5lmq0lc5oy}]?.css.gz",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "C:\\Users\\PC\\Code\\car-tech-showcase\\backend\\wwwroot\\assets\\index-A1MN-18C.css",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "Fingerprint": "2slotwqnrd",
+      "Integrity": "vl70d+4FjB2D8xcQ4Cv+f0k2tWH7vS6aRkSqk3Cayww=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\PC\\Code\\car-tech-showcase\\backend\\wwwroot\\assets\\index-A1MN-18C.css"
+    },
+    {
+      "Identity": "C:\\Users\\PC\\Code\\car-tech-showcase\\backend\\obj\\Debug\\net9.0\\compressed\\pr3dwjmzoc-wxagny6yew.gz",
+      "SourceId": "CarTechShowcase",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\PC\\Code\\car-tech-showcase\\backend\\obj\\Debug\\net9.0\\compressed\\",
+      "BasePath": "_content/CarTechShowcase",
+      "RelativePath": "placeholder#[.{fingerprint=wxagny6yew}]?.svg.gz",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "C:\\Users\\PC\\Code\\car-tech-showcase\\backend\\wwwroot\\placeholder.svg",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "Fingerprint": "8n2m4e4s9v",
+      "Integrity": "5HIrERc7zhlGLe0fViCQvGlQckkp4b2gFAZVzuFG0tw=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\PC\\Code\\car-tech-showcase\\backend\\wwwroot\\placeholder.svg"
+    },
+    {
+      "Identity": "C:\\Users\\PC\\Code\\car-tech-showcase\\backend\\obj\\Debug\\net9.0\\compressed\\tbuaoosifs-2jwlgiem9v.gz",
+      "SourceId": "CarTechShowcase",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\PC\\Code\\car-tech-showcase\\backend\\obj\\Debug\\net9.0\\compressed\\",
+      "BasePath": "_content/CarTechShowcase",
+      "RelativePath": "index#[.{fingerprint=2jwlgiem9v}]?.html.gz",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "C:\\Users\\PC\\Code\\car-tech-showcase\\backend\\wwwroot\\index.html",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "Fingerprint": "ej3xzorbij",
+      "Integrity": "1pwWG6hB4fTDULn46bcajxL/BJxuJbpSCjLsAUJrO7w=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\PC\\Code\\car-tech-showcase\\backend\\wwwroot\\index.html"
+    },
+    {
+      "Identity": "C:\\Users\\PC\\Code\\car-tech-showcase\\backend\\wwwroot\\assets\\hero-car-screen-BGICaDwX.jpg",
+      "SourceId": "CarTechShowcase",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\PC\\Code\\car-tech-showcase\\backend\\wwwroot\\",
+      "BasePath": "_content/CarTechShowcase",
+      "RelativePath": "assets/hero-car-screen-BGICaDwX#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "pqsoiqcqrb",
+      "Integrity": "geERED7BsLNFOhgeyw7zhzGyspiKV0z2uaPZBxOREwc=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\hero-car-screen-BGICaDwX.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\PC\\Code\\car-tech-showcase\\backend\\wwwroot\\assets\\honda-Bf-JU6ed.png",
+      "SourceId": "CarTechShowcase",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\PC\\Code\\car-tech-showcase\\backend\\wwwroot\\",
+      "BasePath": "_content/CarTechShowcase",
+      "RelativePath": "assets/honda-Bf-JU6ed#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "gzfcm5bw9d",
+      "Integrity": "7JV87jJKDWFMhkABdstXN8oBsfXe3glwYL0bGNYa19w=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\honda-Bf-JU6ed.png"
+    },
+    {
+      "Identity": "C:\\Users\\PC\\Code\\car-tech-showcase\\backend\\wwwroot\\assets\\hyundai-Coc5FB8L.webp",
+      "SourceId": "CarTechShowcase",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\PC\\Code\\car-tech-showcase\\backend\\wwwroot\\",
+      "BasePath": "_content/CarTechShowcase",
+      "RelativePath": "assets/hyundai-Coc5FB8L#[.{fingerprint}]?.webp",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "uxjbu0bpgw",
+      "Integrity": "sgcjFLkTDSFWzcNwYGf8ccO01/UTvfiC+4sJrrLTvw4=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\hyundai-Coc5FB8L.webp"
+    },
+    {
+      "Identity": "C:\\Users\\PC\\Code\\car-tech-showcase\\backend\\wwwroot\\assets\\index-A1MN-18C.css",
+      "SourceId": "CarTechShowcase",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\PC\\Code\\car-tech-showcase\\backend\\wwwroot\\",
+      "BasePath": "_content/CarTechShowcase",
+      "RelativePath": "assets/index-A1MN-18C#[.{fingerprint}]?.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "5lmq0lc5oy",
+      "Integrity": "J5dR0RiW8j+6C76OngBLU9jCLkXLJp3SVpCHNriKa6A=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\index-A1MN-18C.css"
+    },
+    {
+      "Identity": "C:\\Users\\PC\\Code\\car-tech-showcase\\backend\\wwwroot\\assets\\index-BV7yoijM.js",
+      "SourceId": "CarTechShowcase",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\PC\\Code\\car-tech-showcase\\backend\\wwwroot\\",
+      "BasePath": "_content/CarTechShowcase",
+      "RelativePath": "assets/index-BV7yoijM#[.{fingerprint}]?.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "z26enarv5w",
+      "Integrity": "tZrIJ7lQSr/7tyxRY8hNNFAcP9oEnjfy7TXTsFHBPI0=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\index-BV7yoijM.js"
+    },
+    {
+      "Identity": "C:\\Users\\PC\\Code\\car-tech-showcase\\backend\\wwwroot\\assets\\kia-B8AHAezr.png",
+      "SourceId": "CarTechShowcase",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\PC\\Code\\car-tech-showcase\\backend\\wwwroot\\",
+      "BasePath": "_content/CarTechShowcase",
+      "RelativePath": "assets/kia-B8AHAezr#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "bkq2yoh2k6",
+      "Integrity": "Bbv+R2qif3vCS78AHxD0sqOIrwJ/zonK9ufHYI4ZLK8=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\kia-B8AHAezr.png"
+    },
+    {
+      "Identity": "C:\\Users\\PC\\Code\\car-tech-showcase\\backend\\wwwroot\\assets\\mazda-AV7OHKM5.png",
+      "SourceId": "CarTechShowcase",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\PC\\Code\\car-tech-showcase\\backend\\wwwroot\\",
+      "BasePath": "_content/CarTechShowcase",
+      "RelativePath": "assets/mazda-AV7OHKM5#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "hvkaev0538",
+      "Integrity": "LXIyVSEMM9JE13mR9v/0RZYrcwwTOdHZHagV+cPFRe0=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\mazda-AV7OHKM5.png"
+    },
+    {
+      "Identity": "C:\\Users\\PC\\Code\\car-tech-showcase\\backend\\wwwroot\\assets\\mercedes-VM-OdA4a.png",
+      "SourceId": "CarTechShowcase",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\PC\\Code\\car-tech-showcase\\backend\\wwwroot\\",
+      "BasePath": "_content/CarTechShowcase",
+      "RelativePath": "assets/mercedes-VM-OdA4a#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "apjtl1djfw",
+      "Integrity": "Ao7UVbAQuQSKdpewjhp0QyEVTIdUnScOkM7O0EgQnHs=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\mercedes-VM-OdA4a.png"
+    },
+    {
+      "Identity": "C:\\Users\\PC\\Code\\car-tech-showcase\\backend\\wwwroot\\assets\\product-1-BKaD7fdv.jpg",
+      "SourceId": "CarTechShowcase",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\PC\\Code\\car-tech-showcase\\backend\\wwwroot\\",
+      "BasePath": "_content/CarTechShowcase",
+      "RelativePath": "assets/product-1-BKaD7fdv#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "paek4csyis",
+      "Integrity": "YfkQy0O3F0RPdcYXNbs+2MKfhJCPRrgPyDNov6IgePc=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\product-1-BKaD7fdv.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\PC\\Code\\car-tech-showcase\\backend\\wwwroot\\assets\\product-2-BGndsIgt.jpg",
+      "SourceId": "CarTechShowcase",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\PC\\Code\\car-tech-showcase\\backend\\wwwroot\\",
+      "BasePath": "_content/CarTechShowcase",
+      "RelativePath": "assets/product-2-BGndsIgt#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "pxefaalzbx",
+      "Integrity": "XbuTUPNTFkAhPbbFC4TUONdUl2HInUlNjK0WBJ+FWwA=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\product-2-BGndsIgt.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\PC\\Code\\car-tech-showcase\\backend\\wwwroot\\assets\\product-3-EJdHebjA.jpg",
+      "SourceId": "CarTechShowcase",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\PC\\Code\\car-tech-showcase\\backend\\wwwroot\\",
+      "BasePath": "_content/CarTechShowcase",
+      "RelativePath": "assets/product-3-EJdHebjA#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "ydrdmteqm7",
+      "Integrity": "GmpGXbccR/OSWb4ni0zGF0Q8dpqTb5HGu7vqZ3yZl6A=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\product-3-EJdHebjA.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\PC\\Code\\car-tech-showcase\\backend\\wwwroot\\assets\\product-4-KE-TgeTn.jpg",
+      "SourceId": "CarTechShowcase",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\PC\\Code\\car-tech-showcase\\backend\\wwwroot\\",
+      "BasePath": "_content/CarTechShowcase",
+      "RelativePath": "assets/product-4-KE-TgeTn#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "vy1pnryfnt",
+      "Integrity": "yYZQaEVviuvFxdM+odR+mNBiKjXBsA9iazlek+rhrfc=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\product-4-KE-TgeTn.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\PC\\Code\\car-tech-showcase\\backend\\wwwroot\\assets\\toyota-BsxWqSko.png",
+      "SourceId": "CarTechShowcase",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\PC\\Code\\car-tech-showcase\\backend\\wwwroot\\",
+      "BasePath": "_content/CarTechShowcase",
+      "RelativePath": "assets/toyota-BsxWqSko#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "fe40j7bvcg",
+      "Integrity": "uQoT3oUUA3bjN1VR/y7/lYDQIsdSeP/pWBmnl+o5tQ4=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\toyota-BsxWqSko.png"
+    },
+    {
+      "Identity": "C:\\Users\\PC\\Code\\car-tech-showcase\\backend\\wwwroot\\favicon.ico",
+      "SourceId": "CarTechShowcase",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\PC\\Code\\car-tech-showcase\\backend\\wwwroot\\",
+      "BasePath": "_content/CarTechShowcase",
+      "RelativePath": "favicon#[.{fingerprint}]?.ico",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "p48kibin6s",
+      "Integrity": "KaQNVlgKU2YINGEpd3Pb8UbsBD0RVvQy9Ucss0h/UGs=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "C:\\Users\\PC\\Code\\car-tech-showcase\\backend\\wwwroot\\index.html",
+      "SourceId": "CarTechShowcase",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\PC\\Code\\car-tech-showcase\\backend\\wwwroot\\",
+      "BasePath": "_content/CarTechShowcase",
+      "RelativePath": "index#[.{fingerprint}]?.html",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "2jwlgiem9v",
+      "Integrity": "7o/K5L3tXLRQv6e954s6YnUO1RvLluvajbSMYi6Nctk=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\index.html"
+    },
+    {
+      "Identity": "C:\\Users\\PC\\Code\\car-tech-showcase\\backend\\wwwroot\\placeholder.svg",
+      "SourceId": "CarTechShowcase",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\PC\\Code\\car-tech-showcase\\backend\\wwwroot\\",
+      "BasePath": "_content/CarTechShowcase",
+      "RelativePath": "placeholder#[.{fingerprint}]?.svg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "wxagny6yew",
+      "Integrity": "ZLrfeqvaC5YwuHAg/7YJXLhYzLz2azVcKqCLEGOVTTs=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\placeholder.svg"
+    },
+    {
+      "Identity": "C:\\Users\\PC\\Code\\car-tech-showcase\\backend\\wwwroot\\robots.txt",
+      "SourceId": "CarTechShowcase",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\PC\\Code\\car-tech-showcase\\backend\\wwwroot\\",
+      "BasePath": "_content/CarTechShowcase",
+      "RelativePath": "robots#[.{fingerprint}]?.txt",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "eklitpdl2h",
+      "Integrity": "UnEMJh2FG8GtNWBAF4YvKoRE56DwLNe4tJ47qS5tTOo=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\robots.txt"
+    },
+    {
+      "Identity": "C:\\Users\\PC\\Code\\car-tech-showcase\\backend\\wwwroot\\web.config",
+      "SourceId": "CarTechShowcase",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\PC\\Code\\car-tech-showcase\\backend\\wwwroot\\",
+      "BasePath": "_content/CarTechShowcase",
+      "RelativePath": "web#[.{fingerprint}]?.config",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "56fntkgshm",
+      "Integrity": "c0bKWwFU+zWYHf+cmYc5iaHUeaxdaKHC80HzVNm84mY=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\web.config"
+    }
+  ],
+  "Endpoints": [
+    {
+      "Route": "assets/hero-car-screen-BGICaDwX.jpg",
+      "AssetFile": "C:\\Users\\PC\\Code\\car-tech-showcase\\backend\\wwwroot\\assets\\hero-car-screen-BGICaDwX.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "135376"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"geERED7BsLNFOhgeyw7zhzGyspiKV0z2uaPZBxOREwc=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 09 Jun 2026 19:44:41 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-geERED7BsLNFOhgeyw7zhzGyspiKV0z2uaPZBxOREwc="
+        }
+      ]
+    },
+    {
+      "Route": "assets/hero-car-screen-BGICaDwX.pqsoiqcqrb.jpg",
+      "AssetFile": "C:\\Users\\PC\\Code\\car-tech-showcase\\backend\\wwwroot\\assets\\hero-car-screen-BGICaDwX.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "135376"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"geERED7BsLNFOhgeyw7zhzGyspiKV0z2uaPZBxOREwc=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 09 Jun 2026 19:44:41 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "pqsoiqcqrb"
+        },
+        {
+          "Name": "label",
+          "Value": "assets/hero-car-screen-BGICaDwX.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-geERED7BsLNFOhgeyw7zhzGyspiKV0z2uaPZBxOREwc="
+        }
+      ]
+    },
+    {
+      "Route": "assets/honda-Bf-JU6ed.gzfcm5bw9d.png",
+      "AssetFile": "C:\\Users\\PC\\Code\\car-tech-showcase\\backend\\wwwroot\\assets\\honda-Bf-JU6ed.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "67499"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"7JV87jJKDWFMhkABdstXN8oBsfXe3glwYL0bGNYa19w=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 09 Jun 2026 19:44:41 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "gzfcm5bw9d"
+        },
+        {
+          "Name": "label",
+          "Value": "assets/honda-Bf-JU6ed.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-7JV87jJKDWFMhkABdstXN8oBsfXe3glwYL0bGNYa19w="
+        }
+      ]
+    },
+    {
+      "Route": "assets/honda-Bf-JU6ed.png",
+      "AssetFile": "C:\\Users\\PC\\Code\\car-tech-showcase\\backend\\wwwroot\\assets\\honda-Bf-JU6ed.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "67499"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"7JV87jJKDWFMhkABdstXN8oBsfXe3glwYL0bGNYa19w=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 09 Jun 2026 19:44:41 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-7JV87jJKDWFMhkABdstXN8oBsfXe3glwYL0bGNYa19w="
+        }
+      ]
+    },
+    {
+      "Route": "assets/hyundai-Coc5FB8L.uxjbu0bpgw.webp",
+      "AssetFile": "C:\\Users\\PC\\Code\\car-tech-showcase\\backend\\wwwroot\\assets\\hyundai-Coc5FB8L.webp",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "129876"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/webp"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"sgcjFLkTDSFWzcNwYGf8ccO01/UTvfiC+4sJrrLTvw4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 09 Jun 2026 19:44:41 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "uxjbu0bpgw"
+        },
+        {
+          "Name": "label",
+          "Value": "assets/hyundai-Coc5FB8L.webp"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-sgcjFLkTDSFWzcNwYGf8ccO01/UTvfiC+4sJrrLTvw4="
+        }
+      ]
+    },
+    {
+      "Route": "assets/hyundai-Coc5FB8L.webp",
+      "AssetFile": "C:\\Users\\PC\\Code\\car-tech-showcase\\backend\\wwwroot\\assets\\hyundai-Coc5FB8L.webp",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "129876"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/webp"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"sgcjFLkTDSFWzcNwYGf8ccO01/UTvfiC+4sJrrLTvw4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 09 Jun 2026 19:44:41 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-sgcjFLkTDSFWzcNwYGf8ccO01/UTvfiC+4sJrrLTvw4="
+        }
+      ]
+    },
+    {
+      "Route": "assets/index-A1MN-18C.5lmq0lc5oy.css",
+      "AssetFile": "C:\\Users\\PC\\Code\\car-tech-showcase\\backend\\obj\\Debug\\net9.0\\compressed\\9sebq2jtw1-5lmq0lc5oy.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.000088222320"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "11334"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"vl70d+4FjB2D8xcQ4Cv+f0k2tWH7vS6aRkSqk3Cayww=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 09 Jun 2026 19:44:41 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"J5dR0RiW8j+6C76OngBLU9jCLkXLJp3SVpCHNriKa6A=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "5lmq0lc5oy"
+        },
+        {
+          "Name": "label",
+          "Value": "assets/index-A1MN-18C.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-J5dR0RiW8j+6C76OngBLU9jCLkXLJp3SVpCHNriKa6A="
+        }
+      ]
+    },
+    {
+      "Route": "assets/index-A1MN-18C.5lmq0lc5oy.css",
+      "AssetFile": "C:\\Users\\PC\\Code\\car-tech-showcase\\backend\\wwwroot\\assets\\index-A1MN-18C.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "64295"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"J5dR0RiW8j+6C76OngBLU9jCLkXLJp3SVpCHNriKa6A=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 09 Jun 2026 19:44:41 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "5lmq0lc5oy"
+        },
+        {
+          "Name": "label",
+          "Value": "assets/index-A1MN-18C.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-J5dR0RiW8j+6C76OngBLU9jCLkXLJp3SVpCHNriKa6A="
+        }
+      ]
+    },
+    {
+      "Route": "assets/index-A1MN-18C.5lmq0lc5oy.css.gz",
+      "AssetFile": "C:\\Users\\PC\\Code\\car-tech-showcase\\backend\\obj\\Debug\\net9.0\\compressed\\9sebq2jtw1-5lmq0lc5oy.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "11334"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"vl70d+4FjB2D8xcQ4Cv+f0k2tWH7vS6aRkSqk3Cayww=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 09 Jun 2026 19:44:41 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "5lmq0lc5oy"
+        },
+        {
+          "Name": "label",
+          "Value": "assets/index-A1MN-18C.css.gz"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-vl70d+4FjB2D8xcQ4Cv+f0k2tWH7vS6aRkSqk3Cayww="
+        }
+      ]
+    },
+    {
+      "Route": "assets/index-A1MN-18C.css",
+      "AssetFile": "C:\\Users\\PC\\Code\\car-tech-showcase\\backend\\obj\\Debug\\net9.0\\compressed\\9sebq2jtw1-5lmq0lc5oy.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.000088222320"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "11334"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"vl70d+4FjB2D8xcQ4Cv+f0k2tWH7vS6aRkSqk3Cayww=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 09 Jun 2026 19:44:41 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"J5dR0RiW8j+6C76OngBLU9jCLkXLJp3SVpCHNriKa6A=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-J5dR0RiW8j+6C76OngBLU9jCLkXLJp3SVpCHNriKa6A="
+        }
+      ]
+    },
+    {
+      "Route": "assets/index-A1MN-18C.css",
+      "AssetFile": "C:\\Users\\PC\\Code\\car-tech-showcase\\backend\\wwwroot\\assets\\index-A1MN-18C.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "64295"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"J5dR0RiW8j+6C76OngBLU9jCLkXLJp3SVpCHNriKa6A=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 09 Jun 2026 19:44:41 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-J5dR0RiW8j+6C76OngBLU9jCLkXLJp3SVpCHNriKa6A="
+        }
+      ]
+    },
+    {
+      "Route": "assets/index-A1MN-18C.css.gz",
+      "AssetFile": "C:\\Users\\PC\\Code\\car-tech-showcase\\backend\\obj\\Debug\\net9.0\\compressed\\9sebq2jtw1-5lmq0lc5oy.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "11334"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"vl70d+4FjB2D8xcQ4Cv+f0k2tWH7vS6aRkSqk3Cayww=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 09 Jun 2026 19:44:41 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-vl70d+4FjB2D8xcQ4Cv+f0k2tWH7vS6aRkSqk3Cayww="
+        }
+      ]
+    },
+    {
+      "Route": "assets/index-BV7yoijM.js",
+      "AssetFile": "C:\\Users\\PC\\Code\\car-tech-showcase\\backend\\obj\\Debug\\net9.0\\compressed\\9izdm0rl9q-z26enarv5w.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.000007551273"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "132427"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"jfbdr1cIHf/rdSntp7dbo48qMa6n0Cr2MmD/RfQdU1A=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 09 Jun 2026 19:44:41 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"tZrIJ7lQSr/7tyxRY8hNNFAcP9oEnjfy7TXTsFHBPI0=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-tZrIJ7lQSr/7tyxRY8hNNFAcP9oEnjfy7TXTsFHBPI0="
+        }
+      ]
+    },
+    {
+      "Route": "assets/index-BV7yoijM.js",
+      "AssetFile": "C:\\Users\\PC\\Code\\car-tech-showcase\\backend\\wwwroot\\assets\\index-BV7yoijM.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "415478"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"tZrIJ7lQSr/7tyxRY8hNNFAcP9oEnjfy7TXTsFHBPI0=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 09 Jun 2026 19:44:41 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-tZrIJ7lQSr/7tyxRY8hNNFAcP9oEnjfy7TXTsFHBPI0="
+        }
+      ]
+    },
+    {
+      "Route": "assets/index-BV7yoijM.js.gz",
+      "AssetFile": "C:\\Users\\PC\\Code\\car-tech-showcase\\backend\\obj\\Debug\\net9.0\\compressed\\9izdm0rl9q-z26enarv5w.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "132427"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"jfbdr1cIHf/rdSntp7dbo48qMa6n0Cr2MmD/RfQdU1A=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 09 Jun 2026 19:44:41 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-jfbdr1cIHf/rdSntp7dbo48qMa6n0Cr2MmD/RfQdU1A="
+        }
+      ]
+    },
+    {
+      "Route": "assets/index-BV7yoijM.z26enarv5w.js",
+      "AssetFile": "C:\\Users\\PC\\Code\\car-tech-showcase\\backend\\obj\\Debug\\net9.0\\compressed\\9izdm0rl9q-z26enarv5w.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.000007551273"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "132427"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"jfbdr1cIHf/rdSntp7dbo48qMa6n0Cr2MmD/RfQdU1A=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 09 Jun 2026 19:44:41 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"tZrIJ7lQSr/7tyxRY8hNNFAcP9oEnjfy7TXTsFHBPI0=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "z26enarv5w"
+        },
+        {
+          "Name": "label",
+          "Value": "assets/index-BV7yoijM.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-tZrIJ7lQSr/7tyxRY8hNNFAcP9oEnjfy7TXTsFHBPI0="
+        }
+      ]
+    },
+    {
+      "Route": "assets/index-BV7yoijM.z26enarv5w.js",
+      "AssetFile": "C:\\Users\\PC\\Code\\car-tech-showcase\\backend\\wwwroot\\assets\\index-BV7yoijM.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "415478"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"tZrIJ7lQSr/7tyxRY8hNNFAcP9oEnjfy7TXTsFHBPI0=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 09 Jun 2026 19:44:41 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "z26enarv5w"
+        },
+        {
+          "Name": "label",
+          "Value": "assets/index-BV7yoijM.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-tZrIJ7lQSr/7tyxRY8hNNFAcP9oEnjfy7TXTsFHBPI0="
+        }
+      ]
+    },
+    {
+      "Route": "assets/index-BV7yoijM.z26enarv5w.js.gz",
+      "AssetFile": "C:\\Users\\PC\\Code\\car-tech-showcase\\backend\\obj\\Debug\\net9.0\\compressed\\9izdm0rl9q-z26enarv5w.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "132427"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"jfbdr1cIHf/rdSntp7dbo48qMa6n0Cr2MmD/RfQdU1A=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 09 Jun 2026 19:44:41 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "z26enarv5w"
+        },
+        {
+          "Name": "label",
+          "Value": "assets/index-BV7yoijM.js.gz"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-jfbdr1cIHf/rdSntp7dbo48qMa6n0Cr2MmD/RfQdU1A="
+        }
+      ]
+    },
+    {
+      "Route": "assets/kia-B8AHAezr.bkq2yoh2k6.png",
+      "AssetFile": "C:\\Users\\PC\\Code\\car-tech-showcase\\backend\\wwwroot\\assets\\kia-B8AHAezr.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1033677"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"Bbv+R2qif3vCS78AHxD0sqOIrwJ/zonK9ufHYI4ZLK8=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 09 Jun 2026 19:44:41 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "bkq2yoh2k6"
+        },
+        {
+          "Name": "label",
+          "Value": "assets/kia-B8AHAezr.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-Bbv+R2qif3vCS78AHxD0sqOIrwJ/zonK9ufHYI4ZLK8="
+        }
+      ]
+    },
+    {
+      "Route": "assets/kia-B8AHAezr.png",
+      "AssetFile": "C:\\Users\\PC\\Code\\car-tech-showcase\\backend\\wwwroot\\assets\\kia-B8AHAezr.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1033677"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"Bbv+R2qif3vCS78AHxD0sqOIrwJ/zonK9ufHYI4ZLK8=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 09 Jun 2026 19:44:41 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-Bbv+R2qif3vCS78AHxD0sqOIrwJ/zonK9ufHYI4ZLK8="
+        }
+      ]
+    },
+    {
+      "Route": "assets/mazda-AV7OHKM5.hvkaev0538.png",
+      "AssetFile": "C:\\Users\\PC\\Code\\car-tech-showcase\\backend\\wwwroot\\assets\\mazda-AV7OHKM5.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "596129"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"LXIyVSEMM9JE13mR9v/0RZYrcwwTOdHZHagV+cPFRe0=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 09 Jun 2026 19:44:41 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "hvkaev0538"
+        },
+        {
+          "Name": "label",
+          "Value": "assets/mazda-AV7OHKM5.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-LXIyVSEMM9JE13mR9v/0RZYrcwwTOdHZHagV+cPFRe0="
+        }
+      ]
+    },
+    {
+      "Route": "assets/mazda-AV7OHKM5.png",
+      "AssetFile": "C:\\Users\\PC\\Code\\car-tech-showcase\\backend\\wwwroot\\assets\\mazda-AV7OHKM5.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "596129"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"LXIyVSEMM9JE13mR9v/0RZYrcwwTOdHZHagV+cPFRe0=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 09 Jun 2026 19:44:41 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-LXIyVSEMM9JE13mR9v/0RZYrcwwTOdHZHagV+cPFRe0="
+        }
+      ]
+    },
+    {
+      "Route": "assets/mercedes-VM-OdA4a.apjtl1djfw.png",
+      "AssetFile": "C:\\Users\\PC\\Code\\car-tech-showcase\\backend\\wwwroot\\assets\\mercedes-VM-OdA4a.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "117770"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"Ao7UVbAQuQSKdpewjhp0QyEVTIdUnScOkM7O0EgQnHs=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 09 Jun 2026 19:44:41 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "apjtl1djfw"
+        },
+        {
+          "Name": "label",
+          "Value": "assets/mercedes-VM-OdA4a.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-Ao7UVbAQuQSKdpewjhp0QyEVTIdUnScOkM7O0EgQnHs="
+        }
+      ]
+    },
+    {
+      "Route": "assets/mercedes-VM-OdA4a.png",
+      "AssetFile": "C:\\Users\\PC\\Code\\car-tech-showcase\\backend\\wwwroot\\assets\\mercedes-VM-OdA4a.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "117770"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"Ao7UVbAQuQSKdpewjhp0QyEVTIdUnScOkM7O0EgQnHs=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 09 Jun 2026 19:44:41 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-Ao7UVbAQuQSKdpewjhp0QyEVTIdUnScOkM7O0EgQnHs="
+        }
+      ]
+    },
+    {
+      "Route": "assets/product-1-BKaD7fdv.jpg",
+      "AssetFile": "C:\\Users\\PC\\Code\\car-tech-showcase\\backend\\wwwroot\\assets\\product-1-BKaD7fdv.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "75910"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"YfkQy0O3F0RPdcYXNbs+2MKfhJCPRrgPyDNov6IgePc=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 09 Jun 2026 19:44:41 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-YfkQy0O3F0RPdcYXNbs+2MKfhJCPRrgPyDNov6IgePc="
+        }
+      ]
+    },
+    {
+      "Route": "assets/product-1-BKaD7fdv.paek4csyis.jpg",
+      "AssetFile": "C:\\Users\\PC\\Code\\car-tech-showcase\\backend\\wwwroot\\assets\\product-1-BKaD7fdv.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "75910"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"YfkQy0O3F0RPdcYXNbs+2MKfhJCPRrgPyDNov6IgePc=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 09 Jun 2026 19:44:41 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "paek4csyis"
+        },
+        {
+          "Name": "label",
+          "Value": "assets/product-1-BKaD7fdv.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-YfkQy0O3F0RPdcYXNbs+2MKfhJCPRrgPyDNov6IgePc="
+        }
+      ]
+    },
+    {
+      "Route": "assets/product-2-BGndsIgt.jpg",
+      "AssetFile": "C:\\Users\\PC\\Code\\car-tech-showcase\\backend\\wwwroot\\assets\\product-2-BGndsIgt.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "55633"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"XbuTUPNTFkAhPbbFC4TUONdUl2HInUlNjK0WBJ+FWwA=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 09 Jun 2026 19:44:41 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-XbuTUPNTFkAhPbbFC4TUONdUl2HInUlNjK0WBJ+FWwA="
+        }
+      ]
+    },
+    {
+      "Route": "assets/product-2-BGndsIgt.pxefaalzbx.jpg",
+      "AssetFile": "C:\\Users\\PC\\Code\\car-tech-showcase\\backend\\wwwroot\\assets\\product-2-BGndsIgt.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "55633"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"XbuTUPNTFkAhPbbFC4TUONdUl2HInUlNjK0WBJ+FWwA=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 09 Jun 2026 19:44:41 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "pxefaalzbx"
+        },
+        {
+          "Name": "label",
+          "Value": "assets/product-2-BGndsIgt.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-XbuTUPNTFkAhPbbFC4TUONdUl2HInUlNjK0WBJ+FWwA="
+        }
+      ]
+    },
+    {
+      "Route": "assets/product-3-EJdHebjA.jpg",
+      "AssetFile": "C:\\Users\\PC\\Code\\car-tech-showcase\\backend\\wwwroot\\assets\\product-3-EJdHebjA.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "60874"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"GmpGXbccR/OSWb4ni0zGF0Q8dpqTb5HGu7vqZ3yZl6A=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 09 Jun 2026 19:44:41 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-GmpGXbccR/OSWb4ni0zGF0Q8dpqTb5HGu7vqZ3yZl6A="
+        }
+      ]
+    },
+    {
+      "Route": "assets/product-3-EJdHebjA.ydrdmteqm7.jpg",
+      "AssetFile": "C:\\Users\\PC\\Code\\car-tech-showcase\\backend\\wwwroot\\assets\\product-3-EJdHebjA.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "60874"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"GmpGXbccR/OSWb4ni0zGF0Q8dpqTb5HGu7vqZ3yZl6A=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 09 Jun 2026 19:44:41 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "ydrdmteqm7"
+        },
+        {
+          "Name": "label",
+          "Value": "assets/product-3-EJdHebjA.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-GmpGXbccR/OSWb4ni0zGF0Q8dpqTb5HGu7vqZ3yZl6A="
+        }
+      ]
+    },
+    {
+      "Route": "assets/product-4-KE-TgeTn.jpg",
+      "AssetFile": "C:\\Users\\PC\\Code\\car-tech-showcase\\backend\\wwwroot\\assets\\product-4-KE-TgeTn.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "53951"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"yYZQaEVviuvFxdM+odR+mNBiKjXBsA9iazlek+rhrfc=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 09 Jun 2026 19:44:41 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-yYZQaEVviuvFxdM+odR+mNBiKjXBsA9iazlek+rhrfc="
+        }
+      ]
+    },
+    {
+      "Route": "assets/product-4-KE-TgeTn.vy1pnryfnt.jpg",
+      "AssetFile": "C:\\Users\\PC\\Code\\car-tech-showcase\\backend\\wwwroot\\assets\\product-4-KE-TgeTn.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "53951"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"yYZQaEVviuvFxdM+odR+mNBiKjXBsA9iazlek+rhrfc=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 09 Jun 2026 19:44:41 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "vy1pnryfnt"
+        },
+        {
+          "Name": "label",
+          "Value": "assets/product-4-KE-TgeTn.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-yYZQaEVviuvFxdM+odR+mNBiKjXBsA9iazlek+rhrfc="
+        }
+      ]
+    },
+    {
+      "Route": "assets/toyota-BsxWqSko.fe40j7bvcg.png",
+      "AssetFile": "C:\\Users\\PC\\Code\\car-tech-showcase\\backend\\wwwroot\\assets\\toyota-BsxWqSko.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "86306"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"uQoT3oUUA3bjN1VR/y7/lYDQIsdSeP/pWBmnl+o5tQ4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 09 Jun 2026 19:44:41 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "fe40j7bvcg"
+        },
+        {
+          "Name": "label",
+          "Value": "assets/toyota-BsxWqSko.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-uQoT3oUUA3bjN1VR/y7/lYDQIsdSeP/pWBmnl+o5tQ4="
+        }
+      ]
+    },
+    {
+      "Route": "assets/toyota-BsxWqSko.png",
+      "AssetFile": "C:\\Users\\PC\\Code\\car-tech-showcase\\backend\\wwwroot\\assets\\toyota-BsxWqSko.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "86306"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"uQoT3oUUA3bjN1VR/y7/lYDQIsdSeP/pWBmnl+o5tQ4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 09 Jun 2026 19:44:41 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-uQoT3oUUA3bjN1VR/y7/lYDQIsdSeP/pWBmnl+o5tQ4="
+        }
+      ]
+    },
+    {
+      "Route": "favicon.ico",
+      "AssetFile": "C:\\Users\\PC\\Code\\car-tech-showcase\\backend\\obj\\Debug\\net9.0\\compressed\\2br9strzja-p48kibin6s.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.000130395097"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "7668"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"P/TGujRp+bGUgsJOhCw81aLonRU41R5h00p0ggOcRcg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 09 Jun 2026 19:12:17 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/x-icon"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"KaQNVlgKU2YINGEpd3Pb8UbsBD0RVvQy9Ucss0h/UGs=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-KaQNVlgKU2YINGEpd3Pb8UbsBD0RVvQy9Ucss0h/UGs="
+        }
+      ]
+    },
+    {
+      "Route": "favicon.ico",
+      "AssetFile": "C:\\Users\\PC\\Code\\car-tech-showcase\\backend\\wwwroot\\favicon.ico",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "7645"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/x-icon"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"KaQNVlgKU2YINGEpd3Pb8UbsBD0RVvQy9Ucss0h/UGs=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 09 Jun 2026 19:12:17 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-KaQNVlgKU2YINGEpd3Pb8UbsBD0RVvQy9Ucss0h/UGs="
+        }
+      ]
+    },
+    {
+      "Route": "favicon.ico.gz",
+      "AssetFile": "C:\\Users\\PC\\Code\\car-tech-showcase\\backend\\obj\\Debug\\net9.0\\compressed\\2br9strzja-p48kibin6s.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "7668"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/x-icon"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"P/TGujRp+bGUgsJOhCw81aLonRU41R5h00p0ggOcRcg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 09 Jun 2026 19:12:17 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-P/TGujRp+bGUgsJOhCw81aLonRU41R5h00p0ggOcRcg="
+        }
+      ]
+    },
+    {
+      "Route": "favicon.p48kibin6s.ico",
+      "AssetFile": "C:\\Users\\PC\\Code\\car-tech-showcase\\backend\\obj\\Debug\\net9.0\\compressed\\2br9strzja-p48kibin6s.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.000130395097"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "7668"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"P/TGujRp+bGUgsJOhCw81aLonRU41R5h00p0ggOcRcg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 09 Jun 2026 19:12:17 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/x-icon"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"KaQNVlgKU2YINGEpd3Pb8UbsBD0RVvQy9Ucss0h/UGs=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "p48kibin6s"
+        },
+        {
+          "Name": "label",
+          "Value": "favicon.ico"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-KaQNVlgKU2YINGEpd3Pb8UbsBD0RVvQy9Ucss0h/UGs="
+        }
+      ]
+    },
+    {
+      "Route": "favicon.p48kibin6s.ico",
+      "AssetFile": "C:\\Users\\PC\\Code\\car-tech-showcase\\backend\\wwwroot\\favicon.ico",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "7645"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/x-icon"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"KaQNVlgKU2YINGEpd3Pb8UbsBD0RVvQy9Ucss0h/UGs=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 09 Jun 2026 19:12:17 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "p48kibin6s"
+        },
+        {
+          "Name": "label",
+          "Value": "favicon.ico"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-KaQNVlgKU2YINGEpd3Pb8UbsBD0RVvQy9Ucss0h/UGs="
+        }
+      ]
+    },
+    {
+      "Route": "favicon.p48kibin6s.ico.gz",
+      "AssetFile": "C:\\Users\\PC\\Code\\car-tech-showcase\\backend\\obj\\Debug\\net9.0\\compressed\\2br9strzja-p48kibin6s.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "7668"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/x-icon"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"P/TGujRp+bGUgsJOhCw81aLonRU41R5h00p0ggOcRcg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 09 Jun 2026 19:12:17 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "p48kibin6s"
+        },
+        {
+          "Name": "label",
+          "Value": "favicon.ico.gz"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-P/TGujRp+bGUgsJOhCw81aLonRU41R5h00p0ggOcRcg="
+        }
+      ]
+    },
+    {
+      "Route": "index.2jwlgiem9v.html",
+      "AssetFile": "C:\\Users\\PC\\Code\\car-tech-showcase\\backend\\obj\\Debug\\net9.0\\compressed\\tbuaoosifs-2jwlgiem9v.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.001398601399"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "714"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"1pwWG6hB4fTDULn46bcajxL/BJxuJbpSCjLsAUJrO7w=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 09 Jun 2026 19:44:41 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"7o/K5L3tXLRQv6e954s6YnUO1RvLluvajbSMYi6Nctk=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "2jwlgiem9v"
+        },
+        {
+          "Name": "label",
+          "Value": "index.html"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-7o/K5L3tXLRQv6e954s6YnUO1RvLluvajbSMYi6Nctk="
+        }
+      ]
+    },
+    {
+      "Route": "index.2jwlgiem9v.html",
+      "AssetFile": "C:\\Users\\PC\\Code\\car-tech-showcase\\backend\\wwwroot\\index.html",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1867"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"7o/K5L3tXLRQv6e954s6YnUO1RvLluvajbSMYi6Nctk=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 09 Jun 2026 19:44:41 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "2jwlgiem9v"
+        },
+        {
+          "Name": "label",
+          "Value": "index.html"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-7o/K5L3tXLRQv6e954s6YnUO1RvLluvajbSMYi6Nctk="
+        }
+      ]
+    },
+    {
+      "Route": "index.2jwlgiem9v.html.gz",
+      "AssetFile": "C:\\Users\\PC\\Code\\car-tech-showcase\\backend\\obj\\Debug\\net9.0\\compressed\\tbuaoosifs-2jwlgiem9v.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "714"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"1pwWG6hB4fTDULn46bcajxL/BJxuJbpSCjLsAUJrO7w=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 09 Jun 2026 19:44:41 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "2jwlgiem9v"
+        },
+        {
+          "Name": "label",
+          "Value": "index.html.gz"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-1pwWG6hB4fTDULn46bcajxL/BJxuJbpSCjLsAUJrO7w="
+        }
+      ]
+    },
+    {
+      "Route": "index.html",
+      "AssetFile": "C:\\Users\\PC\\Code\\car-tech-showcase\\backend\\obj\\Debug\\net9.0\\compressed\\tbuaoosifs-2jwlgiem9v.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.001398601399"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "714"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"1pwWG6hB4fTDULn46bcajxL/BJxuJbpSCjLsAUJrO7w=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 09 Jun 2026 19:44:41 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"7o/K5L3tXLRQv6e954s6YnUO1RvLluvajbSMYi6Nctk=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-7o/K5L3tXLRQv6e954s6YnUO1RvLluvajbSMYi6Nctk="
+        }
+      ]
+    },
+    {
+      "Route": "index.html",
+      "AssetFile": "C:\\Users\\PC\\Code\\car-tech-showcase\\backend\\wwwroot\\index.html",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1867"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"7o/K5L3tXLRQv6e954s6YnUO1RvLluvajbSMYi6Nctk=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 09 Jun 2026 19:44:41 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-7o/K5L3tXLRQv6e954s6YnUO1RvLluvajbSMYi6Nctk="
+        }
+      ]
+    },
+    {
+      "Route": "index.html.gz",
+      "AssetFile": "C:\\Users\\PC\\Code\\car-tech-showcase\\backend\\obj\\Debug\\net9.0\\compressed\\tbuaoosifs-2jwlgiem9v.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "714"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"1pwWG6hB4fTDULn46bcajxL/BJxuJbpSCjLsAUJrO7w=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 09 Jun 2026 19:44:41 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-1pwWG6hB4fTDULn46bcajxL/BJxuJbpSCjLsAUJrO7w="
+        }
+      ]
+    },
+    {
+      "Route": "placeholder.svg",
+      "AssetFile": "C:\\Users\\PC\\Code\\car-tech-showcase\\backend\\obj\\Debug\\net9.0\\compressed\\pr3dwjmzoc-wxagny6yew.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.001081081081"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "924"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"5HIrERc7zhlGLe0fViCQvGlQckkp4b2gFAZVzuFG0tw=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 09 Jun 2026 19:12:17 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/svg+xml"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"ZLrfeqvaC5YwuHAg/7YJXLhYzLz2azVcKqCLEGOVTTs=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-ZLrfeqvaC5YwuHAg/7YJXLhYzLz2azVcKqCLEGOVTTs="
+        }
+      ]
+    },
+    {
+      "Route": "placeholder.svg",
+      "AssetFile": "C:\\Users\\PC\\Code\\car-tech-showcase\\backend\\wwwroot\\placeholder.svg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "3253"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/svg+xml"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"ZLrfeqvaC5YwuHAg/7YJXLhYzLz2azVcKqCLEGOVTTs=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 09 Jun 2026 19:12:17 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-ZLrfeqvaC5YwuHAg/7YJXLhYzLz2azVcKqCLEGOVTTs="
+        }
+      ]
+    },
+    {
+      "Route": "placeholder.svg.gz",
+      "AssetFile": "C:\\Users\\PC\\Code\\car-tech-showcase\\backend\\obj\\Debug\\net9.0\\compressed\\pr3dwjmzoc-wxagny6yew.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "924"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/svg+xml"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"5HIrERc7zhlGLe0fViCQvGlQckkp4b2gFAZVzuFG0tw=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 09 Jun 2026 19:12:17 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-5HIrERc7zhlGLe0fViCQvGlQckkp4b2gFAZVzuFG0tw="
+        }
+      ]
+    },
+    {
+      "Route": "placeholder.wxagny6yew.svg",
+      "AssetFile": "C:\\Users\\PC\\Code\\car-tech-showcase\\backend\\obj\\Debug\\net9.0\\compressed\\pr3dwjmzoc-wxagny6yew.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.001081081081"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "924"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"5HIrERc7zhlGLe0fViCQvGlQckkp4b2gFAZVzuFG0tw=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 09 Jun 2026 19:12:17 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/svg+xml"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"ZLrfeqvaC5YwuHAg/7YJXLhYzLz2azVcKqCLEGOVTTs=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "wxagny6yew"
+        },
+        {
+          "Name": "label",
+          "Value": "placeholder.svg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-ZLrfeqvaC5YwuHAg/7YJXLhYzLz2azVcKqCLEGOVTTs="
+        }
+      ]
+    },
+    {
+      "Route": "placeholder.wxagny6yew.svg",
+      "AssetFile": "C:\\Users\\PC\\Code\\car-tech-showcase\\backend\\wwwroot\\placeholder.svg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "3253"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/svg+xml"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"ZLrfeqvaC5YwuHAg/7YJXLhYzLz2azVcKqCLEGOVTTs=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 09 Jun 2026 19:12:17 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "wxagny6yew"
+        },
+        {
+          "Name": "label",
+          "Value": "placeholder.svg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-ZLrfeqvaC5YwuHAg/7YJXLhYzLz2azVcKqCLEGOVTTs="
+        }
+      ]
+    },
+    {
+      "Route": "placeholder.wxagny6yew.svg.gz",
+      "AssetFile": "C:\\Users\\PC\\Code\\car-tech-showcase\\backend\\obj\\Debug\\net9.0\\compressed\\pr3dwjmzoc-wxagny6yew.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "924"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/svg+xml"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"5HIrERc7zhlGLe0fViCQvGlQckkp4b2gFAZVzuFG0tw=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 09 Jun 2026 19:12:17 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "wxagny6yew"
+        },
+        {
+          "Name": "label",
+          "Value": "placeholder.svg.gz"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-5HIrERc7zhlGLe0fViCQvGlQckkp4b2gFAZVzuFG0tw="
+        }
+      ]
+    },
+    {
+      "Route": "robots.eklitpdl2h.txt",
+      "AssetFile": "C:\\Users\\PC\\Code\\car-tech-showcase\\backend\\obj\\Debug\\net9.0\\compressed\\8hbuflml5g-eklitpdl2h.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.010204081633"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "97"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"eQWOR4X8t+s7bzma2+ndXh6wsM/Gqw0mnYN65my11To=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 09 Jun 2026 19:12:17 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/plain"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"UnEMJh2FG8GtNWBAF4YvKoRE56DwLNe4tJ47qS5tTOo=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "eklitpdl2h"
+        },
+        {
+          "Name": "label",
+          "Value": "robots.txt"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-UnEMJh2FG8GtNWBAF4YvKoRE56DwLNe4tJ47qS5tTOo="
+        }
+      ]
+    },
+    {
+      "Route": "robots.eklitpdl2h.txt",
+      "AssetFile": "C:\\Users\\PC\\Code\\car-tech-showcase\\backend\\wwwroot\\robots.txt",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "174"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/plain"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"UnEMJh2FG8GtNWBAF4YvKoRE56DwLNe4tJ47qS5tTOo=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 09 Jun 2026 19:12:17 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "eklitpdl2h"
+        },
+        {
+          "Name": "label",
+          "Value": "robots.txt"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-UnEMJh2FG8GtNWBAF4YvKoRE56DwLNe4tJ47qS5tTOo="
+        }
+      ]
+    },
+    {
+      "Route": "robots.eklitpdl2h.txt.gz",
+      "AssetFile": "C:\\Users\\PC\\Code\\car-tech-showcase\\backend\\obj\\Debug\\net9.0\\compressed\\8hbuflml5g-eklitpdl2h.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "97"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/plain"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"eQWOR4X8t+s7bzma2+ndXh6wsM/Gqw0mnYN65my11To=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 09 Jun 2026 19:12:17 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "eklitpdl2h"
+        },
+        {
+          "Name": "label",
+          "Value": "robots.txt.gz"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-eQWOR4X8t+s7bzma2+ndXh6wsM/Gqw0mnYN65my11To="
+        }
+      ]
+    },
+    {
+      "Route": "robots.txt",
+      "AssetFile": "C:\\Users\\PC\\Code\\car-tech-showcase\\backend\\obj\\Debug\\net9.0\\compressed\\8hbuflml5g-eklitpdl2h.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.010204081633"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "97"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"eQWOR4X8t+s7bzma2+ndXh6wsM/Gqw0mnYN65my11To=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 09 Jun 2026 19:12:17 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/plain"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"UnEMJh2FG8GtNWBAF4YvKoRE56DwLNe4tJ47qS5tTOo=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-UnEMJh2FG8GtNWBAF4YvKoRE56DwLNe4tJ47qS5tTOo="
+        }
+      ]
+    },
+    {
+      "Route": "robots.txt",
+      "AssetFile": "C:\\Users\\PC\\Code\\car-tech-showcase\\backend\\wwwroot\\robots.txt",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "174"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/plain"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"UnEMJh2FG8GtNWBAF4YvKoRE56DwLNe4tJ47qS5tTOo=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 09 Jun 2026 19:12:17 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-UnEMJh2FG8GtNWBAF4YvKoRE56DwLNe4tJ47qS5tTOo="
+        }
+      ]
+    },
+    {
+      "Route": "robots.txt.gz",
+      "AssetFile": "C:\\Users\\PC\\Code\\car-tech-showcase\\backend\\obj\\Debug\\net9.0\\compressed\\8hbuflml5g-eklitpdl2h.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "97"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/plain"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"eQWOR4X8t+s7bzma2+ndXh6wsM/Gqw0mnYN65my11To=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 09 Jun 2026 19:12:17 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-eQWOR4X8t+s7bzma2+ndXh6wsM/Gqw0mnYN65my11To="
+        }
+      ]
+    },
+    {
+      "Route": "web.56fntkgshm.config",
+      "AssetFile": "C:\\Users\\PC\\Code\\car-tech-showcase\\backend\\wwwroot\\web.config",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "671"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/octet-stream"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"c0bKWwFU+zWYHf+cmYc5iaHUeaxdaKHC80HzVNm84mY=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 09 Jun 2026 19:12:17 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "56fntkgshm"
+        },
+        {
+          "Name": "label",
+          "Value": "web.config"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-c0bKWwFU+zWYHf+cmYc5iaHUeaxdaKHC80HzVNm84mY="
+        }
+      ]
+    },
+    {
+      "Route": "web.config",
+      "AssetFile": "C:\\Users\\PC\\Code\\car-tech-showcase\\backend\\wwwroot\\web.config",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "671"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/octet-stream"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"c0bKWwFU+zWYHf+cmYc5iaHUeaxdaKHC80HzVNm84mY=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 09 Jun 2026 19:12:17 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-c0bKWwFU+zWYHf+cmYc5iaHUeaxdaKHC80HzVNm84mY="
+        }
+      ]
+    }
+  ]
+}

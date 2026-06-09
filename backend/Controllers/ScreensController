@@ -1,0 +1,55 @@
+// ============================================
+// 📁 Controllers/ScreensController.cs
+// ============================================
+
+using Microsoft.AspNetCore.Mvc;
+using CarTechShowcase.Services;
+using CarTechShowcase.DTOs;
+
+namespace CarTechShowcase.Controllers;
+
+[ApiController]
+[Route("api/[controller]")]
+public class ScreensController : ControllerBase
+{
+    private readonly ScreenService _service;
+    public ScreensController(ScreenService service) => _service = service;
+
+    [HttpGet]
+    public async Task<IActionResult> GetAll()
+    {
+        var screens = await _service.GetAllAsync();
+        return Ok(ApiResponse<object>.Ok(screens, "Lấy danh sách screen thành công", screens.Count));
+    }
+
+    [HttpGet("{id}")]
+    public async Task<IActionResult> GetById(int id)
+    {
+        var screen = await _service.GetByIdAsync(id);
+        if (screen == null) return NotFound(ApiResponse<object>.NotFound("Screen không tồn tại"));
+        return Ok(ApiResponse<object>.Ok(screen, "Lấy screen thành công"));
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> Create([FromBody] ScreenCreateDto dto)
+    {
+        var screen = await _service.CreateAsync(dto);
+        return CreatedAtAction(nameof(GetById), new { id = screen.Id }, ApiResponse<object>.Created(screen, "Tạo screen thành công"));
+    }
+
+    [HttpPut("{id}")]
+    public async Task<IActionResult> Update(int id, [FromBody] ScreenUpdateDto dto)
+    {
+        var screen = await _service.UpdateAsync(id, dto);
+        if (screen == null) return NotFound(ApiResponse<object>.NotFound("Screen không tồn tại"));
+        return Ok(ApiResponse<object>.Ok(screen, "Cập nhật screen thành công"));
+    }
+
+    [HttpDelete("{id}")]
+    public async Task<IActionResult> Remove(int id)
+    {
+        var result = await _service.RemoveAsync(id);
+        if (!result) return NotFound(ApiResponse<object>.NotFound("Screen không tồn tại"));
+        return NoContent();
+    }
+}
