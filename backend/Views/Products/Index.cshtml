@@ -1,0 +1,116 @@
+@{
+    ViewData["Title"] = "Sản phẩm";
+    var priceFilter = ViewBag.PriceFilter as string ?? "all";
+    var sizeFilter = ViewBag.SizeFilter as string ?? "all";
+}
+
+<div class="min-h-screen py-24">
+    <div class="container mx-auto px-4">
+        <!-- Header -->
+        <div class="text-center mb-12">
+            <h1 class="text-5xl font-bold mb-4">
+                Sản phẩm <span class="text-gradient">của chúng tôi</span>
+            </h1>
+            <p class="text-lg text-muted-foreground max-w-2xl mx-auto">
+                Khám phá bộ sưu tập màn hình Android ô tô cao cấp với công nghệ hiện đại nhất
+            </p>
+        </div>
+
+        <!-- Filters -->
+        <div class="glass-card p-6 mb-8 rounded-xl">
+            <form method="get" action="/Products" class="grid grid-cols-1 md:grid-cols-4 gap-4">
+                <div class="md:col-span-2">
+                    <div class="relative">
+                        <svg class="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+                        <input type="text" name="search" value="@ViewBag.SearchTerm" placeholder="Tìm kiếm sản phẩm..."
+                               class="w-full pl-10 pr-4 py-2 bg-secondary border border-border rounded-lg text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary" />
+                    </div>
+                </div>
+                <select id="priceFilter" name="price" class="px-4 py-2 bg-secondary border border-border rounded-lg text-foreground focus:outline-none focus:ring-2 focus:ring-primary">
+                </select>
+                <select id="sizeFilter" name="size" class="px-4 py-2 bg-secondary border border-border rounded-lg text-foreground focus:outline-none focus:ring-2 focus:ring-primary">
+                </select>
+                <button type="submit" class="md:col-span-4 px-6 py-2 bg-primary text-white rounded-lg hover:opacity-90 transition-opacity">
+                    Lọc sản phẩm
+                </button>
+            </form>
+        </div>
+
+        <!-- Products Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            @if (ViewBag.Products != null)
+            {
+                foreach (dynamic product in ViewBag.Products)
+                {
+                    <div class="hover-lift glass-card border-border rounded-xl overflow-hidden group">
+                        <div class="aspect-square overflow-hidden bg-white">
+                            <img src="@product.Image" alt="@product.Name" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold mb-2">@product.Name</h3>
+                            <p class="text-sm text-muted-foreground mb-3">@product.Specs</p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                @foreach (string feature in product.Features)
+                                {
+                                    <span class="px-2 py-1 text-xs rounded-full bg-primary/10 text-primary">@feature</span>
+                                }
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-2xl font-bold text-primary">@string.Format("{0:N0}đ", (long)product.Price)</span>
+                                <a href="/Products/Detail/@product.Id" class="inline-flex items-center px-4 py-2 bg-primary text-white rounded-lg text-sm hover:opacity-90 transition-opacity">Chi tiết</a>
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
+        </div>
+
+        @if (ViewBag.HasResults == false)
+        {
+            <div class="text-center py-12">
+                <p class="text-lg text-muted-foreground">Không tìm thấy sản phẩm phù hợp. Vui lòng thử lại với bộ lọc khác.</p>
+            </div>
+        }
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        (function() {
+            var priceOptions = [
+                { value: 'all', text: 'Tất cả mức giá' },
+                { value: 'low', text: 'Dưới 7 triệu' },
+                { value: 'mid', text: '7-10 triệu' },
+                { value: 'high', text: 'Trên 10 triệu' }
+            ];
+            var sizeOptions = [
+                { value: 'all', text: 'Tất cả kích thước' },
+                { value: '2K', text: '2K' },
+                { value: '4K', text: '4K' },
+                { value: '9 inch', text: '9 inch' },
+                { value: '10 inch', text: '10 inch' },
+                { value: '12 inch', text: '12 inch' }
+            ];
+            var selectedPrice = '@priceFilter';
+            var selectedSize = '@sizeFilter';
+
+            var priceSelect = document.getElementById('priceFilter');
+            priceOptions.forEach(function(opt) {
+                var el = document.createElement('option');
+                el.value = opt.value;
+                el.text = opt.text;
+                if (opt.value === selectedPrice) el.selected = true;
+                priceSelect.appendChild(el);
+            });
+
+            var sizeSelect = document.getElementById('sizeFilter');
+            sizeOptions.forEach(function(opt) {
+                var el = document.createElement('option');
+                el.value = opt.value;
+                el.text = opt.text;
+                if (opt.value === selectedSize) el.selected = true;
+                sizeSelect.appendChild(el);
+            });
+        })();
+    </script>
+}

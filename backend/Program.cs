@@ -13,14 +13,16 @@ builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 // ---------- Services (Dependency Injection) ----------
+builder.Services.AddScoped<HomeService>();
+builder.Services.AddScoped<ProductDataService>();
 builder.Services.AddScoped<BannerService>();
 builder.Services.AddScoped<ScreenService>();
 builder.Services.AddScoped<ProductService>();
 builder.Services.AddScoped<OrderService>();
 builder.Services.AddScoped<NewsService>();
 
-// ---------- Controllers + JSON ----------
-builder.Services.AddControllers()
+// ---------- Controllers (API + MVC) ----------
+builder.Services.AddControllersWithViews()
     .AddJsonOptions(options =>
     {
         options.JsonSerializerOptions.PropertyNamingPolicy = System.Text.Json.JsonNamingPolicy.CamelCase;
@@ -43,10 +45,24 @@ var app = builder.Build();
 // ---------- Middleware Pipeline ----------
 
 app.UseCors();
-app.UseStaticFiles();
+app.UseStaticFiles();   // Serve React build from wwwroot/
+
+// ---------- API Routes ----------
 app.MapControllers();
 
-// ---------- SPA Fallback (React routing) ----------
-app.MapFallbackToFile("index.html");
+// ---------- MVC Routes ----------
+app.MapControllerRoute(
+    name: "default",
+    pattern: "{controller=Home}/{action=Index}/{id?}");
+
+// ---------- SPA Fallback (only if client/dist exists) ----------
+if (Directory.Exists(Path.Combine(app.Environment.WebRootPath)))
+{
+    var indexPath = Path.Combine(app.Environment.WebRootPath, "index.html");
+    if (File.Exists(indexPath))
+    {
+        app.MapFallbackToFile("index.html");
+    }
+}
 
 app.Run();

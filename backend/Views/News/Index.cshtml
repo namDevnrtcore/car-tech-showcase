@@ -1,0 +1,101 @@
+@{
+    ViewData["Title"] = "Tin tức";
+    var selectedCategory = ViewBag.SelectedCategory as string ?? "all";
+}
+
+<div class="min-h-screen py-24">
+    <div class="container mx-auto px-4">
+        <!-- Header -->
+        <div class="text-center mb-12">
+            <h1 class="text-5xl font-bold mb-4">
+                Tin tức & <span class="text-gradient">Hướng dẫn</span>
+            </h1>
+            <p class="text-lg text-muted-foreground max-w-2xl mx-auto">
+                Cập nhật xu hướng công nghệ và kiến thức hữu ích về màn hình ô tô
+            </p>
+        </div>
+
+        <!-- Categories -->
+        <div class="flex flex-wrap justify-center gap-3 mb-12">
+            @if (ViewBag.Categories != null)
+            {
+                foreach (dynamic cat in ViewBag.Categories)
+                {
+                    var isActive = ((string)cat.Id == selectedCategory);
+                    <a href="/News?category=@cat.Id"
+                       class="inline-flex items-center px-4 py-2 rounded-lg text-sm font-medium transition-colors
+                              @(isActive ? "bg-primary text-white" : "border border-border text-foreground hover:bg-secondary")">
+                        @cat.Name
+                    </a>
+                }
+            }
+        </div>
+
+        <!-- Featured Article -->
+        @if (ViewBag.FeaturedArticle != null && selectedCategory == "all")
+        {
+            <div class="glass-card border-border overflow-hidden mb-12 hover-lift">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-0">
+                    <div class="aspect-video md:aspect-auto">
+                        <img src="@ViewBag.FeaturedArticle.Image" alt="@ViewBag.FeaturedArticle.Title" class="w-full h-full object-cover" />
+                    </div>
+                    <div class="p-8 flex flex-col justify-center">
+                        <div class="flex items-center gap-4 text-sm text-muted-foreground mb-4">
+                            <span class="px-3 py-1 rounded-full bg-primary/10 text-primary font-medium">Nổi bật</span>
+                            <span>@ViewBag.FeaturedArticle.Date</span>
+                        </div>
+                        <h2 class="text-3xl font-bold mb-4">@ViewBag.FeaturedArticle.Title</h2>
+                        <p class="text-muted-foreground mb-6">@ViewBag.FeaturedArticle.Excerpt</p>
+                        <a href="/News" class="inline-flex items-center px-6 py-2 bg-primary text-white rounded-lg w-fit hover:opacity-90 transition-opacity">
+                            Đọc thêm
+                            <svg class="w-4 h-4 ml-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        }
+
+        <!-- Articles Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            @if (ViewBag.Articles != null)
+            {
+                var isFirst = true;
+                foreach (dynamic article in ViewBag.Articles)
+                {
+                    if (selectedCategory == "all" && isFirst && ViewBag.FeaturedArticle != null)
+                    {
+                        isFirst = false;
+                        continue; // Skip first article (already shown as featured)
+                    }
+                    <div class="glass-card border-border overflow-hidden group hover-lift">
+                        <div class="aspect-video overflow-hidden">
+                            <img src="@article.Image" alt="@article.Title" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+                        </div>
+                        <div class="p-6">
+                            <div class="flex items-center gap-3 text-xs text-muted-foreground mb-3">
+                                <span class="px-2 py-1 rounded-full bg-primary/10 text-primary font-medium">@article.CategoryName</span>
+                                <span>@article.Date</span>
+                            </div>
+                            <h3 class="text-xl font-semibold mb-3 line-clamp-2 group-hover:text-primary transition-colors">@article.Title</h3>
+                            <p class="text-sm text-muted-foreground mb-4 line-clamp-3">@article.Excerpt</p>
+                            <div class="flex items-center justify-between">
+                                <span class="text-xs text-muted-foreground">@article.ReadTime</span>
+                                <span class="text-primary text-sm font-medium inline-flex items-center group-hover:opacity-80">
+                                    Đọc thêm
+                                    <svg class="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
+        </div>
+
+        @if (ViewBag.HasArticles == false)
+        {
+            <div class="text-center py-12">
+                <p class="text-lg text-muted-foreground">Chưa có bài viết nào trong danh mục này.</p>
+            </div>
+        }
+    </div>
+</div>

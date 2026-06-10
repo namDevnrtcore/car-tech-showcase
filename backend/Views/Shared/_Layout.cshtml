@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - CarScreen Pro</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        background: '#111111',
+                        foreground: '#fafafa',
+                        card: '#1a1a1a',
+                        'card-foreground': '#fafafa',
+                        primary: '#ff6b00',
+                        'primary-foreground': '#ffffff',
+                        secondary: '#262626',
+                        'secondary-foreground': '#fafafa',
+                        muted: '#333333',
+                        'muted-foreground': '#a6a6a6',
+                        border: '#333333',
+                        input: '#333333',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', 'Roboto', system-ui, sans-serif;
+            background: #111111;
+            color: #fafafa;
+            margin: 0;
+            min-height: 100vh;
+        }
+        .text-gradient {
+            background: linear-gradient(135deg, #ff6b00, #f59e0b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .glass-card {
+            background: rgba(255,255,255,0.07);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid #333;
+        }
+        .hover-lift {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .hover-lift:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 40px -10px rgba(255,107,0,0.3);
+        }
+        .glow-effect {
+            box-shadow: 0 10px 40px -10px rgba(255,107,0,0.3);
+        }
+        .glow-effect:hover {
+            box-shadow: 0 10px 40px -10px rgba(255,107,0,0.5);
+        }
+        .line-clamp-1 { overflow: hidden; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 1; }
+        .line-clamp-2 { overflow: hidden; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; }
+        .line-clamp-3 { overflow: hidden; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 3; }
+    </style>
+    @await RenderSectionAsync("Styles", required: false)
+</head>
+<body class="min-h-screen flex flex-col">
+    <!-- Header -->
+    <header class="fixed top-0 left-0 right-0 z-50 glass-card border-b border-[#333]">
+        <div class="container mx-auto px-4">
+            <div class="flex items-center justify-between h-20">
+                <a href="/" class="flex items-center gap-2 group">
+                    <div class="p-2 rounded-lg bg-[#ff6b00]/10 group-hover:bg-[#ff6b00]/20 transition-colors">
+                        <svg class="w-6 h-6 text-primary" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="14" x="2" y="3" rx="2"/><line x1="8" x2="16" y1="21" y2="21"/><line x1="12" x2="12" y1="17" y2="21"/></svg>
+                    </div>
+                    <span class="text-xl font-bold text-gradient">VinMap</span>
+                </a>
+
+                <!-- Desktop Nav -->
+                <nav class="hidden md:flex items-center gap-1">
+                    <a href="/" class="px-4 py-2 rounded-lg transition-colors @(ViewContext.RouteData.Values["controller"]?.ToString() == "Home" ? "bg-primary text-white" : "text-foreground hover:bg-secondary")">Trang chủ</a>
+                    <a href="/Products" class="px-4 py-2 rounded-lg transition-colors @(ViewContext.RouteData.Values["controller"]?.ToString() == "ProductsMvc" ? "bg-primary text-white" : "text-foreground hover:bg-secondary")">Sản phẩm</a>
+                    <a href="/News" class="px-4 py-2 rounded-lg transition-colors @(ViewContext.RouteData.Values["controller"]?.ToString() == "NewsMvc" ? "bg-primary text-white" : "text-foreground hover:bg-secondary")">Tin tức</a>
+                    <a href="/Contact" class="px-4 py-2 rounded-lg transition-colors @(ViewContext.RouteData.Values["controller"]?.ToString() == "ContactMvc" ? "bg-primary text-white" : "text-foreground hover:bg-secondary")">Liên hệ</a>
+                </nav>
+
+                <div class="hidden md:flex items-center gap-3">
+                    <a href="tel:0123456789" class="px-4 py-2 border border-border rounded-lg text-sm hover:bg-secondary transition-colors">Hotline: 0123-456-789</a>
+                </div>
+
+                <!-- Mobile Menu -->
+                <button class="md:hidden p-2" onclick="document.getElementById('mobileMenu').classList.toggle('hidden')">
+                    <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+                </button>
+            </div>
+
+            <!-- Mobile Nav -->
+            <div id="mobileMenu" class="hidden md:hidden py-4">
+                <a href="/" class="block px-4 py-3 rounded-lg mb-2 hover:bg-secondary">Trang chủ</a>
+                <a href="/Products" class="block px-4 py-3 rounded-lg mb-2 hover:bg-secondary">Sản phẩm</a>
+                <a href="/News" class="block px-4 py-3 rounded-lg mb-2 hover:bg-secondary">Tin tức</a>
+                <a href="/Contact" class="block px-4 py-3 rounded-lg mb-2 hover:bg-secondary">Liên hệ</a>
+                <a href="tel:0123456789" class="block w-full mt-4 px-4 py-2 bg-primary text-white rounded-lg text-center text-sm">Hotline: 0123-456-789</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-1">
+        @RenderBody()
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-card border-t border-[#333] mt-20">
+        <div class="container mx-auto px-4 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <!-- Company Info -->
+                <div>
+                    <div class="flex items-center gap-2 mb-4">
+                        <div class="p-2 rounded-lg bg-[#ff6b00]/10">
+                            <svg class="w-6 h-6 text-primary" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="14" x="2" y="3" rx="2"/><line x1="8" x2="16" y1="21" y2="21"/><line x1="12" x2="12" y1="17" y2="21"/></svg>
+                        </div>
+                        <span class="text-xl font-bold text-gradient">CarScreen Pro</span>
+                    </div>
+                    <p class="text-muted-foreground text-sm">Chuyên cung cấp màn hình ô tô Android cao cấp, chất lượng hàng đầu với dịch vụ lắp đặt chuyên nghiệp.</p>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h3 class="font-semibold mb-4">Liên kết nhanh</h3>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="/" class="text-muted-foreground hover:text-primary transition-colors">Trang chủ</a></li>
+                        <li><a href="/Products" class="text-muted-foreground hover:text-primary transition-colors">Sản phẩm</a></li>
+                        <li><a href="/News" class="text-muted-foreground hover:text-primary transition-colors">Tin tức</a></li>
+                        <li><a href="/Contact" class="text-muted-foreground hover:text-primary transition-colors">Liên hệ</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Info -->
+                <div>
+                    <h3 class="font-semibold mb-4">Liên hệ</h3>
+                    <ul class="space-y-3 text-sm">
+                        <li class="flex items-center gap-2 text-muted-foreground">
+                            <svg class="w-4 h-4 text-primary" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                            <span>123 Đường ABC, Quận 1, TP.HCM</span>
+                        </li>
+                        <li class="flex items-center gap-2 text-muted-foreground">
+                            <svg class="w-4 h-4 text-primary" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                            <a href="tel:0123456789" class="hover:text-primary transition-colors">0123-456-789</a>
+                        </li>
+                        <li class="flex items-center gap-2 text-muted-foreground">
+                            <svg class="w-4 h-4 text-primary" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                            <a href="mailto:info@carscreen.vn" class="hover:text-primary transition-colors">info@carscreen.vn</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Social -->
+                <div>
+                    <h3 class="font-semibold mb-4">Theo dõi chúng tôi</h3>
+                    <div class="flex gap-3 mb-4">
+                        <a href="#" class="p-2 rounded-lg bg-secondary hover:bg-primary hover:text-white transition-colors">
+                            <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+                        </a>
+                        <a href="#" class="p-2 rounded-lg bg-secondary hover:bg-primary hover:text-white transition-colors">
+                            <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+                        </a>
+                    </div>
+                    <p class="text-sm font-semibold mb-2">Giờ làm việc</p>
+                    <p class="text-sm text-muted-foreground">Thứ 2 - Thứ 7: 8:00 - 20:00</p>
+                    <p class="text-sm text-muted-foreground">Chủ nhật: 9:00 - 18:00</p>
+                </div>
+            </div>
+
+            <div class="border-t border-[#333] mt-8 pt-8 text-center text-sm text-muted-foreground">
+                <p>&copy; 2024 CarScreen Pro. Bảo lưu mọi quyền.</p>
+            </div>
+        </div>
+    </footer>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

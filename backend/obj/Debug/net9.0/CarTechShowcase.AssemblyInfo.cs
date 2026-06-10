@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CarTechShowcase")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+73af4da0f5dbf2f5abf65239a1cce17aa6c19929")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6f1b07b28e2a97d60e226151cf50f37cc73cf271")]
 [assembly: System.Reflection.AssemblyProductAttribute("CarTechShowcase")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CarTechShowcase")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

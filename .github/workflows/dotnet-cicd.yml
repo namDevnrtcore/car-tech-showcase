@@ -1,0 +1,64 @@
+name: .NET Backend CI/CD Deploy
+
+on:
+  push:
+    branches: [ main, master ]
+    paths:
+      - 'backend/**'
+  pull_request:
+    branches: [ main, master ]
+    paths:
+      - 'backend/**'
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+    
+    - name: Setup .NET 9
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: '9.0.x'
+    
+    - name: Restore dependencies
+      run: dotnet restore
+      working-directory: backend
+    
+    - name: Build
+      run: dotnet build -c Release --no-restore
+      working-directory: backend
+    
+    - name: Publish
+      run: dotnet publish -c Release -o ./publish --self-contained false
+      working-directory: backend
+    
+    - name: Create app_offline.htm
+      run: echo "<html><body><h1>Updating...</h1></body></html>" > backend/publish/app_offline.htm
+    
+    - name: Upload app_offline first to stop IIS
+      uses: SamKirkland/FTP-Deploy-Action@4.3.0
+      with:
+        server: ${{ secrets.FTP_SERVER }}
+        username: ${{ secrets.FTP_USERNAME }}
+        password: ${{ secrets.FTP_PASSWORD }}
+        local-dir: ./backend/publish/
+        server-dir: ${{ secrets.FTP_PATH }}/
+    
+    - name: Wait for IIS to release files
+      run: sleep 5
+    
+    - name: Remove app_offline before final deploy
+      run: rm backend/publish/app_offline.htm
+    
+    - name: Deploy all files to Server
+      uses: SamKirkland/FTP-Deploy-Action@4.3.0
+      with:
+        server: ${{ secrets.FTP_SERVER }}
+        username: ${{ secrets.FTP_USERNAME }}
+        password: ${{ secrets.FTP_PASSWORD }}
+        local-dir: ./backend/publish/
+        server-dir: ${{ secrets.FTP_PATH }}/
+        dangerous-clean-slate: true
