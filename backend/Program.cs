@@ -42,6 +42,14 @@ builder.Services.AddCors(options =>
 
 var app = builder.Build();
 
+// ---------- Seed Data ----------
+using (var scope = app.Services.CreateScope())
+{
+    var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+    db.Database.EnsureCreated(); // Tạo database/tables nếu chưa có
+    SeedData.Initialize(db);
+}
+
 // ---------- Middleware Pipeline ----------
 
 app.UseCors();

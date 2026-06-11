@@ -18,8 +18,7 @@ public class Product
     [Column(TypeName = "nvarchar(255)")]
     public string ProductName { get; set; } = string.Empty;
 
-    [Column(TypeName = "decimal(18,2)")]
-    public decimal? Price { get; set; }
+    public double? Price { get; set; }
 
     [Column(TypeName = "nvarchar(100)")]
     public string? Category { get; set; }
