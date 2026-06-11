@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 100" width="400" height="100">
+  <defs>
+    <linearGradient id="screenGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff6b00;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#ff8c33;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#f59e0b;stop-opacity:1" />
+    </linearGradient>
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#ff6b00" flood-opacity="0.4"/>
+    </filter>
+    <linearGradient id="textGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#ff6b00;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#f59e0b;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="roadGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#ff6b00;stop-opacity:0" />
+      <stop offset="30%" style="stop-color:#ff6b00;stop-opacity:0.6" />
+      <stop offset="100%" style="stop-color:#f59e0b;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Icon: Car with display screen -->
+  <g filter="url(#shadow)">
+    <!-- Screen body -->
+    <rect x="8" y="12" width="56" height="38" rx="6" ry="6" 
+          fill="none" stroke="url(#screenGrad)" stroke-width="3"/>
+    <!-- Screen inner glow -->
+    <rect x="13" y="17" width="46" height="28" rx="3" ry="3" 
+          fill="url(#screenGrad)" opacity="0.1"/>
+    <!-- Screen content lines (map interface) -->
+    <line x1="18" y1="22" x2="35" y2="22" stroke="#ff6b00" stroke-width="1.5" opacity="0.6"/>
+    <line x1="18" y1="28" x2="42" y2="28" stroke="#ff8c33" stroke-width="1.5" opacity="0.5"/>
+    <line x1="18" y1="34" x2="38" y2="34" stroke="#f59e0b" stroke-width="1.5" opacity="0.4"/>
+    <!-- GPS location dot -->
+    <circle cx="48" cy="24" r="4" fill="#ff6b00" opacity="0.8"/>
+    <circle cx="48" cy="24" r="2" fill="#fff" opacity="0.9"/>
+    <!-- Car body silhouette -->
+    <path d="M18 54 Q20 50 28 50 L36 50 Q40 46 48 46 L52 46 Q56 46 58 50 L62 50 Q64 50 66 54 L68 58 Q68 60 66 60 L16 60 Q14 60 14 58 Z" 
+          fill="url(#screenGrad)" opacity="0.9"/>
+    <!-- Car window -->
+    <path d="M30 51 L36 51 Q38 48 44 48 L48 48 Q50 48 52 51 Z" 
+          fill="#111111" opacity="0.6"/>
+    <!-- Left wheel -->
+    <circle cx="26" cy="59" r="4" fill="#333" stroke="url(#screenGrad)" stroke-width="1.5"/>
+    <circle cx="26" cy="59" r="1.5" fill="url(#screenGrad)"/>
+    <!-- Right wheel -->
+    <circle cx="56" cy="59" r="4" fill="#333" stroke="url(#screenGrad)" stroke-width="1.5"/>
+    <circle cx="56" cy="59" r="1.5" fill="url(#screenGrad)"/>
+  </g>
+
+  <!-- Brand name -->
+  <text x="82" y="42" font-family="Inter, Segoe UI, Arial, sans-serif" 
+        font-size="32" font-weight="800" fill="url(#textGrad)" 
+        letter-spacing="-0.5">Vin</text>
+  <text x="128" y="42" font-family="Inter, Segoe UI, Arial, sans-serif" 
+        font-size="32" font-weight="800" fill="#ffffff" 
+        letter-spacing="-0.5">Map</text>
+  
+  <!-- Tagline -->
+  <text x="82" y="58" font-family="Inter, Segoe UI, Arial, sans-serif" 
+        font-size="10" font-weight="400" fill="#a6a6a6" 
+        letter-spacing="3">CAR SCREEN PRO</text>
+  
+  <!-- Decorative line -->
+  <line x1="82" y1="63" x2="210" y2="63" stroke="url(#roadGrad)" stroke-width="1.5"/>
+  
+  <!-- Decorative dots -->
+  <circle cx="82" cy="70" r="2" fill="#ff6b00" opacity="0.4"/>
+  <circle cx="90" cy="70" r="2" fill="#ff8c33" opacity="0.3"/>
+  <circle cx="98" cy="70" r="2" fill="#f59e0b" opacity="0.2"/>
+</svg>
