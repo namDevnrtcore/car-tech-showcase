@@ -1,59 +1,109 @@
-// ============================================
-// 📁 Services/ProductDataService.cs - Product Data
-// Matches client/src/services/product.service.ts exactly
-// ============================================
+using Microsoft.EntityFrameworkCore;
+using CarTechShowcase.Data;
 
 namespace CarTechShowcase.Services;
 
 public class ProductDataService
 {
+    private readonly AppDbContext _db;
+    public ProductDataService(AppDbContext db) => _db = db;
+
     public string FormatPrice(long price) => string.Format("{0:N0}đ", price);
 
-    public object GetProducts() => new object[]
+    public async Task<object[]> GetProductsAsync()
     {
-        new { Id = 1, Name = "GOTECH GT10 Pro", Price = (long)8500000, Image = "/images/product-1.jpg", Size = "10 inch", Specs = "Android 13 | 4GB RAM | 64GB ROM", Features = new[] { "GPS", "Bluetooth", "WiFi", "CarPlay" } },
-        new { Id = 2, Name = "GOTECH GT9 Max", Price = (long)7200000, Image = "/images/product-2.jpg", Size = "9 inch", Specs = "Android 13 | 4GB RAM | 32GB ROM", Features = new[] { "GPS", "Bluetooth", "WiFi" } },
-        new { Id = 3, Name = "GOTECH GT12 Ultra", Price = (long)12500000, Image = "/images/product-3.jpg", Size = "12 inch", Specs = "Android 13 | 6GB RAM | 128GB ROM", Features = new[] { "GPS", "Bluetooth", "WiFi", "CarPlay", "Camera 360" } },
-        new { Id = 4, Name = "GOTECH GT7 Compact", Price = (long)5500000, Image = "/images/product-4.jpg", Size = "7 inch", Specs = "Android 12 | 2GB RAM | 32GB ROM", Features = new[] { "GPS", "Bluetooth" } },
-        new { Id = 5, Name = "GOTECH GT10 Standard", Price = (long)6800000, Image = "/images/product-1.jpg", Size = "10 inch", Specs = "Android 12 | 3GB RAM | 32GB ROM", Features = new[] { "GPS", "Bluetooth", "WiFi" } },
-        new { Id = 6, Name = "GOTECH GT9 Pro", Price = (long)9200000, Image = "/images/product-2.jpg", Size = "9 inch", Specs = "Android 13 | 4GB RAM | 64GB ROM", Features = new[] { "GPS", "Bluetooth", "WiFi", "CarPlay" } },
-    };
-
-    public object GetProductDetail(int id) => new
-    {
-        Id = id,
-        Name = "GOTECH GT10 Pro",
-        Price = (long)8500000,
-        Status = "Còn hàng",
-        Rating = 4.8,
-        Reviews = 127,
-        Images = new[] { "/images/product-1.jpg", "/images/product-2.jpg", "/images/product-3.jpg" },
-        Description = "Màn hình Android GOTECH GT10 Pro là giải pháp hoàn hảo để nâng cấp hệ thống giải trí trên xe của bạn với công nghệ hiện đại nhất.",
-        Size = "10 inch",
-        Specs = "Android 13 | 4GB RAM | 64GB ROM",
-        DetailedSpecs = new Dictionary<string, string>
+        var products = await _db.Products.Where(p => p.IsActive).ToListAsync();
+        return products.Select(p => (object)new
         {
-            { "Size", "10 inch IPS" },
-            { "OS", "Android 13" },
-            { "RAM", "4GB" },
-            { "ROM", "64GB" },
-            { "Connectivity", "Bluetooth 5.0, WiFi, USB, CarPlay không dây" },
-            { "Warranty", "2 năm chính hãng" },
-        },
-        ProductFeatures = new object[]
-        {
-            new { Title = "Màn hình IPS Full HD", Description = "Độ phân giải cao, góc nhìn rộng, hiển thị sắc nét trong mọi điều kiện ánh sáng" },
-            new { Title = "Android 13 mới nhất", Description = "Hệ điều hành mượt mà, ổn định với khả năng tùy biến cao" },
-            new { Title = "Kết nối đa dạng", Description = "Hỗ trợ CarPlay không dây, Android Auto, Bluetooth, WiFi" },
-            new { Title = "GPS tích hợp", Description = "Định vị chính xác, dẫn đường thông minh với bản đồ offline" },
-            new { Title = "Camera 360 độ", Description = "Hỗ trợ camera lùi, camera 360 độ giúp quan sát toàn cảnh" },
-            new { Title = "Âm thanh DSP", Description = "Xử lý âm thanh DSP 32 kênh, mang đến trải nghiệm nghe nhạc đỉnh cao" },
-        },
-    };
+            Id       = p.Id,
+            Name     = p.ProductName,
+            Price    = (long)(p.Price ?? 0),
+            Image    = p.Img ?? "",
+            Size     = ExtractSize(p.Spec),
+            Specs    = p.Spec ?? "",
+            Features = ExtractFeatures(p.Spec),
+        }).ToArray();
+    }
 
-    public object GetRelatedProducts() => new object[]
+    public async Task<object> GetProductDetailAsync(int id)
     {
-        new { Id = 2, Name = "GOTECH GT9 Max", Price = (long)7200000, Image = "/images/product-2.jpg" },
-        new { Id = 3, Name = "GOTECH GT12 Ultra", Price = (long)12500000, Image = "/images/product-3.jpg" },
-    };
+        var p = await _db.Products.FindAsync(id);
+        if (p == null) return new { };
+
+        return new
+        {
+            Id       = p.Id,
+            Name     = p.ProductName,
+            Price    = (long)(p.Price ?? 0),
+            Status   = "Còn hàng",
+            Rating   = 4.8,
+            Reviews  = 0,
+            Images   = new[] { p.Img ?? "" },
+            Description     = p.Description ?? "",
+            Size            = ExtractSize(p.Spec),
+            Specs           = p.Spec ?? "",
+            DetailedSpecs   = ParseDetailedSpecs(p.Spec),
+            ProductFeatures = new object[]
+            {
+                new { Title = "Màn hình IPS Full HD",  Description = "Độ phân giải cao, góc nhìn rộng, sắc nét mọi điều kiện" },
+                new { Title = "Kết nối đa dạng",       Description = "Hỗ trợ CarPlay không dây, Android Auto, Bluetooth, WiFi" },
+                new { Title = "GPS tích hợp",          Description = "Định vị chính xác, dẫn đường thông minh với bản đồ offline" },
+                new { Title = "Bảo hành 2 năm",        Description = "Chính hãng, hỗ trợ kỹ thuật tận nơi" },
+            },
+        };
+    }
+
+    public async Task<object[]> GetRelatedProductsAsync(int currentId)
+    {
+        var current = await _db.Products.FindAsync(currentId);
+        var query = _db.Products.Where(p => p.IsActive && p.Id != currentId);
+
+        if (current?.Category != null)
+            query = query.Where(p => p.Category == current.Category);
+
+        var related = await query.Take(3).ToListAsync();
+
+        // Fallback: nếu không đủ sản phẩm cùng category thì lấy bất kỳ
+        if (related.Count < 2)
+            related = await _db.Products.Where(p => p.IsActive && p.Id != currentId).Take(3).ToListAsync();
+
+        return related.Select(p => (object)new
+        {
+            Id    = p.Id,
+            Name  = p.ProductName,
+            Price = (long)(p.Price ?? 0),
+            Image = p.Img ?? "",
+        }).ToArray();
+    }
+
+    // ---------- Helpers ----------
+
+    private static string ExtractSize(string? spec)
+    {
+        if (spec == null) return "-";
+        var m = System.Text.RegularExpressions.Regex.Match(spec, @"(\d+(?:\.\d+)?)\s*inch", System.Text.RegularExpressions.RegexOptions.IgnoreCase);
+        return m.Success ? m.Groups[1].Value + " inch" : "-";
+    }
+
+    private static string[] ExtractFeatures(string? spec)
+    {
+        if (spec == null) return Array.Empty<string>();
+        var list = new List<string>();
+        foreach (var kw in new[] { "GPS", "Bluetooth", "WiFi", "CarPlay", "Android Auto", "4G", "5G", "DSP" })
+            if (spec.Contains(kw, StringComparison.OrdinalIgnoreCase)) list.Add(kw);
+        return list.ToArray();
+    }
+
+    private static Dictionary<string, string> ParseDetailedSpecs(string? spec)
+    {
+        var result = new Dictionary<string, string>();
+        if (string.IsNullOrEmpty(spec)) return result;
+        foreach (var part in spec.Split('|'))
+        {
+            var kv = part.Trim().Split(':', 2);
+            if (kv.Length == 2 && !string.IsNullOrWhiteSpace(kv[0]))
+                result[kv[0].Trim()] = kv[1].Trim();
+        }
+        return result;
+    }
 }

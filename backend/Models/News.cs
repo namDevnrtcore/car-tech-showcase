@@ -14,16 +14,16 @@ public class News
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public int Id { get; set; }
 
-    [Column(TypeName = "nvarchar")]
+    [Column(TypeName = "nvarchar(500)")]
     public string? Title { get; set; }
 
-    [Column(TypeName = "nvarchar")]
+    [Column(TypeName = "nvarchar(1000)")]
     public string? Summary { get; set; }
 
-    [Column(TypeName = "nvarchar")]
+    [Column(TypeName = "nvarchar(max)")]
     public string? Content { get; set; }
 
-    [Column(TypeName = "nvarchar")]
+    [Column(TypeName = "nvarchar(700)")]
     public string? Img { get; set; }
 
     public bool IsActive { get; set; } = true;

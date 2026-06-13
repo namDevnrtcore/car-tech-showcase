@@ -1,0 +1,82 @@
+@using CarTechShowcase.Models
+@model News
+
+<div class="max-w-2xl">
+    <div class="flex items-center gap-2 mb-5 text-sm">
+        <a href="/Admin/News" class="text-muted hover:text-white transition-colors">Tin tức</a>
+        <span class="text-border">›</span>
+        <span class="text-white line-clamp-1">Sửa — @Model.Title</span>
+    </div>
+
+    <form method="post" action="/Admin/News/Edit/@Model.Id" class="space-y-4">
+        @Html.AntiForgeryToken()
+        <input type="hidden" name="Id" value="@Model.Id" />
+        <input type="hidden" name="CreatedAt" value="@Model.CreatedAt.ToString("o")" />
+
+        <div class="card space-y-4">
+            <h3 class="text-sm font-medium text-white border-b border-border pb-3">
+                Nội dung bài viết <span class="text-muted font-normal text-xs">#@Model.Id</span>
+            </h3>
+
+            <div>
+                <label class="form-label">Tiêu đề</label>
+                <input type="text" name="Title" value="@Model.Title" class="form-input" />
+            </div>
+
+            <div>
+                <label class="form-label">Ảnh bài viết</label>
+                <div class="flex gap-3 items-start">
+                    <input type="text" name="Img" id="imgInput" value="@Model.Img"
+                           class="form-input" oninput="previewImg(this.value)" />
+                    <img id="imgPreview" src="@(Model.Img ?? "/images/hero-car-screen.jpg")"
+                         class="w-20 h-14 rounded-lg object-cover bg-surface flex-shrink-0 border border-border"
+                         onerror="this.src='/images/hero-car-screen.jpg'" />
+                </div>
+            </div>
+
+            <div>
+                <label class="form-label">Tóm tắt</label>
+                <textarea name="Summary" rows="2" class="form-input resize-none">@Model.Summary</textarea>
+            </div>
+
+            <div>
+                <label class="form-label">Nội dung đầy đủ</label>
+                <textarea name="Content" rows="10" class="form-input resize-y font-mono text-xs">@Model.Content</textarea>
+            </div>
+
+            <div class="flex items-center gap-3 pt-1">
+                <label class="form-label mb-0">Hiển thị trên trang chủ</label>
+                <input type="hidden" name="IsActive" value="false" />
+                <input type="checkbox" name="IsActive" value="true" @(Model.IsActive ? "checked" : "")
+                       class="w-4 h-4 rounded accent-brand" />
+            </div>
+        </div>
+
+        <div class="flex gap-3">
+            <button type="submit" class="btn-primary">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
+                Lưu thay đổi
+            </button>
+            <a href="/Admin/News" class="btn-secondary">Hủy</a>
+            <form method="post" action="/Admin/News/Delete/@Model.Id"
+                  onsubmit="return confirm('Xóa bài viết này? Không thể khôi phục!')"
+                  class="ml-auto inline">
+                @Html.AntiForgeryToken()
+                <button type="submit" class="btn-danger px-4 py-2">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/></svg>
+                    Xóa bài
+                </button>
+            </form>
+        </div>
+    </form>
+</div>
+
+@section Scripts {
+    <script>
+        function previewImg(src) {
+            const img = document.getElementById('imgPreview');
+            img.src = src || '/images/hero-car-screen.jpg';
+            img.onerror = () => img.src = '/images/hero-car-screen.jpg';
+        }
+    </script>
+}

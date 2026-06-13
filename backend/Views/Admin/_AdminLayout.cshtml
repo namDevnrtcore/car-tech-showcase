@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/images/favicon.svg" />
+    <title>@ViewData["Title"] — VinMap Admin</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: { extend: { colors: { brand: '#ff6b00' } } }
+        }
+    </script>
+    <style>
+        body { font-family: 'Inter', system-ui, sans-serif; }
+        .nav-link {
+            display: flex; align-items: center; gap: 0.75rem;
+            padding: 0.625rem 0.75rem; border-radius: 0.5rem;
+            font-size: 0.875rem; color: #9ca3af;
+            transition: all 0.15s; text-decoration: none;
+        }
+        .nav-link:hover { color: #fff; background: rgba(255,255,255,0.05); }
+        .nav-link.active { background: rgba(255,107,0,0.12); color: #ff6b00; font-weight: 500; }
+        .nav-link.danger { color: #f87171; }
+        .nav-link.danger:hover { color: #fca5a5; background: rgba(239,68,68,0.05); }
+
+        .btn-primary {
+            display: inline-flex; align-items: center; gap: 0.5rem;
+            background: #ff6b00; color: #fff; font-size: 0.875rem; font-weight: 500;
+            padding: 0.5rem 1rem; border-radius: 0.5rem; cursor: pointer;
+            transition: background 0.15s; text-decoration: none; border: none;
+        }
+        .btn-primary:hover { background: #ea580c; }
+        .btn-secondary {
+            display: inline-flex; align-items: center; gap: 0.5rem;
+            background: rgba(255,255,255,0.05); color: #d1d5db; font-size: 0.875rem;
+            padding: 0.5rem 1rem; border-radius: 0.5rem; cursor: pointer;
+            transition: background 0.15s; text-decoration: none;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        .btn-secondary:hover { background: rgba(255,255,255,0.1); }
+        .btn-danger {
+            display: inline-flex; align-items: center; gap: 0.5rem;
+            background: rgba(239,68,68,0.1); color: #f87171; font-size: 0.875rem;
+            padding: 0.375rem 0.75rem; border-radius: 0.5rem; cursor: pointer;
+            transition: background 0.15s; border: none;
+        }
+        .btn-danger:hover { background: rgba(239,68,68,0.2); }
+
+        .form-input {
+            width: 100%; background: #141414; border: 1px solid #2a2a2a;
+            border-radius: 0.5rem; padding: 0.5rem 0.75rem;
+            font-size: 0.875rem; color: #fff; transition: all 0.15s; outline: none;
+        }
+        .form-input::placeholder { color: #4b4b4b; }
+        .form-input:focus { border-color: rgba(255,107,0,0.5); box-shadow: 0 0 0 2px rgba(255,107,0,0.15); }
+        select.form-input option { background: #1c1c1c; }
+        textarea.form-input { resize: vertical; }
+
+        .form-label { display: block; font-size: 0.75rem; font-weight: 500; color: #9ca3af; margin-bottom: 0.375rem; }
+        .card { background: #1c1c1c; border: 1px solid #2a2a2a; border-radius: 0.75rem; padding: 1.25rem; }
+        .stat-card {
+            background: #1c1c1c; border: 1px solid #2a2a2a; border-radius: 0.75rem;
+            padding: 1.25rem; display: flex; align-items: center; gap: 1rem;
+            text-decoration: none; transition: border-color 0.15s;
+        }
+        .stat-card:hover { border-color: rgba(255,107,0,0.3); }
+        .badge { display: inline-flex; align-items: center; padding: 0.125rem 0.5rem; border-radius: 0.25rem; font-size: 0.7rem; font-weight: 500; }
+        .table-row { border-bottom: 1px solid #2a2a2a; transition: background 0.1s; }
+        .table-row:last-child { border-bottom: 0; }
+        .table-row:hover { background: rgba(255,255,255,0.02); }
+    </style>
+</head>
+<body class="bg-[#0f0f0f] text-white min-h-screen flex">
+
+    <!-- Sidebar -->
+    <aside class="w-56 flex-shrink-0 flex flex-col fixed inset-y-0 left-0 z-50 bg-[#141414] border-r border-[#2a2a2a]">
+        <div class="flex items-center gap-2.5 px-5 py-4 border-b border-[#2a2a2a]">
+            <img src="/images/logo.svg" alt="VinMap" class="h-7 w-auto" />
+            <p class="text-[10px] text-gray-600 tracking-widest uppercase mt-0.5">Admin</p>
+        </div>
+
+        <nav class="flex-1 px-3 py-4 space-y-0.5 overflow-y-auto">
+            @{
+                var ctrl = ViewContext.RouteData.Values["controller"]?.ToString() ?? "";
+            }
+            <a href="/Admin/Dashboard" class="nav-link @(ctrl == "AdminDashboard" ? "active" : "")">
+                <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+                Dashboard
+            </a>
+            <a href="/Admin/Products" class="nav-link @(ctrl == "AdminProducts" ? "active" : "")">
+                <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+                Sản phẩm
+            </a>
+            <a href="/Admin/News" class="nav-link @(ctrl == "AdminNews" ? "active" : "")">
+                <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 0-2 2Zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2"/><path d="M18 14h-8M15 18h-5M10 6h8v4h-8z"/></svg>
+                Tin tức
+            </a>
+            <a href="/Admin/Orders" class="nav-link @(ctrl == "AdminOrders" ? "active" : "")">
+                <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1" ry="1"/><path d="m9 12 2 2 4-4"/></svg>
+                Đơn hàng
+            </a>
+
+            <div class="pt-3 mt-3 border-t border-[#2a2a2a]">
+                <a href="/" target="_blank" class="nav-link">
+                    <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" x2="21" y1="14" y2="3"/></svg>
+                    Trang chủ
+                </a>
+            </div>
+        </nav>
+
+        <div class="px-3 py-3 border-t border-[#2a2a2a]">
+            <div class="flex items-center gap-3 px-3 py-2 mb-1">
+                <div class="w-7 h-7 rounded-full bg-[#ff6b00]/20 flex items-center justify-center text-[#ff6b00] text-xs font-bold">A</div>
+                <div>
+                    <p class="text-xs font-medium text-white">Admin</p>
+                    <p class="text-[10px] text-gray-500">Quản trị viên</p>
+                </div>
+            </div>
+            <a href="/Admin/Logout" class="nav-link danger">
+                <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" x2="9" y1="12" y2="12"/></svg>
+                Đăng xuất
+            </a>
+        </div>
+    </aside>
+
+    <!-- Main content -->
+    <div class="flex-1 ml-56 flex flex-col min-h-screen">
+        <header class="sticky top-0 z-40 bg-[#0f0f0f]/90 backdrop-blur border-b border-[#2a2a2a] px-6 py-3.5 flex items-center justify-between">
+            <h1 class="text-sm font-semibold text-white">@ViewData["Title"]</h1>
+            <span class="text-xs text-gray-600">VinMap Admin</span>
+        </header>
+
+        <!-- Flash messages -->
+        @if (TempData["Success"] != null)
+        {
+            <div class="mx-6 mt-4 flex items-center gap-3 bg-green-500/10 border border-green-500/20 text-green-400 rounded-lg px-4 py-3 text-sm" id="flash-ok">
+                <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                <span>@TempData["Success"]</span>
+                <button onclick="document.getElementById('flash-ok').remove()" class="ml-auto opacity-60 hover:opacity-100">✕</button>
+            </div>
+        }
+        @if (TempData["Error"] != null)
+        {
+            <div class="mx-6 mt-4 flex items-center gap-3 bg-red-500/10 border border-red-500/20 text-red-400 rounded-lg px-4 py-3 text-sm" id="flash-err">
+                <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+                <span>@TempData["Error"]</span>
+                <button onclick="document.getElementById('flash-err').remove()" class="ml-auto opacity-60 hover:opacity-100">✕</button>
+            </div>
+        }
+
+        <main class="flex-1 p-6">
+            @RenderBody()
+        </main>
+    </div>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,74 @@
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Đăng nhập Admin — VinMap</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { font-family: 'Inter', system-ui, sans-serif; }
+    </style>
+</head>
+<body class="bg-[#0f0f0f] text-white min-h-screen flex items-center justify-center">
+    <div class="w-full max-w-sm px-4">
+        <!-- Logo -->
+        <div class="text-center mb-8">
+            <img src="/images/logo.svg" alt="VinMap" class="h-12 mx-auto mb-3" />
+            <h2 class="text-lg font-semibold text-white">Trang quản trị</h2>
+            <p class="text-sm text-gray-500 mt-1">Đăng nhập để tiếp tục</p>
+        </div>
+
+        <!-- Error alert -->
+        @if (TempData["Error"] != null)
+        {
+            <div class="mb-4 flex items-center gap-2 bg-red-500/10 border border-red-500/20 text-red-400 rounded-lg px-4 py-3 text-sm">
+                <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+                @TempData["Error"]
+            </div>
+        }
+
+        <!-- Form -->
+        <form method="post" action="/Admin/Login" class="bg-[#1c1c1c] border border-[#2a2a2a] rounded-2xl p-6 space-y-4">
+            @Html.AntiForgeryToken()
+
+            <div>
+                <label class="block text-xs font-medium text-gray-400 mb-1.5">Tên đăng nhập</label>
+                <input type="text" name="username" autocomplete="username" required
+                       placeholder="admin"
+                       class="w-full bg-[#141414] border border-[#2a2a2a] rounded-lg px-3 py-2.5 text-sm text-white placeholder-gray-600 focus:outline-none focus:border-orange-500/60 focus:ring-1 focus:ring-orange-500/30 transition-all" />
+            </div>
+
+            <div>
+                <label class="block text-xs font-medium text-gray-400 mb-1.5">Mật khẩu</label>
+                <div class="relative">
+                    <input type="password" name="password" id="password" autocomplete="current-password" required
+                           placeholder="••••••••"
+                           class="w-full bg-[#141414] border border-[#2a2a2a] rounded-lg px-3 py-2.5 text-sm text-white placeholder-gray-600 focus:outline-none focus:border-orange-500/60 focus:ring-1 focus:ring-orange-500/30 transition-all pr-10" />
+                    <button type="button" onclick="togglePwd()" class="absolute right-3 top-2.5 text-gray-500 hover:text-gray-300">
+                        <svg id="eye-icon" class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
+                    </button>
+                </div>
+            </div>
+
+            <button type="submit"
+                    class="w-full bg-orange-500 hover:bg-orange-600 text-white font-semibold py-2.5 rounded-lg text-sm transition-colors mt-2">
+                Đăng nhập
+            </button>
+        </form>
+
+        <p class="text-center text-xs text-gray-600 mt-5">
+            <a href="/" class="hover:text-gray-400 transition-colors">← Về trang chủ</a>
+        </p>
+    </div>
+
+    <script>
+        function togglePwd() {
+            const input = document.getElementById('password');
+            input.type = input.type === 'password' ? 'text' : 'password';
+        }
+    </script>
+</body>
+</html>

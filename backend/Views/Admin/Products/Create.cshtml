@@ -1,0 +1,92 @@
+@using CarTechShowcase.Models
+@model Product
+
+@{
+    string[] cats = ViewBag.Categories as string[] ?? Array.Empty<string>();
+}
+
+<div class="max-w-2xl">
+    <div class="flex items-center gap-2 mb-5 text-sm">
+        <a href="/Admin/Products" class="text-muted hover:text-white transition-colors">Sản phẩm</a>
+        <span class="text-border">›</span>
+        <span class="text-white">Thêm mới</span>
+    </div>
+
+    <form method="post" action="/Admin/Products/Create" class="space-y-4">
+        @Html.AntiForgeryToken()
+
+        <div class="card space-y-4">
+            <h3 class="text-sm font-medium text-white border-b border-border pb-3">Thông tin sản phẩm</h3>
+
+            <div class="grid grid-cols-2 gap-4">
+                <div class="col-span-2">
+                    <label class="form-label">Tên sản phẩm <span class="text-red-400">*</span></label>
+                    <input type="text" name="ProductName" value="@Model.ProductName" required
+                           placeholder="VD: Camera 70mai A800S 4K"
+                           class="form-input" />
+                </div>
+
+                <div>
+                    <label class="form-label">Danh mục <span class="text-red-400">*</span></label>
+                    <select name="Category" class="form-input">
+                        <option value="">-- Chọn danh mục --</option>
+                        @foreach (var c in cats)
+                        {
+                            <option value="@c" selected="@(Model.Category == c)">@c</option>
+                        }
+                    </select>
+                </div>
+
+                <div>
+                    <label class="form-label">Giá (đồng)</label>
+                    <input type="number" name="Price" value="@Model.Price" min="0" step="1000"
+                           placeholder="VD: 2990000"
+                           class="form-input" />
+                </div>
+            </div>
+
+            <div>
+                <label class="form-label">Ảnh sản phẩm</label>
+                <div class="flex gap-3 items-start">
+                    <input type="text" name="Img" id="imgInput" value="@Model.Img"
+                           placeholder="/images/product-1.jpg"
+                           class="form-input" oninput="previewImg(this.value)" />
+                    <img id="imgPreview" src="@(Model.Img ?? "/images/product-1.jpg")"
+                         class="w-16 h-16 rounded-lg object-cover bg-surface flex-shrink-0 border border-border"
+                         onerror="this.src='/images/product-1.jpg'" />
+                </div>
+                <p class="text-[11px] text-muted mt-1">Dùng: /images/product-1.jpg, /images/product-2.jpg, /images/product-3.jpg, /images/product-4.jpg</p>
+            </div>
+
+            <div>
+                <label class="form-label">Thông số kỹ thuật (Spec)</label>
+                <textarea name="Spec" rows="2" placeholder="VD: RAM: 4GB | ROM: 64GB | Android 13 | CarPlay"
+                          class="form-input resize-none">@Model.Spec</textarea>
+            </div>
+
+            <div>
+                <label class="form-label">Mô tả chi tiết</label>
+                <textarea name="Description" rows="4" placeholder="Mô tả đầy đủ về sản phẩm..."
+                          class="form-input resize-y">@Model.Description</textarea>
+            </div>
+        </div>
+
+        <div class="flex gap-3">
+            <button type="submit" class="btn-primary">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
+                Lưu sản phẩm
+            </button>
+            <a href="/Admin/Products" class="btn-secondary">Hủy</a>
+        </div>
+    </form>
+</div>
+
+@section Scripts {
+    <script>
+        function previewImg(src) {
+            const img = document.getElementById('imgPreview');
+            img.src = src || '/images/product-1.jpg';
+            img.onerror = () => img.src = '/images/product-1.jpg';
+        }
+    </script>
+}

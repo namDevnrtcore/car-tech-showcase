@@ -1,0 +1,117 @@
+@using CarTechShowcase.Models
+@model IEnumerable<Order>
+
+@{
+    int productCount   = ViewBag.ProductCount;
+    int activeProducts = ViewBag.ActiveProducts;
+    int newsCount      = ViewBag.NewsCount;
+    int orderCount     = ViewBag.OrderCount;
+    int pendingOrders  = ViewBag.PendingOrders;
+    var recentOrders   = ViewBag.RecentOrders as IEnumerable<Order> ?? Array.Empty<Order>();
+}
+
+<!-- Stat cards -->
+<div class="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+    <a href="/Admin/Products" class="stat-card hover:border-brand/30 transition-colors group">
+        <div class="w-10 h-10 rounded-lg bg-brand/10 flex items-center justify-center text-brand flex-shrink-0 group-hover:bg-brand/20 transition-colors">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+        </div>
+        <div>
+            <p class="text-2xl font-bold text-white">@productCount</p>
+            <p class="text-xs text-muted">Sản phẩm</p>
+            <p class="text-[11px] text-green-400 mt-0.5">@activeProducts đang hiển thị</p>
+        </div>
+    </a>
+
+    <a href="/Admin/News" class="stat-card hover:border-brand/30 transition-colors group">
+        <div class="w-10 h-10 rounded-lg bg-blue-500/10 flex items-center justify-center text-blue-400 flex-shrink-0 group-hover:bg-blue-500/20 transition-colors">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 0-2 2Zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2"/></svg>
+        </div>
+        <div>
+            <p class="text-2xl font-bold text-white">@newsCount</p>
+            <p class="text-xs text-muted">Bài viết</p>
+        </div>
+    </a>
+
+    <a href="/Admin/Orders" class="stat-card hover:border-brand/30 transition-colors group">
+        <div class="w-10 h-10 rounded-lg bg-purple-500/10 flex items-center justify-center text-purple-400 flex-shrink-0 group-hover:bg-purple-500/20 transition-colors">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/></svg>
+        </div>
+        <div>
+            <p class="text-2xl font-bold text-white">@orderCount</p>
+            <p class="text-xs text-muted">Tổng đơn hàng</p>
+        </div>
+    </a>
+
+    <a href="/Admin/Orders?status=Chờ xác nhận" class="stat-card hover:border-orange-500/30 transition-colors group">
+        <div class="w-10 h-10 rounded-lg bg-orange-500/10 flex items-center justify-center text-orange-400 flex-shrink-0 group-hover:bg-orange-500/20 transition-colors">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <div>
+            <p class="text-2xl font-bold @(pendingOrders > 0 ? "text-orange-400" : "text-white")">@pendingOrders</p>
+            <p class="text-xs text-muted">Chờ xử lý</p>
+            @if (pendingOrders > 0)
+            {
+                <p class="text-[11px] text-orange-400 mt-0.5">Cần xử lý ngay</p>
+            }
+        </div>
+    </a>
+</div>
+
+<!-- Recent Orders -->
+<div class="card">
+    <div class="flex items-center justify-between mb-4">
+        <h2 class="text-sm font-semibold text-white">Đơn hàng gần đây</h2>
+        <a href="/Admin/Orders" class="text-xs text-brand hover:underline">Xem tất cả →</a>
+    </div>
+
+    @if (!recentOrders.Any())
+    {
+        <p class="text-sm text-muted text-center py-8">Chưa có đơn hàng nào</p>
+    }
+    else
+    {
+        <div class="overflow-x-auto -mx-1">
+            <table class="w-full text-sm">
+                <thead>
+                    <tr class="border-b border-border text-left">
+                        <th class="pb-3 px-2 text-xs font-medium text-muted">ID</th>
+                        <th class="pb-3 px-2 text-xs font-medium text-muted">Khách hàng</th>
+                        <th class="pb-3 px-2 text-xs font-medium text-muted">Sản phẩm</th>
+                        <th class="pb-3 px-2 text-xs font-medium text-muted">Tổng tiền</th>
+                        <th class="pb-3 px-2 text-xs font-medium text-muted">Trạng thái</th>
+                        <th class="pb-3 px-2 text-xs font-medium text-muted">Ngày đặt</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var o in recentOrders)
+                    {
+                        <tr class="table-row">
+                            <td class="py-2.5 px-2 text-muted text-xs">#@o.Id</td>
+                            <td class="py-2.5 px-2">
+                                <p class="font-medium text-white text-xs">@o.FullName</p>
+                                <p class="text-muted text-[11px]">@o.Phone</p>
+                            </td>
+                            <td class="py-2.5 px-2 text-xs text-gray-300 max-w-[180px] truncate">@o.ProductName</td>
+                            <td class="py-2.5 px-2 text-xs font-medium text-brand">@o.TotalAmount đ</td>
+                            <td class="py-2.5 px-2">
+                                @{
+                                    var badgeClass = o.Status switch {
+                                        "Đã giao"          => "bg-green-500/15 text-green-400",
+                                        "Đang giao hàng"   => "bg-blue-500/15 text-blue-400",
+                                        "Đang xử lý"       => "bg-yellow-500/15 text-yellow-400",
+                                        "Chờ xác nhận"     => "bg-orange-500/15 text-orange-400",
+                                        "Đã hủy"           => "bg-red-500/15 text-red-400",
+                                        _                  => "bg-gray-500/15 text-gray-400",
+                                    };
+                                }
+                                <span class="badge @badgeClass">@o.Status</span>
+                            </td>
+                            <td class="py-2.5 px-2 text-xs text-muted">@o.CreatedAt.ToString("dd/MM/yy")</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+</div>

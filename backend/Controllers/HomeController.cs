@@ -1,7 +1,3 @@
-// ============================================
-// 📁 Controllers/HomeController.cs - MVC Home Controller
-// ============================================
-
 using Microsoft.AspNetCore.Mvc;
 using CarTechShowcase.Services;
 
@@ -10,19 +6,15 @@ namespace CarTechShowcase.Controllers;
 public class HomeController : Controller
 {
     private readonly HomeService _homeService;
+    public HomeController(HomeService homeService) => _homeService = homeService;
 
-    public HomeController(HomeService homeService)
+    public async Task<IActionResult> Index()
     {
-        _homeService = homeService;
-    }
-
-    public IActionResult Index()
-    {
-        ViewBag.HeroImage = _homeService.GetHeroImage();
-        ViewBag.Features = _homeService.GetFeatures();
-        ViewBag.Categories = _homeService.GetCategories();
+        ViewBag.HeroImage      = _homeService.GetHeroImage();
+        ViewBag.Features       = _homeService.GetFeatures();
         ViewBag.CompatibleCars = _homeService.GetCompatibleCars();
-        ViewBag.HomeNews = _homeService.GetHomeNews();
+        ViewBag.Categories     = await _homeService.GetCategoriesAsync();
+        ViewBag.HomeNews       = await _homeService.GetHomeNewsAsync();
         return View();
     }
 }

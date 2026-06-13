@@ -1,0 +1,116 @@
+@using CarTechShowcase.Models
+@model IEnumerable<Order>
+
+@{
+    string[] statuses = ViewBag.Statuses as string[] ?? Array.Empty<string>();
+    string filterStatus = ViewBag.Status ?? "";
+    string search = ViewBag.Search ?? "";
+}
+
+<div class="flex items-center gap-3 mb-5 flex-wrap">
+    <form method="get" action="/Admin/Orders" class="flex gap-2">
+        <input type="text" name="search" value="@search" placeholder="Tên, SĐT, sản phẩm..."
+               class="form-input w-52 h-9 py-0" />
+        <select name="status" class="form-input w-44 h-9 py-0">
+            <option value="">Tất cả trạng thái</option>
+            @foreach (var s in statuses)
+            {
+                <option value="@s" selected="@(s == filterStatus)">@s</option>
+            }
+        </select>
+        <button type="submit" class="btn-secondary h-9 py-0">Lọc</button>
+        @if (!string.IsNullOrEmpty(filterStatus) || !string.IsNullOrEmpty(search))
+        {
+            <a href="/Admin/Orders" class="btn-secondary h-9 py-0">Xóa lọc</a>
+        }
+    </form>
+
+    <!-- Status filter chips -->
+    <div class="flex gap-1.5 ml-auto flex-wrap">
+        @foreach (var s in statuses)
+        {
+            var chipClass = s == filterStatus
+                ? "bg-brand text-white"
+                : "bg-white/5 text-muted hover:bg-white/10 hover:text-white";
+            <a href="/Admin/Orders?status=@Uri.EscapeDataString(s)"
+               class="text-xs px-3 py-1 rounded-full transition-colors @chipClass">@s</a>
+        }
+    </div>
+</div>
+
+<div class="card p-0 overflow-hidden">
+    <table class="w-full text-sm">
+        <thead>
+            <tr class="border-b border-border bg-white/[0.02]">
+                <th class="py-3 px-4 text-left text-xs font-medium text-muted w-12">#</th>
+                <th class="py-3 px-4 text-left text-xs font-medium text-muted">Khách hàng</th>
+                <th class="py-3 px-4 text-left text-xs font-medium text-muted">Sản phẩm</th>
+                <th class="py-3 px-4 text-left text-xs font-medium text-muted w-20">SL</th>
+                <th class="py-3 px-4 text-left text-xs font-medium text-muted w-28">Tổng tiền</th>
+                <th class="py-3 px-4 text-left text-xs font-medium text-muted w-28">Ngày đặt</th>
+                <th class="py-3 px-4 text-left text-xs font-medium text-muted w-44">Trạng thái</th>
+                <th class="py-3 px-4 text-left text-xs font-medium text-muted w-14"></th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (!Model.Any())
+            {
+                <tr>
+                    <td colspan="8" class="py-12 text-center text-muted text-sm">
+                        @(string.IsNullOrEmpty(filterStatus) && string.IsNullOrEmpty(search)
+                            ? "Chưa có đơn hàng nào"
+                            : "Không tìm thấy đơn hàng phù hợp")
+                    </td>
+                </tr>
+            }
+            @foreach (var o in Model)
+            {
+                <tr class="table-row">
+                    <td class="py-3 px-4 text-xs text-muted">#@o.Id</td>
+                    <td class="py-3 px-4">
+                        <p class="font-medium text-white text-xs">@o.FullName</p>
+                        <p class="text-muted text-[11px]">@o.Phone</p>
+                    </td>
+                    <td class="py-3 px-4">
+                        <div class="flex items-center gap-2">
+                            <img src="@o.Img" class="w-8 h-8 rounded object-cover bg-surface flex-shrink-0"
+                                 onerror="this.src='/images/product-1.jpg'" />
+                            <p class="text-xs text-white line-clamp-2 max-w-[160px]">@o.ProductName</p>
+                        </div>
+                    </td>
+                    <td class="py-3 px-4 text-xs text-muted">x@o.Quantity</td>
+                    <td class="py-3 px-4 text-xs font-semibold text-brand">@o.TotalAmount đ</td>
+                    <td class="py-3 px-4 text-xs text-muted">@o.CreatedAt.ToString("dd/MM/yyyy HH:mm")</td>
+                    <td class="py-3 px-4">
+                        <form method="post" action="/Admin/Orders/UpdateStatus/@o.Id" class="flex items-center gap-1.5">
+                            @Html.AntiForgeryToken()
+                            <select name="newStatus"
+                                    class="text-xs bg-[#141414] border border-border rounded-lg px-2 py-1 text-white focus:outline-none focus:border-brand/60 flex-1">
+                                @foreach (var s in statuses)
+                                {
+                                    <option value="@s" selected="@(o.Status == s)">@s</option>
+                                }
+                            </select>
+                            <button type="submit"
+                                    class="w-6 h-6 flex items-center justify-center bg-brand/10 hover:bg-brand/20 text-brand rounded transition-colors flex-shrink-0"
+                                    title="Lưu trạng thái">
+                                <svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                            </button>
+                        </form>
+                    </td>
+                    <td class="py-3 px-4">
+                        <form method="post" action="/Admin/Orders/Delete/@o.Id"
+                              onsubmit="return confirm('Xóa đơn hàng #@o.Id?')" class="inline">
+                            @Html.AntiForgeryToken()
+                            <button type="submit" class="w-6 h-6 flex items-center justify-center bg-red-500/10 hover:bg-red-500/20 text-red-400 rounded transition-colors" title="Xóa đơn">
+                                <svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/></svg>
+                            </button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<p class="text-xs text-muted mt-3">Tổng: @Model.Count() đơn hàng</p>
