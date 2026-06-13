@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "d1QjfU7QCUY=",
+  "dgSpecHash": "oMZYQvlJ0i0=",
   "success": true,
   "projectFilePath": "D:\\Learn\\car-tech-showcase\\backend\\CarTechShowcase.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\hahoa\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\hahoa\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",
+    "C:\\Users\\hahoa\\.nuget\\packages\\htmlagilitypack\\1.11.74\\htmlagilitypack.1.11.74.nupkg.sha512",
     "C:\\Users\\hahoa\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\hahoa\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "C:\\Users\\hahoa\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",

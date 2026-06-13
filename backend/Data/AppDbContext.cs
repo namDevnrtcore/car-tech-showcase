@@ -16,4 +16,5 @@ public class AppDbContext : DbContext
     public DbSet<Product> Products => Set<Product>();
     public DbSet<Order> Orders => Set<Order>();
     public DbSet<News> News => Set<News>();
+    public DbSet<SiteConfig> SiteConfigs => Set<SiteConfig>();
 }

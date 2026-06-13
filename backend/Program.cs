@@ -22,6 +22,7 @@ builder.Services.AddScoped<ScreenService>();
 builder.Services.AddScoped<ProductService>();
 builder.Services.AddScoped<OrderService>();
 builder.Services.AddScoped<NewsService>();
+builder.Services.AddScoped<SiteConfigService>();
 
 // ---------- Controllers (API + MVC) ----------
 builder.Services.AddControllersWithViews()
@@ -96,6 +97,31 @@ using (var scope = app.Services.CreateScope())
     else
     {
         Console.WriteLine("✅ Database đã sẵn sàng, load dữ liệu từ DB.");
+    }
+
+    // Seed SiteConfig riêng — không bị xóa khi reset sản phẩm/tin tức
+    db.Database.ExecuteSqlRaw(@"
+        IF OBJECT_ID('siteconfig', 'U') IS NULL
+        CREATE TABLE [siteconfig] (
+            [Id] int NOT NULL IDENTITY,
+            [CompanyName] nvarchar(200) NULL,
+            [AboutShort] nvarchar(500) NULL,
+            [Address] nvarchar(500) NULL,
+            [Phone] nvarchar(50) NULL,
+            [Email] nvarchar(100) NULL,
+            [WorkingHoursWeekday] nvarchar(200) NULL,
+            [WorkingHoursSunday] nvarchar(200) NULL,
+            [ZaloPhone] nvarchar(50) NULL,
+            [FacebookUrl] nvarchar(500) NULL,
+            [MapEmbedUrl] nvarchar(max) NULL,
+            CONSTRAINT [PK_siteconfig] PRIMARY KEY ([Id])
+        )
+    ");
+    if (!db.SiteConfigs.Any())
+    {
+        db.SiteConfigs.Add(new CarTechShowcase.Models.SiteConfig());
+        db.SaveChanges();
+        Console.WriteLine("✅ SiteConfig seed xong.");
     }
 }
 

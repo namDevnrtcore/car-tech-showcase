@@ -12,6 +12,43 @@
         <span class="text-white">Thêm mới</span>
     </div>
 
+    <!-- Import từ URL -->
+    <div class="card mb-5" id="importBox">
+        <div class="flex items-center gap-2 mb-3">
+            <svg class="w-4 h-4 text-brand flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
+                <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
+            </svg>
+            <span class="text-sm font-semibold text-white">Import từ URL sản phẩm</span>
+            <span class="text-[11px] text-muted ml-1">— dán link từ website bất kỳ</span>
+        </div>
+
+        <div class="flex gap-2">
+            <input type="url" id="scrapeUrl" placeholder="https://navicom.vn/camera-hanh-trinh-..."
+                   class="form-input flex-1" />
+            <button type="button" onclick="doScrape()" id="scrapeBtn"
+                    class="btn-primary flex-shrink-0 whitespace-nowrap">
+                <svg id="scrapeIcon" class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/>
+                </svg>
+                <span id="scrapeBtnText">Lấy thông tin</span>
+            </button>
+        </div>
+
+        <div id="scrapeStatus" class="hidden mt-3 text-sm rounded-lg px-4 py-2.5"></div>
+
+        <!-- Preview ảnh scrape -->
+        <div id="scrapeImgPreviewBox" class="hidden mt-3 flex items-center gap-3 p-3 rounded-lg bg-[#141414] border border-[#333]">
+            <img id="scrapeImgPreview" src="" class="w-20 h-20 object-cover rounded-lg flex-shrink-0 border border-[#333]" />
+            <div>
+                <p class="text-xs text-muted mb-1">Ảnh đã tải về:</p>
+                <p id="scrapeImgPath" class="text-xs text-brand font-mono"></p>
+                <p class="text-[11px] text-muted mt-1">Ảnh được lưu vào /images/ — có thể đổi thủ công bên dưới nếu cần</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Product form -->
     <form method="post" action="/Admin/Products/Create" class="space-y-4">
         @Html.AntiForgeryToken()
 
@@ -21,14 +58,14 @@
             <div class="grid grid-cols-2 gap-4">
                 <div class="col-span-2">
                     <label class="form-label">Tên sản phẩm <span class="text-red-400">*</span></label>
-                    <input type="text" name="ProductName" value="@Model.ProductName" required
+                    <input type="text" name="ProductName" id="fieldName" value="@Model.ProductName" required
                            placeholder="VD: Camera 70mai A800S 4K"
                            class="form-input" />
                 </div>
 
                 <div>
                     <label class="form-label">Danh mục <span class="text-red-400">*</span></label>
-                    <select name="Category" class="form-input">
+                    <select name="Category" id="fieldCategory" class="form-input">
                         <option value="">-- Chọn danh mục --</option>
                         @foreach (var c in cats)
                         {
@@ -39,7 +76,7 @@
 
                 <div>
                     <label class="form-label">Giá (đồng)</label>
-                    <input type="number" name="Price" value="@Model.Price" min="0" step="1000"
+                    <input type="number" name="Price" id="fieldPrice" value="@Model.Price" min="0" step="1000"
                            placeholder="VD: 2990000"
                            class="form-input" />
                 </div>
@@ -55,18 +92,18 @@
                          class="w-16 h-16 rounded-lg object-cover bg-surface flex-shrink-0 border border-border"
                          onerror="this.src='/images/product-1.jpg'" />
                 </div>
-                <p class="text-[11px] text-muted mt-1">Dùng: /images/product-1.jpg, /images/product-2.jpg, /images/product-3.jpg, /images/product-4.jpg</p>
+                <p class="text-[11px] text-muted mt-1">Ảnh local: /images/product-1.jpg đến product-4.jpg — hoặc để nguyên URL ảnh từ import</p>
             </div>
 
             <div>
                 <label class="form-label">Thông số kỹ thuật (Spec)</label>
-                <textarea name="Spec" rows="2" placeholder="VD: RAM: 4GB | ROM: 64GB | Android 13 | CarPlay"
+                <textarea name="Spec" id="fieldSpec" rows="2" placeholder="VD: RAM: 4GB | ROM: 64GB | Android 13 | CarPlay"
                           class="form-input resize-none">@Model.Spec</textarea>
             </div>
 
             <div>
                 <label class="form-label">Mô tả chi tiết</label>
-                <textarea name="Description" rows="4" placeholder="Mô tả đầy đủ về sản phẩm..."
+                <textarea name="Description" id="fieldDescription" rows="4" placeholder="Mô tả đầy đủ về sản phẩm..."
                           class="form-input resize-y">@Model.Description</textarea>
             </div>
         </div>
@@ -82,11 +119,110 @@
 </div>
 
 @section Scripts {
-    <script>
-        function previewImg(src) {
-            const img = document.getElementById('imgPreview');
-            img.src = src || '/images/product-1.jpg';
-            img.onerror = () => img.src = '/images/product-1.jpg';
+<script>
+    function previewImg(src) {
+        const img = document.getElementById('imgPreview');
+        img.src = src || '/images/product-1.jpg';
+        img.onerror = () => img.src = '/images/product-1.jpg';
+    }
+
+    async function doScrape() {
+        const url = document.getElementById('scrapeUrl').value.trim();
+        if (!url) { showStatus('Vui lòng nhập URL sản phẩm', 'error'); return; }
+
+        // Loading state
+        const btn = document.getElementById('scrapeBtn');
+        const btnText = document.getElementById('scrapeBtnText');
+        const icon = document.getElementById('scrapeIcon');
+        btn.disabled = true;
+        btnText.textContent = 'Đang lấy...';
+        icon.innerHTML = `<circle cx="12" cy="12" r="10" stroke-dasharray="31.4" stroke-dashoffset="10" style="animation:spin 1s linear infinite;transform-origin:center"/>`;
+        showStatus('Đang kết nối tới trang web...', 'loading');
+        document.getElementById('scrapeImgPreviewBox').classList.add('hidden');
+
+        try {
+            const res = await fetch('/Admin/Products/Scrape', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ url })
+            });
+            const data = await res.json();
+
+            if (!data.success) {
+                showStatus('Lỗi: ' + data.error, 'error');
+                return;
+            }
+
+            // Fill form fields
+            if (data.name)        setField('fieldName', data.name);
+            if (data.price > 0)   setField('fieldPrice', data.price);
+            if (data.description) setField('fieldDescription', data.description);
+            if (data.spec)        setField('fieldSpec', data.spec);
+
+            // Image
+            if (data.imageUrl) {
+                document.getElementById('imgInput').value = data.imageUrl;
+                previewImg(data.imageUrl);
+                // Show image preview box
+                const box = document.getElementById('scrapeImgPreviewBox');
+                document.getElementById('scrapeImgPreview').src = data.imageUrl;
+                document.getElementById('scrapeImgPath').textContent = data.imageUrl;
+                box.classList.remove('hidden');
+            }
+
+            // Auto-detect category from name
+            autoDetectCategory(data.name);
+
+            const filled = [data.name, data.price > 0, data.description, data.imageUrl].filter(Boolean).length;
+            showStatus(`Đã điền ${filled}/4 trường — kiểm tra lại rồi nhấn Lưu sản phẩm`, 'success');
+
+        } catch (e) {
+            showStatus('Lỗi kết nối: ' + e.message, 'error');
+        } finally {
+            btn.disabled = false;
+            btnText.textContent = 'Lấy thông tin';
+            icon.innerHTML = `<circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/>`;
         }
-    </script>
+    }
+
+    function setField(id, value) {
+        const el = document.getElementById(id);
+        if (el) el.value = value;
+    }
+
+    function autoDetectCategory(name) {
+        if (!name) return;
+        const n = name.toLowerCase();
+        const sel = document.getElementById('fieldCategory');
+        if (!sel || sel.value) return; // don't overwrite if already set
+        if (n.includes('nghị định') || n.includes('nghi dinh') || n.includes('nd10') || n.includes('nd 10'))
+            sel.value = 'Camera Nghị Định 10';
+        else if (n.includes('hành trình') || n.includes('hanh trinh') || n.includes('dashcam') || n.includes('70mai') || n.includes('vietmap'))
+            sel.value = 'Camera Hành Trình';
+        else if (n.includes('màn hình') && n.includes('ô tô'))
+            sel.value = 'Màn Hình Android Ô Tô';
+        else if (n.includes('màn hình') || n.includes('android'))
+            sel.value = 'Màn Hình Android';
+    }
+
+    function showStatus(msg, type) {
+        const el = document.getElementById('scrapeStatus');
+        el.classList.remove('hidden');
+        const styles = {
+            loading: 'bg-blue-500/10 border border-blue-500/20 text-blue-400',
+            success: 'bg-green-500/10 border border-green-500/20 text-green-400',
+            error:   'bg-red-500/10 border border-red-500/20 text-red-400',
+        };
+        el.className = `mt-3 text-sm rounded-lg px-4 py-2.5 ${styles[type] || styles.loading}`;
+        el.textContent = msg;
+    }
+
+    // Enter key on URL input
+    document.getElementById('scrapeUrl').addEventListener('keydown', e => {
+        if (e.key === 'Enter') { e.preventDefault(); doScrape(); }
+    });
+</script>
+<style>
+    @@keyframes spin { to { stroke-dashoffset: 0; } }
+</style>
 }

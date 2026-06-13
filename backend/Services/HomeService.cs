@@ -94,6 +94,41 @@ public class HomeService
         }).ToArray();
     }
 
+    public async Task<object?> GetNewsDetailAsync(int id)
+    {
+        var news = await _db.News.FindAsync(id);
+        if (news == null) return null;
+        return new
+        {
+            Id       = news.Id,
+            Title    = news.Title ?? "",
+            Summary  = news.Summary ?? "",
+            Content  = news.Content ?? "",
+            Img      = news.Img ?? GetHeroImage(),
+            Date     = news.CreatedAt.ToString("dd MMMM yyyy", new System.Globalization.CultureInfo("vi-VN")),
+            Category = GuessCategoryName(news.Title ?? ""),
+            ReadTime = EstimateReadTime(news.Content),
+        };
+    }
+
+    public async Task<object[]> GetRelatedNewsAsync(int currentId)
+    {
+        var news = await _db.News
+            .Where(n => n.IsActive && n.Id != currentId)
+            .OrderByDescending(n => n.CreatedAt)
+            .Take(3)
+            .ToListAsync();
+        return news.Select(n => (object)new
+        {
+            Id      = n.Id,
+            Title   = n.Title ?? "",
+            Excerpt = n.Summary ?? "",
+            Image   = n.Img ?? GetHeroImage(),
+            Date    = n.CreatedAt.ToString("dd/MM/yyyy"),
+            Tag     = GuessCategoryName(n.Title ?? ""),
+        }).ToArray();
+    }
+
     public async Task<object[]> GetArticlesAsync()
     {
         var news = await _db.News

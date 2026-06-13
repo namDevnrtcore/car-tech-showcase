@@ -1,0 +1,152 @@
+@{
+    dynamic news        = ViewBag.News;
+    var relatedNews     = ViewBag.RelatedNews as IEnumerable<dynamic> ?? Enumerable.Empty<dynamic>();
+    string content      = (string)(news.Content ?? "");
+    string[] paragraphs = content.Split(new[] { "\n\n", "\r\n\r\n" }, StringSplitOptions.RemoveEmptyEntries);
+    if (paragraphs.Length == 0 && !string.IsNullOrWhiteSpace(content))
+        paragraphs = content.Split(new[] { "\n", "\r\n" }, StringSplitOptions.RemoveEmptyEntries);
+}
+
+<!-- Hero image -->
+<div class="relative w-full h-72 md:h-96 overflow-hidden bg-card">
+    <img src="@news.Img" alt="@news.Title"
+         class="w-full h-full object-cover"
+         onerror="this.src='/images/hero-car-screen.jpg'" />
+    <div class="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent"></div>
+</div>
+
+<div class="container mx-auto px-4 max-w-4xl -mt-20 relative z-10 pb-24">
+
+    <!-- Article header -->
+    <div class="mb-8">
+        <!-- Breadcrumb -->
+        <div class="flex items-center gap-2 text-sm text-muted-foreground mb-5">
+            <a href="/" class="hover:text-primary transition-colors">Trang chủ</a>
+            <span>/</span>
+            <a href="/News" class="hover:text-primary transition-colors">Tin tức</a>
+            <span>/</span>
+            <span class="text-foreground line-clamp-1">@news.Title</span>
+        </div>
+
+        <div class="flex flex-wrap items-center gap-3 mb-4">
+            <span class="px-3 py-1 rounded-full bg-primary/10 text-primary text-sm font-medium">@news.Category</span>
+            <span class="text-sm text-muted-foreground flex items-center gap-1.5">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>
+                @news.Date
+            </span>
+            <span class="text-sm text-muted-foreground flex items-center gap-1.5">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                @news.ReadTime
+            </span>
+        </div>
+
+        <h1 class="text-3xl md:text-4xl font-bold leading-tight mb-5">@news.Title</h1>
+
+        <p class="text-lg text-muted-foreground leading-relaxed border-l-4 border-primary pl-5">
+            @news.Summary
+        </p>
+    </div>
+
+    <!-- Article content -->
+    <article class="prose max-w-none mb-16">
+        @if (paragraphs.Length > 0)
+        {
+            foreach (var para in paragraphs)
+            {
+                var trimmed = para.Trim();
+                if (string.IsNullOrEmpty(trimmed)) continue;
+
+                @* Check if it looks like a header (short line ending with :) *@
+                if (trimmed.Length < 80 && (trimmed.EndsWith(":") || trimmed.StartsWith("Lỗi") || trimmed.StartsWith("Bước") || trimmed.All(c => char.IsUpper(c) || c == ' ' || c == '/' || c == '.' || c == 'Đ')))
+                {
+                    <h3 class="text-xl font-bold text-foreground mt-8 mb-3">@trimmed</h3>
+                }
+                else
+                {
+                    <p class="text-base text-muted-foreground leading-relaxed mb-5">@trimmed</p>
+                }
+            }
+        }
+        else
+        {
+            <p class="text-muted-foreground italic">Nội dung đang được cập nhật...</p>
+        }
+    </article>
+
+    <!-- Share & back -->
+    <div class="flex items-center justify-between py-5 border-t border-border mb-16">
+        <a href="/News" class="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>
+            Quay lại danh sách tin tức
+        </a>
+        <div class="flex items-center gap-2">
+            <span class="text-xs text-muted-foreground mr-1">Chia sẻ:</span>
+            <a href="https://www.facebook.com/sharer/sharer.php?u=@Uri.EscapeDataString($"http://localhost:5193/News/Detail/{(int)news.Id}")"
+               target="_blank" rel="noopener"
+               class="w-8 h-8 rounded-lg bg-secondary hover:bg-primary hover:text-white flex items-center justify-center transition-colors">
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            </a>
+            <button onclick="copyLink()" title="Sao chép link"
+                    class="w-8 h-8 rounded-lg bg-secondary hover:bg-muted flex items-center justify-center transition-colors">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+            </button>
+        </div>
+    </div>
+
+    <!-- CTA: Xem sản phẩm liên quan -->
+    <div class="glass-card border-border rounded-2xl p-7 mb-16 text-center">
+        <h3 class="text-xl font-bold mb-2">Tìm hiểu sản phẩm phù hợp?</h3>
+        <p class="text-muted-foreground text-sm mb-5">Xem danh sách sản phẩm hoặc liên hệ để được tư vấn miễn phí.</p>
+        <div class="flex flex-col sm:flex-row gap-3 justify-center">
+            <a href="/Products" class="inline-flex items-center justify-center gap-2 px-6 py-3 bg-primary text-white rounded-xl font-semibold hover:opacity-90 transition-opacity">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+                Xem sản phẩm
+            </a>
+            <a href="/Contact" class="inline-flex items-center justify-center gap-2 px-6 py-3 border border-border rounded-xl font-medium hover:bg-secondary transition-colors">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                Tư vấn miễn phí
+            </a>
+        </div>
+    </div>
+
+    <!-- Related news -->
+    @if (relatedNews.Any())
+    {
+        <div>
+            <h2 class="text-2xl font-bold mb-7">Bài viết <span class="text-gradient">liên quan</span></h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                @foreach (dynamic rn in relatedNews)
+                {
+                    <a href="/News/Detail/@rn.Id" class="glass-card border-border overflow-hidden group hover-lift block">
+                        <div class="aspect-video overflow-hidden">
+                            <img src="@rn.Image" alt="@rn.Title"
+                                 class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                                 onerror="this.src='/images/hero-car-screen.jpg'" />
+                        </div>
+                        <div class="p-4">
+                            <div class="flex items-center gap-2 mb-2">
+                                <span class="text-xs text-primary font-medium">@rn.Tag</span>
+                                <span class="text-xs text-muted-foreground">@rn.Date</span>
+                            </div>
+                            <h3 class="font-semibold text-sm line-clamp-2 group-hover:text-primary transition-colors">@rn.Title</h3>
+                        </div>
+                    </a>
+                }
+            </div>
+        </div>
+    }
+</div>
+
+@section Scripts {
+    <script>
+        function copyLink() {
+            navigator.clipboard.writeText(window.location.href).then(function() {
+                var btn = event.currentTarget;
+                btn.innerHTML = '<svg class="w-4 h-4 text-green-400" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>';
+                setTimeout(function() {
+                    btn.innerHTML = '<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>';
+                }, 2000);
+            });
+        }
+    </script>
+}

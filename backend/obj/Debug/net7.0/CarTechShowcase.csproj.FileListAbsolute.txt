@@ -75,3 +75,4 @@ D:\Learn\car-tech-showcase\backend\obj\Debug\net7.0\refint\CarTechShowcase.dll
 D:\Learn\car-tech-showcase\backend\obj\Debug\net7.0\CarTechShowcase.pdb
 D:\Learn\car-tech-showcase\backend\obj\Debug\net7.0\CarTechShowcase.genruntimeconfig.cache
 D:\Learn\car-tech-showcase\backend\obj\Debug\net7.0\ref\CarTechShowcase.dll
+D:\Learn\car-tech-showcase\backend\bin\Debug\net7.0\HtmlAgilityPack.dll

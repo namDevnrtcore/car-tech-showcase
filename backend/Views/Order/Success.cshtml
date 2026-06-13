@@ -1,0 +1,84 @@
+@{
+    var orderId     = TempData["OrderId"];
+    var productName = TempData["ProductName"] as string ?? "Sản phẩm";
+    var totalAmount = TempData["TotalAmount"] as string ?? "";
+    var fullName    = TempData["FullName"] as string ?? "";
+}
+
+<div class="min-h-screen flex items-center justify-center py-24">
+    <div class="container mx-auto px-4 max-w-lg text-center">
+
+        <!-- Success icon -->
+        <div class="w-24 h-24 rounded-full bg-green-500/10 border-2 border-green-500/30 flex items-center justify-center mx-auto mb-8 animate-pulse">
+            <svg class="w-12 h-12 text-green-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                <polyline points="22 4 12 14.01 9 11.01"/>
+            </svg>
+        </div>
+
+        <h1 class="text-4xl font-bold mb-3">Đặt hàng thành công!</h1>
+        <p class="text-muted-foreground text-lg mb-8">
+            Cảm ơn @(!string.IsNullOrEmpty(fullName) ? $"<strong class=\"text-foreground\">{fullName}</strong>" : "bạn") đã tin tưởng VinMap.<br/>
+            Chúng tôi sẽ gọi xác nhận đơn hàng trong vòng <span class="text-primary font-semibold">15 phút</span>.
+        </p>
+
+        <!-- Order info card -->
+        <div class="glass-card border-border rounded-2xl p-6 mb-8 text-left space-y-4">
+            @if (orderId != null)
+            {
+                <div class="flex items-center justify-between py-2 border-b border-border">
+                    <span class="text-sm text-muted-foreground">Mã đơn hàng</span>
+                    <span class="font-bold text-primary text-lg">#@orderId</span>
+                </div>
+            }
+            <div class="flex items-start justify-between py-2 border-b border-border gap-4">
+                <span class="text-sm text-muted-foreground flex-shrink-0">Sản phẩm</span>
+                <span class="font-medium text-right text-sm">@productName</span>
+            </div>
+            @if (!string.IsNullOrEmpty(totalAmount))
+            {
+                <div class="flex items-center justify-between py-2">
+                    <span class="text-sm text-muted-foreground">Tổng tiền</span>
+                    <span class="font-bold text-xl text-primary">@totalAmount đ</span>
+                </div>
+            }
+        </div>
+
+        <!-- What's next -->
+        <div class="glass-card border-border rounded-2xl p-5 mb-8 text-left">
+            <h3 class="font-semibold mb-3 text-sm">Các bước tiếp theo:</h3>
+            <ol class="space-y-2 text-sm text-muted-foreground">
+                <li class="flex items-center gap-3">
+                    <span class="w-6 h-6 rounded-full bg-primary text-white text-xs flex items-center justify-center font-bold flex-shrink-0">1</span>
+                    Nhân viên VinMap gọi điện xác nhận thông tin đơn hàng
+                </li>
+                <li class="flex items-center gap-3">
+                    <span class="w-6 h-6 rounded-full bg-primary/50 text-white text-xs flex items-center justify-center font-bold flex-shrink-0">2</span>
+                    Thỏa thuận lịch lắp đặt và địa điểm thuận tiện cho bạn
+                </li>
+                <li class="flex items-center gap-3">
+                    <span class="w-6 h-6 rounded-full bg-primary/20 text-white text-xs flex items-center justify-center font-bold flex-shrink-0">3</span>
+                    Kỹ thuật viên lắp đặt miễn phí tận nơi, thanh toán sau khi hài lòng
+                </li>
+            </ol>
+        </div>
+
+        <!-- CTA buttons -->
+        <div class="flex flex-col sm:flex-row gap-3 justify-center">
+            <a href="/Products"
+               class="inline-flex items-center justify-center gap-2 px-6 py-3 bg-primary text-white rounded-xl font-semibold hover:opacity-90 transition-opacity">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+                Tiếp tục mua sắm
+            </a>
+            <a href="/"
+               class="inline-flex items-center justify-center gap-2 px-6 py-3 border border-border rounded-xl font-medium hover:bg-secondary transition-colors">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                Về trang chủ
+            </a>
+        </div>
+
+        <p class="text-xs text-muted-foreground mt-6">
+            Cần hỗ trợ? Gọi ngay <a href="tel:0123456789" class="text-primary hover:underline">0123-456-789</a>
+        </p>
+    </div>
+</div>

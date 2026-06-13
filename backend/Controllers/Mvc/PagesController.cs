@@ -41,6 +41,17 @@ public class NewsMvcController : Controller
     private readonly HomeService _homeService;
     public NewsMvcController(HomeService homeService) => _homeService = homeService;
 
+    [HttpGet("Detail/{id:int}")]
+    public async Task<IActionResult> Detail(int id)
+    {
+        var news = await _homeService.GetNewsDetailAsync(id);
+        if (news == null) return NotFound();
+        ViewData["Title"]    = ((dynamic)news).Title;
+        ViewBag.News         = news;
+        ViewBag.RelatedNews  = await _homeService.GetRelatedNewsAsync(id);
+        return View("~/Views/News/Detail.cshtml");
+    }
+
     [HttpGet("")]
     public async Task<IActionResult> Index(string? category)
     {

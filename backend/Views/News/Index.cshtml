@@ -46,7 +46,7 @@
                         </div>
                         <h2 class="text-3xl font-bold mb-4">@ViewBag.FeaturedArticle.Title</h2>
                         <p class="text-muted-foreground mb-6">@ViewBag.FeaturedArticle.Excerpt</p>
-                        <a href="/News" class="inline-flex items-center px-6 py-2 bg-primary text-white rounded-lg w-fit hover:opacity-90 transition-opacity">
+                        <a href="/News/Detail/@ViewBag.FeaturedArticle.Id" class="inline-flex items-center px-6 py-2 bg-primary text-white rounded-lg w-fit hover:opacity-90 transition-opacity">
                             Đọc thêm
                             <svg class="w-4 h-4 ml-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
                         </a>
@@ -80,10 +80,10 @@
                             <p class="text-sm text-muted-foreground mb-4 line-clamp-3">@article.Excerpt</p>
                             <div class="flex items-center justify-between">
                                 <span class="text-xs text-muted-foreground">@article.ReadTime</span>
-                                <span class="text-primary text-sm font-medium inline-flex items-center group-hover:opacity-80">
+                                <a href="/News/Detail/@article.Id" class="text-primary text-sm font-medium inline-flex items-center group-hover:opacity-80">
                                     Đọc thêm
                                     <svg class="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-                                </span>
+                                </a>
                             </div>
                         </div>
                     </div>

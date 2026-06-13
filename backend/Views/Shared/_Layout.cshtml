@@ -1,3 +1,16 @@
+@inject CarTechShowcase.Services.SiteConfigService _LayoutConfigService
+@{
+    var _layoutCfg = await _LayoutConfigService.GetAsync();
+    var _layoutPhone = _layoutCfg.Phone ?? "0123-456-789";
+    var _layoutPhoneRaw = _layoutPhone.Replace("-", "");
+    var _layoutEmail = _layoutCfg.Email ?? "info@carscreen.vn";
+    var _layoutAddress = _layoutCfg.Address ?? "123 Đường ABC, Quận 1, TP.HCM";
+    var _layoutAbout = _layoutCfg.AboutShort ?? "Chuyên cung cấp màn hình ô tô Android cao cấp, chất lượng hàng đầu với dịch vụ lắp đặt chuyên nghiệp.";
+    var _layoutHoursWeekday = _layoutCfg.WorkingHoursWeekday ?? "Thứ 2 - Thứ 7: 8:00 - 20:00";
+    var _layoutHoursSunday = _layoutCfg.WorkingHoursSunday ?? "Chủ nhật: 9:00 - 18:00";
+    var _layoutFacebook = _layoutCfg.FacebookUrl ?? "#";
+    var _layoutZalo = _layoutCfg.ZaloPhone ?? _layoutPhoneRaw;
+}
 <!DOCTYPE html>
 <html lang="vi">
 <head>
@@ -84,7 +97,7 @@
                 </nav>
 
                 <div class="hidden md:flex items-center gap-3">
-                    <a href="tel:0123456789" class="px-4 py-2 border border-border rounded-lg text-sm hover:bg-secondary transition-colors">Hotline: 0123-456-789</a>
+                    <a href="tel:@_layoutPhoneRaw" class="px-4 py-2 border border-border rounded-lg text-sm hover:bg-secondary transition-colors">Hotline: @_layoutPhone</a>
                 </div>
 
                 <!-- Mobile Menu -->
@@ -99,7 +112,7 @@
                 <a href="/Products" class="block px-4 py-3 rounded-lg mb-2 hover:bg-secondary">Sản phẩm</a>
                 <a href="/News" class="block px-4 py-3 rounded-lg mb-2 hover:bg-secondary">Tin tức</a>
                 <a href="/Contact" class="block px-4 py-3 rounded-lg mb-2 hover:bg-secondary">Liên hệ</a>
-                <a href="tel:0123456789" class="block w-full mt-4 px-4 py-2 bg-primary text-white rounded-lg text-center text-sm">Hotline: 0123-456-789</a>
+                <a href="tel:@_layoutPhoneRaw" class="block w-full mt-4 px-4 py-2 bg-primary text-white rounded-lg text-center text-sm">Hotline: @_layoutPhone</a>
             </div>
         </div>
     </header>
@@ -118,7 +131,7 @@
                     <div class="flex items-center gap-2 mb-4">
                         <img src="/images/logo.svg" alt="VinMap Logo" class="h-10 w-auto" />
                     </div>
-                    <p class="text-muted-foreground text-sm">Chuyên cung cấp màn hình ô tô Android cao cấp, chất lượng hàng đầu với dịch vụ lắp đặt chuyên nghiệp.</p>
+                    <p class="text-muted-foreground text-sm">@_layoutAbout</p>
                 </div>
 
                 <!-- Quick Links -->
@@ -138,15 +151,15 @@
                     <ul class="space-y-3 text-sm">
                         <li class="flex items-center gap-2 text-muted-foreground">
                             <svg class="w-4 h-4 text-primary" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
-                            <span>123 Đường ABC, Quận 1, TP.HCM</span>
+                            <span>@_layoutAddress</span>
                         </li>
                         <li class="flex items-center gap-2 text-muted-foreground">
                             <svg class="w-4 h-4 text-primary" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-                            <a href="tel:0123456789" class="hover:text-primary transition-colors">0123-456-789</a>
+                            <a href="tel:@_layoutPhoneRaw" class="hover:text-primary transition-colors">@_layoutPhone</a>
                         </li>
                         <li class="flex items-center gap-2 text-muted-foreground">
                             <svg class="w-4 h-4 text-primary" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-                            <a href="mailto:info@carscreen.vn" class="hover:text-primary transition-colors">info@carscreen.vn</a>
+                            <a href="mailto:@_layoutEmail" class="hover:text-primary transition-colors">@_layoutEmail</a>
                         </li>
                     </ul>
                 </div>
@@ -155,16 +168,16 @@
                 <div>
                     <h3 class="font-semibold mb-4">Theo dõi chúng tôi</h3>
                     <div class="flex gap-3 mb-4">
-                        <a href="#" class="p-2 rounded-lg bg-secondary hover:bg-primary hover:text-white transition-colors">
+                        <a href="@_layoutFacebook" target="_blank" class="p-2 rounded-lg bg-secondary hover:bg-primary hover:text-white transition-colors">
                             <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
                         </a>
-                        <a href="#" class="p-2 rounded-lg bg-secondary hover:bg-primary hover:text-white transition-colors">
-                            <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+                        <a href="https://zalo.me/@_layoutZalo" target="_blank" class="p-2 rounded-lg bg-secondary hover:bg-primary hover:text-white transition-colors text-xs font-bold flex items-center px-3">
+                            Zalo
                         </a>
                     </div>
                     <p class="text-sm font-semibold mb-2">Giờ làm việc</p>
-                    <p class="text-sm text-muted-foreground">Thứ 2 - Thứ 7: 8:00 - 20:00</p>
-                    <p class="text-sm text-muted-foreground">Chủ nhật: 9:00 - 18:00</p>
+                    <p class="text-sm text-muted-foreground">@_layoutHoursWeekday</p>
+                    <p class="text-sm text-muted-foreground">@_layoutHoursSunday</p>
                 </div>
             </div>
 
