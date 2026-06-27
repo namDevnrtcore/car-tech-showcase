@@ -2999,11 +2999,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Learn\\car-tech-showcase\\backend\\CarTechShowcase.csproj",
+      "projectUniqueName": "D:\\Learn\\web\\car-tech-showcase\\backend\\CarTechShowcase.csproj",
       "projectName": "CarTechShowcase",
-      "projectPath": "D:\\Learn\\car-tech-showcase\\backend\\CarTechShowcase.csproj",
+      "projectPath": "D:\\Learn\\web\\car-tech-showcase\\backend\\CarTechShowcase.csproj",
       "packagesPath": "C:\\Users\\hahoa\\.nuget\\packages\\",
-      "outputPath": "D:\\Learn\\car-tech-showcase\\backend\\obj\\",
+      "outputPath": "D:\\Learn\\web\\car-tech-showcase\\backend\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

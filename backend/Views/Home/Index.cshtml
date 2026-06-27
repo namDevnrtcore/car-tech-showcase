@@ -82,7 +82,7 @@
         </div>
     </section>
 
-    <!-- Categories + Products -->
+    <!-- Categories + Products Carousel -->
     <section class="py-16 bg-card/50">
         <div class="container mx-auto px-4">
             <div class="text-center mb-12">
@@ -93,13 +93,28 @@
 
             @if (ViewBag.Categories != null)
             {
+                int catIdx = 0;
                 foreach (dynamic category in ViewBag.Categories)
                 {
+                    string trackId = $"cat-track-{catIdx}";
+                    var products = (IEnumerable<dynamic>)category.Products;
+                    int count = 0;
+                    foreach (var _ in products) count++;
+
                     <div class="mb-16">
                         <div class="flex items-center gap-4 mb-8">
                             <span class="text-4xl">@category.Icon</span>
                             <div><h3 class="text-2xl font-bold">@category.Name</h3></div>
-                            <div class="ml-auto">
+                            <div class="ml-auto flex items-center gap-3">
+                                <!-- Manual prev/next -->
+                                <button onclick="carouselStep('@trackId', @count, -1)"
+                                        class="w-8 h-8 rounded-full border border-border flex items-center justify-center text-muted hover:text-white hover:border-primary transition-colors">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>
+                                </button>
+                                <button onclick="carouselStep('@trackId', @count, 1)"
+                                        class="w-8 h-8 rounded-full border border-border flex items-center justify-center text-muted hover:text-white hover:border-primary transition-colors">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
+                                </button>
                                 <a href="/Products" class="inline-flex items-center px-4 py-2 border border-border rounded-lg text-sm hover:bg-secondary transition-colors">
                                     Xem tất cả
                                     <svg class="w-4 h-4 ml-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
@@ -107,30 +122,127 @@
                             </div>
                         </div>
 
-                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                            @foreach (dynamic product in category.Products)
-                            {
-                                <div class="hover-lift glass-card border-border rounded-xl overflow-hidden group">
-                                    <div class="aspect-video overflow-hidden bg-white">
-                                        <img src="@product.Image" alt="@product.Name" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
-                                    </div>
-                                    <div class="p-5">
-                                        <h4 class="text-lg font-semibold mb-1">@product.Name</h4>
-                                        <p class="text-sm text-muted-foreground mb-3">@product.Specs</p>
-                                        <div class="flex items-center justify-between">
-                                            <span class="text-xl font-bold text-primary">@product.Price</span>
-                                            <a href="/Products/Detail/@product.Id" class="inline-flex items-center px-4 py-2 bg-primary text-white rounded-lg text-sm hover:opacity-90 transition-opacity">Xem chi tiết</a>
+                        <!-- Carousel -->
+                        <div class="overflow-hidden">
+                            <div id="@trackId" class="flex gap-6" style="transition:transform 0.7s cubic-bezier(.4,0,.2,1);will-change:transform">
+                                @foreach (dynamic product in category.Products)
+                                {
+                                    <!-- Original cards -->
+                                    <div class="flex-none w-[calc(33.333%-16px)] min-w-[260px] hover-lift glass-card border-border rounded-xl overflow-hidden group">
+                                        <div class="aspect-video overflow-hidden bg-white relative">
+                                            <img src="@product.Image" alt="@product.Name"
+                                                 class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+                                        </div>
+                                        <div class="p-5">
+                                            <h4 class="text-base font-semibold mb-1 line-clamp-2 leading-snug">@product.Name</h4>
+                                            <p class="text-xs text-muted-foreground mb-3 line-clamp-2">@product.Specs</p>
+                                            <div class="flex items-center justify-between">
+                                                <span class="text-lg font-bold text-primary">@product.Price</span>
+                                                <a href="/Products/Detail/@product.Id" class="inline-flex items-center px-3 py-1.5 bg-primary text-white rounded-lg text-xs hover:opacity-90 transition-opacity">Xem chi tiết</a>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            }
+                                }
+                                @foreach (dynamic product in category.Products)
+                                {
+                                    <!-- Clone cards for seamless loop -->
+                                    <div class="flex-none w-[calc(33.333%-16px)] min-w-[260px] hover-lift glass-card border-border rounded-xl overflow-hidden group" aria-hidden="true">
+                                        <div class="aspect-video overflow-hidden bg-white">
+                                            <img src="@product.Image" alt="" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+                                        </div>
+                                        <div class="p-5">
+                                            <h4 class="text-base font-semibold mb-1 line-clamp-2 leading-snug">@product.Name</h4>
+                                            <p class="text-xs text-muted-foreground mb-3 line-clamp-2">@product.Specs</p>
+                                            <div class="flex items-center justify-between">
+                                                <span class="text-lg font-bold text-primary">@product.Price</span>
+                                                <a href="/Products/Detail/@product.Id" class="inline-flex items-center px-3 py-1.5 bg-primary text-white rounded-lg text-xs hover:opacity-90 transition-opacity">Xem chi tiết</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                            </div>
                         </div>
-                        <div class="border-b border-border mt-10" />
+
+                        <div class="border-b border-border mt-10"></div>
                     </div>
+
+                    catIdx++;
                 }
             }
         </div>
     </section>
+
+    <script>
+    (function() {
+        // carousels[trackId] = { pos, count, timer }
+        const state = {};
+
+        function getCardWidth(track) {
+            const card = track.children[0];
+            if (!card) return 0;
+            const r = card.getBoundingClientRect();
+            const gap = parseFloat(getComputedStyle(track).gap) || 24;
+            return r.width + gap;
+        }
+
+        window.carouselStep = function(id, count, dir) {
+            const s = state[id];
+            if (!s) return;
+            // Reset timer on manual click
+            clearInterval(s.timer);
+            applySlide(id, count, s.pos + dir);
+            s.timer = setInterval(() => applySlide(id, count, state[id].pos + 1), 5000);
+        };
+
+        function applySlide(id, count, nextPos) {
+            const track = document.getElementById(id);
+            if (!track) return;
+            const s = state[id];
+
+            // Wrap pos within [0, count)
+            if (nextPos >= count) {
+                // Snap to 0 without animation then slide to 1
+                track.style.transition = 'none';
+                track.style.transform  = 'translateX(0)';
+                s.pos = 0;
+                requestAnimationFrame(() => requestAnimationFrame(() => {
+                    track.style.transition = 'transform 0.7s cubic-bezier(.4,0,.2,1)';
+                    // Don't slide again immediately; next tick will advance
+                }));
+                return;
+            }
+            if (nextPos < 0) {
+                nextPos = count - 1;
+            }
+
+            s.pos = nextPos;
+            const offset = nextPos * getCardWidth(track);
+            track.style.transition = 'transform 0.7s cubic-bezier(.4,0,.2,1)';
+            track.style.transform  = `translateX(-${offset}px)`;
+        }
+
+        function initCarousel(id, count) {
+            if (count < 1) return;
+            state[id] = { pos: 0, count, timer: null };
+            state[id].timer = setInterval(() => applySlide(id, count, state[id].pos + 1), 5000);
+        }
+
+        // Init all carousels after DOM ready
+        document.addEventListener('DOMContentLoaded', function() {
+            @if (ViewBag.Categories != null)
+            {
+                int idx2 = 0;
+                foreach (dynamic cat2 in ViewBag.Categories)
+                {
+                    var prods2 = (IEnumerable<dynamic>)cat2.Products;
+                    int cnt2 = 0; foreach (var _ in prods2) cnt2++;
+                    @:initCarousel('cat-track-@idx2', @cnt2);
+                    idx2++;
+                }
+            }
+        });
+    })();
+    </script>
 
     <!-- Latest News -->
     <section class="py-16 bg-card/50">

@@ -64,13 +64,15 @@ public class HomeService
             Name        = g.Key,
             Icon        = GetCategoryIcon(g.Key),
             Description = GetCategoryDescription(g.Key),
-            Products    = g.Take(3).Select(p => new
+            Products    = g.Select(p => new
             {
-                Id    = p.Id,
-                Name  = p.ProductName,
-                Price = FormatPrice((long)(p.Price ?? 0)),
-                Specs = p.Spec ?? "",
-                Image = p.Img ?? "",
+                Id     = p.Id,
+                Name   = p.ProductName,
+                Price  = FormatPrice((long)(p.Price ?? 0)),
+                Specs  = p.Spec ?? "",
+                Image  = p.Img ?? "",
+                Image2 = p.Img2 ?? "",
+                Image3 = p.Img3 ?? "",
             }).ToArray(),
         }).ToArray();
     }

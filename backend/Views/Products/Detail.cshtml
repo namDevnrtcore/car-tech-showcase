@@ -46,34 +46,13 @@
             <div>
                 <h1 class="text-4xl font-bold mb-4">@product.Name</h1>
 
-                <div class="flex items-center gap-4 mb-6">
-                    <div class="flex items-center gap-1">
-                        @for (int i = 0; i < 5; i++)
-                        {
-                            <svg class="w-5 h-5 @(i < (int)Math.Floor((double)product.Rating) ? "fill-primary text-primary" : "text-muted-foreground")" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                        }
-                        <span class="ml-2 text-sm text-muted-foreground">@product.Rating (@product.Reviews đánh giá)</span>
-                    </div>
-                    <span class="px-3 py-1 @(product.Status == "Còn hàng" ? "bg-green-900/30 text-green-400" : "bg-secondary text-muted-foreground") rounded-full text-sm font-medium">@product.Status</span>
+                <div class="mb-2">
+                    <span class="px-3 py-1 bg-green-900/30 text-green-400 rounded-full text-sm font-medium">@product.Status</span>
                 </div>
 
                 <div class="mb-6">
                     <div class="text-4xl font-bold text-primary mb-2">@string.Format("{0:N0}đ", (long)product.Price)</div>
                     <p class="text-muted-foreground">@product.Description</p>
-                </div>
-
-                <!-- Quick Specs -->
-                <div class="glass-card p-4 mb-6 rounded-xl">
-                    <h3 class="font-semibold mb-3">Thông số nhanh</h3>
-                    <div class="grid grid-cols-2 gap-3 text-sm">
-                        @{
-                            var specs = product.DetailedSpecs;
-                            foreach (var key in specs.Keys)
-                            {
-                                <div><span class="text-muted-foreground">@key:</span><span class="ml-2 font-medium">@specs[key]</span></div>
-                            }
-                        }
-                    </div>
                 </div>
 
                 <!-- CTA Buttons -->
@@ -112,72 +91,16 @@
             </div>
         </div>
 
-        <!-- Tabs: Features / Specs / Reviews -->
-        <div class="mb-16">
-            <!-- Tab buttons -->
-            <div class="grid w-full grid-cols-3 mb-8 bg-secondary rounded-lg p-1">
-                <button onclick="showTab('features')" id="tab-features" class="tab-btn px-4 py-2 rounded-md text-sm font-medium bg-primary text-white transition-colors">Tính năng nổi bật</button>
-                <button onclick="showTab('specs')" id="tab-specs" class="tab-btn px-4 py-2 rounded-md text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">Thông số kỹ thuật</button>
-                <button onclick="showTab('reviews')" id="tab-reviews" class="tab-btn px-4 py-2 rounded-md text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">Đánh giá</button>
-            </div>
-
-            <!-- Features Tab -->
-            <div id="panel-features" class="tab-panel space-y-6">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    @foreach (dynamic feature in product.ProductFeatures)
-                    {
-                        <div class="glass-card border-border rounded-xl p-6">
-                            <div class="flex gap-4">
-                                <div class="flex-shrink-0 w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
-                                    <svg class="w-6 h-6 text-primary" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-                                </div>
-                                <div><h3 class="font-semibold mb-2">@feature.Title</h3><p class="text-sm text-muted-foreground">@feature.Description</p></div>
-                            </div>
-                        </div>
-                    }
+        <!-- Mô tả sản phẩm chi tiết -->
+        @if (!string.IsNullOrEmpty((string)product.ContentHtml))
+        {
+            <div class="mb-16 glass-card border-border rounded-2xl p-8">
+                <h2 class="text-2xl font-bold mb-6 pb-4 border-b border-border">Mô tả sản phẩm</h2>
+                <div class="product-content prose-content">
+                    @Html.Raw(product.ContentHtml)
                 </div>
             </div>
-
-            <!-- Specs Tab -->
-            <div id="panel-specs" class="tab-panel hidden">
-                <div class="glass-card border-border rounded-xl p-6">
-                    <div class="space-y-4">
-                        @{
-                            var detailedSpecs = product.DetailedSpecs;
-                            foreach (var key in detailedSpecs.Keys)
-                            {
-                                <div class="flex justify-between py-3 border-b border-border last:border-0">
-                                    <span class="font-medium capitalize">@key:</span>
-                                    <span class="text-muted-foreground">@detailedSpecs[key]</span>
-                                </div>
-                            }
-                        }
-                    </div>
-                </div>
-            </div>
-
-            <!-- Reviews Tab -->
-            <div id="panel-reviews" class="tab-panel hidden space-y-6">
-                <div class="glass-card border-border rounded-xl p-6">
-                    <div class="flex items-center gap-4 mb-4">
-                        <div class="flex gap-1">
-                            @for (int i = 0; i < 5; i++) { <svg class="w-5 h-5 fill-primary text-primary" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg> }
-                        </div>
-                        <span class="font-semibold">Anh Tuấn - Toyota Camry</span>
-                    </div>
-                    <p class="text-muted-foreground">Màn hình rất mượt, giao diện đẹp. Âm thanh chất lượng tốt. Đội ngũ lắp đặt chuyên nghiệp, tư vấn nhiệt tình. Rất hài lòng với sản phẩm!</p>
-                </div>
-                <div class="glass-card border-border rounded-xl p-6">
-                    <div class="flex items-center gap-4 mb-4">
-                        <div class="flex gap-1">
-                            @for (int i = 0; i < 5; i++) { <svg class="w-5 h-5 fill-primary text-primary" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg> }
-                        </div>
-                        <span class="font-semibold">Chị Hương - Honda CR-V</span>
-                    </div>
-                    <p class="text-muted-foreground">Sản phẩm chất lượng, giá cả hợp lý. Kết nối CarPlay rất tiện lợi. Camera lùi hiển thị rõ nét. Đã giới thiệu cho nhiều người bạn!</p>
-                </div>
-            </div>
-        </div>
+        }
 
         <!-- Related Products -->
         <div>
@@ -217,16 +140,17 @@
             btn.classList.remove('border-transparent');
             btn.classList.add('border-primary', 'scale-105');
         }
-        function showTab(name) {
-            document.querySelectorAll('.tab-panel').forEach(function(p) { p.classList.add('hidden'); });
-            document.querySelectorAll('.tab-btn').forEach(function(b) {
-                b.classList.remove('bg-primary', 'text-white');
-                b.classList.add('text-muted-foreground');
-            });
-            document.getElementById('panel-' + name).classList.remove('hidden');
-            var btn = document.getElementById('tab-' + name);
-            btn.classList.add('bg-primary', 'text-white');
-            btn.classList.remove('text-muted-foreground');
-        }
     </script>
+    <style>
+        .product-content { color: #d1d5db; line-height: 1.8; }
+        .product-content h2 { font-size: 1.3em; font-weight: 700; color: #fff; margin: 1.5rem 0 0.75rem; }
+        .product-content h3 { font-size: 1.1em; font-weight: 600; color: #fff; margin: 1.25rem 0 0.6rem; }
+        .product-content p  { margin-bottom: 0.9rem; }
+        .product-content ul, .product-content ol { padding-left: 1.4rem; margin-bottom: 0.9rem; }
+        .product-content li { margin-bottom: 0.35rem; }
+        .product-content table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: 0.9em; }
+        .product-content td, .product-content th { border: 1px solid #333; padding: 8px 12px; }
+        .product-content strong { color: #fff; font-weight: 600; }
+        .product-content a { color: #ff6b00; }
+    </style>
 }

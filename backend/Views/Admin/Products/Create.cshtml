@@ -5,7 +5,7 @@
     string[] cats = ViewBag.Categories as string[] ?? Array.Empty<string>();
 }
 
-<div class="max-w-2xl">
+<div class="max-w-3xl">
     <div class="flex items-center gap-2 mb-5 text-sm">
         <a href="/Admin/Products" class="text-muted hover:text-white transition-colors">Sản phẩm</a>
         <span class="text-border">›</span>
@@ -22,7 +22,6 @@
             <span class="text-sm font-semibold text-white">Import từ URL sản phẩm</span>
             <span class="text-[11px] text-muted ml-1">— dán link từ website bất kỳ</span>
         </div>
-
         <div class="flex gap-2">
             <input type="url" id="scrapeUrl" placeholder="https://navicom.vn/camera-hanh-trinh-..."
                    class="form-input flex-1" />
@@ -34,22 +33,12 @@
                 <span id="scrapeBtnText">Lấy thông tin</span>
             </button>
         </div>
-
         <div id="scrapeStatus" class="hidden mt-3 text-sm rounded-lg px-4 py-2.5"></div>
-
-        <!-- Preview ảnh scrape -->
-        <div id="scrapeImgPreviewBox" class="hidden mt-3 flex items-center gap-3 p-3 rounded-lg bg-[#141414] border border-[#333]">
-            <img id="scrapeImgPreview" src="" class="w-20 h-20 object-cover rounded-lg flex-shrink-0 border border-[#333]" />
-            <div>
-                <p class="text-xs text-muted mb-1">Ảnh đã tải về:</p>
-                <p id="scrapeImgPath" class="text-xs text-brand font-mono"></p>
-                <p class="text-[11px] text-muted mt-1">Ảnh được lưu vào /images/ — có thể đổi thủ công bên dưới nếu cần</p>
-            </div>
-        </div>
     </div>
 
     <!-- Product form -->
-    <form method="post" action="/Admin/Products/Create" class="space-y-4">
+    <form method="post" action="/Admin/Products/Create" id="productForm" class="space-y-4"
+          onsubmit="if(typeof tinymce!=='undefined') tinymce.triggerSave()">
         @Html.AntiForgeryToken()
 
         <div class="card space-y-4">
@@ -59,10 +48,8 @@
                 <div class="col-span-2">
                     <label class="form-label">Tên sản phẩm <span class="text-red-400">*</span></label>
                     <input type="text" name="ProductName" id="fieldName" value="@Model.ProductName" required
-                           placeholder="VD: Camera 70mai A800S 4K"
-                           class="form-input" />
+                           placeholder="VD: Camera 70mai A800S 4K" class="form-input" />
                 </div>
-
                 <div>
                     <label class="form-label">Danh mục <span class="text-red-400">*</span></label>
                     <select name="Category" id="fieldCategory" class="form-input">
@@ -73,26 +60,74 @@
                         }
                     </select>
                 </div>
-
                 <div>
                     <label class="form-label">Giá (đồng)</label>
                     <input type="number" name="Price" id="fieldPrice" value="@Model.Price" min="0" step="1000"
-                           placeholder="VD: 2990000"
-                           class="form-input" />
+                           placeholder="VD: 2990000" class="form-input" />
                 </div>
             </div>
 
+            <!-- Ảnh đại diện -->
             <div>
-                <label class="form-label">Ảnh sản phẩm</label>
-                <div class="flex gap-3 items-start">
-                    <input type="text" name="Img" id="imgInput" value="@Model.Img"
-                           placeholder="/images/product-1.jpg"
-                           class="form-input" oninput="previewImg(this.value)" />
-                    <img id="imgPreview" src="@(Model.Img ?? "/images/product-1.jpg")"
-                         class="w-16 h-16 rounded-lg object-cover bg-surface flex-shrink-0 border border-border"
-                         onerror="this.src='/images/product-1.jpg'" />
+                <label class="form-label">Ảnh đại diện <span class="text-red-400">*</span></label>
+                <div class="flex gap-3 items-center">
+                    <img id="prev0" src="" class="w-20 h-20 rounded-lg object-cover border border-border flex-shrink-0 bg-surface"
+                         onerror="this.src=''" style="display:none" />
+                    <div id="prev0empty" class="w-20 h-20 rounded-lg border border-dashed border-border flex-shrink-0 bg-surface flex items-center justify-center">
+                        <svg class="w-6 h-6 text-muted" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+                    </div>
+                    <div class="flex-1">
+                        <input type="text" name="Img" id="imgInput0" value="@Model.Img"
+                               placeholder="/images/product-xxx.jpg" class="form-input mb-2"
+                               oninput="onPathInput(0, this.value)" />
+                        <label class="inline-flex items-center gap-1.5 cursor-pointer text-xs bg-brand/15 hover:bg-brand/25 text-brand px-3 py-1.5 rounded-md transition">
+                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+                            Chọn ảnh từ máy
+                            <input type="file" accept="image/*" class="hidden" onchange="uploadImg(this, 0)" />
+                        </label>
+                        <span id="upload0" class="hidden ml-2 text-xs text-muted">Đang tải...</span>
+                    </div>
                 </div>
-                <p class="text-[11px] text-muted mt-1">Ảnh local: /images/product-1.jpg đến product-4.jpg — hoặc để nguyên URL ảnh từ import</p>
+            </div>
+
+            <!-- Ảnh đi kèm (tối đa 4) -->
+            <div>
+                <label class="form-label">Ảnh đi kèm (tối đa 4)</label>
+                <div class="grid grid-cols-2 gap-3">
+                    @for (int i = 1; i <= 4; i++)
+                    {
+                        string fieldName = "Img" + (i + 1);
+                        string prevId = "prev" + i;
+                        string emptyId = "prev" + i + "empty";
+                        string inputId = "imgInput" + i;
+                        int slotIndex = i;
+                        string? existingVal = i == 1 ? Model.Img2 : i == 2 ? Model.Img3 : i == 3 ? Model.Img4 : Model.Img5;
+                        <div class="flex items-center gap-2 p-2.5 rounded-lg border border-border bg-[#141414]">
+                            <div class="relative flex-shrink-0">
+                                <img id="@prevId" src="@(existingVal ?? "")" class="w-14 h-14 rounded object-cover border border-border @(string.IsNullOrEmpty(existingVal) ? "hidden" : "")"
+                                     onerror="this.classList.add('hidden');document.getElementById('@emptyId').classList.remove('hidden')" />
+                                <div id="@emptyId" class="w-14 h-14 rounded border border-dashed border-border flex items-center justify-center @(!string.IsNullOrEmpty(existingVal) ? "hidden" : "")">
+                                    <svg class="w-5 h-5 text-muted" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+                                </div>
+                            </div>
+                            <div class="flex-1 min-w-0">
+                                <input type="text" name="@fieldName" id="@inputId" value="@existingVal"
+                                       placeholder="Ảnh @(i)" class="form-input text-xs mb-1.5"
+                                       oninput="onPathInput(@slotIndex, this.value)" />
+                                <div class="flex items-center gap-2">
+                                    <label class="cursor-pointer text-[11px] text-brand hover:underline inline-flex items-center gap-1">
+                                        <svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+                                        Upload
+                                        <input type="file" accept="image/*" class="hidden" onchange="uploadImg(this, @slotIndex)" />
+                                    </label>
+                                    <span id="upload@(i)" class="hidden text-[11px] text-muted">Đang tải...</span>
+                                    <button type="button" onclick="clearSlot(@slotIndex)"
+                                            class="ml-auto text-muted hover:text-red-400 text-xs">✕</button>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
             </div>
 
             <div>
@@ -102,10 +137,16 @@
             </div>
 
             <div>
-                <label class="form-label">Mô tả chi tiết</label>
-                <textarea name="Description" id="fieldDescription" rows="4" placeholder="Mô tả đầy đủ về sản phẩm..."
-                          class="form-input resize-y">@Model.Description</textarea>
+                <label class="form-label">Mô tả ngắn</label>
+                <textarea name="Description" id="fieldDescription" rows="3" placeholder="Mô tả tóm tắt sản phẩm..."
+                          class="form-input resize-none">@Model.Description</textarea>
             </div>
+        </div>
+
+        <!-- Mô tả chi tiết (TinyMCE) -->
+        <div class="card space-y-3">
+            <h3 class="text-sm font-medium text-white border-b border-border pb-3">Mô tả chi tiết</h3>
+            <textarea name="ContentHtml" id="contentHtml">@Model.ContentHtml</textarea>
         </div>
 
         <div class="flex gap-3">
@@ -119,26 +160,98 @@
 </div>
 
 @section Scripts {
+<script src="https://cdn.jsdelivr.net/npm/tinymce@5/tinymce.min.js"></script>
 <script>
-    function previewImg(src) {
-        const img = document.getElementById('imgPreview');
-        img.src = src || '/images/product-1.jpg';
-        img.onerror = () => img.src = '/images/product-1.jpg';
+    // ─── TinyMCE ──────────────────────────────────────────────────────────────
+    tinymce.init({
+        selector: '#contentHtml',
+        base_url: 'https://cdn.jsdelivr.net/npm/tinymce@5',
+        suffix: '.min',
+        height: 520,
+        menubar: true,
+        branding: false,
+        plugins: 'advlist autolink lists link image charmap searchreplace visualblocks code fullscreen insertdatetime media table wordcount',
+        toolbar: 'undo redo | formatselect fontselect fontsizeselect | bold italic underline strikethrough | forecolor backcolor | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | code fullscreen',
+        content_style: 'body { font-family: Arial, sans-serif; font-size: 14px; line-height: 1.7; padding: 12px; }',
+        images_upload_handler: function(blobInfo, success, failure) {
+            const fd = new FormData();
+            fd.append('file', blobInfo.blob(), blobInfo.filename());
+            fetch('/Admin/Products/UploadImage', { method: 'POST', body: fd })
+                .then(r => r.json())
+                .then(d => { if (d.success) success(d.path); else failure(d.error); })
+                .catch(e => failure(e.message));
+        },
+        setup: function(ed) { ed.on('change', () => ed.save()); }
+    });
+
+    // ─── Image slots ──────────────────────────────────────────────────────────
+    const inputIds = ['imgInput0','imgInput1','imgInput2','imgInput3','imgInput4'];
+    const prevIds  = ['prev0','prev1','prev2','prev3','prev4'];
+    const emptyIds = ['prev0empty','prev1empty','prev2empty','prev3empty','prev4empty'];
+
+    function onPathInput(slot, val) {
+        const img = document.getElementById(prevIds[slot]);
+        const empty = document.getElementById(emptyIds[slot]);
+        if (val) {
+            img.src = val;
+            img.classList.remove('hidden');
+            img.style.display = '';
+            if (empty) empty.classList.add('hidden');
+        } else {
+            img.src = '';
+            img.classList.add('hidden');
+            img.style.display = 'none';
+            if (empty) empty.classList.remove('hidden');
+        }
     }
 
+    function clearSlot(slot) {
+        document.getElementById(inputIds[slot]).value = '';
+        onPathInput(slot, '');
+    }
+
+    async function uploadImg(input, slot) {
+        const file = input.files[0];
+        if (!file) return;
+        const spinner = document.getElementById('upload' + slot);
+        if (spinner) { spinner.classList.remove('hidden'); }
+
+        const fd = new FormData();
+        fd.append('file', file);
+        try {
+            const res = await fetch('/Admin/Products/UploadImage', { method: 'POST', body: fd });
+            const data = await res.json();
+            if (data.success) {
+                document.getElementById(inputIds[slot]).value = data.path;
+                onPathInput(slot, data.path);
+            } else {
+                alert('Lỗi upload: ' + data.error);
+            }
+        } catch(e) {
+            alert('Lỗi kết nối: ' + e.message);
+        } finally {
+            if (spinner) spinner.classList.add('hidden');
+            input.value = '';
+        }
+    }
+
+    // Khởi tạo preview cho ảnh đại diện (nếu có sẵn giá trị)
+    (function() {
+        const v = document.getElementById('imgInput0').value;
+        if (v) onPathInput(0, v);
+    })();
+
+    // ─── Scrape ───────────────────────────────────────────────────────────────
     async function doScrape() {
         const url = document.getElementById('scrapeUrl').value.trim();
         if (!url) { showStatus('Vui lòng nhập URL sản phẩm', 'error'); return; }
 
-        // Loading state
         const btn = document.getElementById('scrapeBtn');
         const btnText = document.getElementById('scrapeBtnText');
         const icon = document.getElementById('scrapeIcon');
         btn.disabled = true;
         btnText.textContent = 'Đang lấy...';
-        icon.innerHTML = `<circle cx="12" cy="12" r="10" stroke-dasharray="31.4" stroke-dashoffset="10" style="animation:spin 1s linear infinite;transform-origin:center"/>`;
         showStatus('Đang kết nối tới trang web...', 'loading');
-        document.getElementById('scrapeImgPreviewBox').classList.add('hidden');
 
         try {
             const res = await fetch('/Admin/Products/Scrape', {
@@ -148,61 +261,37 @@
             });
             const data = await res.json();
 
-            if (!data.success) {
-                showStatus('Lỗi: ' + data.error, 'error');
-                return;
-            }
+            if (!data.success) { showStatus('Lỗi: ' + data.error, 'error'); return; }
 
-            // Fill form fields
-            if (data.name)        setField('fieldName', data.name);
-            if (data.price > 0)   setField('fieldPrice', data.price);
-            if (data.description) setField('fieldDescription', data.description);
-            if (data.spec)        setField('fieldSpec', data.spec);
-
-            // Image
+            if (data.name)        document.getElementById('fieldName').value = data.name;
+            if (data.price > 0)   document.getElementById('fieldPrice').value = data.price;
+            if (data.description) document.getElementById('fieldDescription').value = data.description;
+            if (data.spec)        document.getElementById('fieldSpec').value = data.spec;
             if (data.imageUrl) {
-                document.getElementById('imgInput').value = data.imageUrl;
-                previewImg(data.imageUrl);
-                // Show image preview box
-                const box = document.getElementById('scrapeImgPreviewBox');
-                document.getElementById('scrapeImgPreview').src = data.imageUrl;
-                document.getElementById('scrapeImgPath').textContent = data.imageUrl;
-                box.classList.remove('hidden');
+                document.getElementById('imgInput0').value = data.imageUrl;
+                onPathInput(0, data.imageUrl);
             }
-
-            // Auto-detect category from name
             autoDetectCategory(data.name);
 
             const filled = [data.name, data.price > 0, data.description, data.imageUrl].filter(Boolean).length;
             showStatus(`Đã điền ${filled}/4 trường — kiểm tra lại rồi nhấn Lưu sản phẩm`, 'success');
-
         } catch (e) {
             showStatus('Lỗi kết nối: ' + e.message, 'error');
         } finally {
             btn.disabled = false;
             btnText.textContent = 'Lấy thông tin';
-            icon.innerHTML = `<circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/>`;
         }
-    }
-
-    function setField(id, value) {
-        const el = document.getElementById(id);
-        if (el) el.value = value;
     }
 
     function autoDetectCategory(name) {
         if (!name) return;
         const n = name.toLowerCase();
         const sel = document.getElementById('fieldCategory');
-        if (!sel || sel.value) return; // don't overwrite if already set
-        if (n.includes('nghị định') || n.includes('nghi dinh') || n.includes('nd10') || n.includes('nd 10'))
-            sel.value = 'Camera Nghị Định 10';
-        else if (n.includes('hành trình') || n.includes('hanh trinh') || n.includes('dashcam') || n.includes('70mai') || n.includes('vietmap'))
-            sel.value = 'Camera Hành Trình';
-        else if (n.includes('màn hình') && n.includes('ô tô'))
-            sel.value = 'Màn Hình Android Ô Tô';
-        else if (n.includes('màn hình') || n.includes('android'))
-            sel.value = 'Màn Hình Android';
+        if (!sel || sel.value) return;
+        if (n.includes('nghị định') || n.includes('nd10')) sel.value = 'Camera Nghị Định 10';
+        else if (n.includes('hành trình') || n.includes('dashcam') || n.includes('70mai')) sel.value = 'Camera Hành Trình';
+        else if (n.includes('màn hình') && n.includes('ô tô')) sel.value = 'Màn Hình Android Ô Tô';
+        else if (n.includes('màn hình') || n.includes('android')) sel.value = 'Màn Hình Android';
     }
 
     function showStatus(msg, type) {
@@ -217,12 +306,8 @@
         el.textContent = msg;
     }
 
-    // Enter key on URL input
     document.getElementById('scrapeUrl').addEventListener('keydown', e => {
         if (e.key === 'Enter') { e.preventDefault(); doScrape(); }
     });
 </script>
-<style>
-    @@keyframes spin { to { stroke-dashoffset: 0; } }
-</style>
 }

@@ -1,14 +1,15 @@
 @using CarTechShowcase.Models
 @model News
 
-<div class="max-w-2xl">
+<div class="max-w-4xl">
     <div class="flex items-center gap-2 mb-5 text-sm">
         <a href="/Admin/News" class="text-muted hover:text-white transition-colors">Tin tức</a>
         <span class="text-border">›</span>
         <span class="text-white line-clamp-1">Sửa — @Model.Title</span>
     </div>
 
-    <form method="post" action="/Admin/News/Edit/@Model.Id" class="space-y-4">
+    <form method="post" action="/Admin/News/Edit/@Model.Id" class="space-y-4"
+          onsubmit="if(typeof tinymce!=='undefined') tinymce.triggerSave()">
         @Html.AntiForgeryToken()
         <input type="hidden" name="Id" value="@Model.Id" />
         <input type="hidden" name="CreatedAt" value="@Model.CreatedAt.ToString("o")" />
@@ -23,13 +24,23 @@
                 <input type="text" name="Title" value="@Model.Title" class="form-input" />
             </div>
 
+            <!-- Ảnh bìa -->
             <div>
-                <label class="form-label">Ảnh bài viết</label>
+                <label class="form-label">Ảnh bìa</label>
                 <div class="flex gap-3 items-start">
-                    <input type="text" name="Img" id="imgInput" value="@Model.Img"
-                           class="form-input" oninput="previewImg(this.value)" />
+                    <div class="flex-1">
+                        <div class="flex gap-2">
+                            <input type="text" name="Img" id="imgInput" value="@Model.Img"
+                                   placeholder="/images/..." class="form-input"
+                                   oninput="document.getElementById('imgPreview').src=this.value||'/images/hero-car-screen.jpg'" />
+                            <label class="btn-secondary cursor-pointer whitespace-nowrap">
+                                Tải ảnh lên
+                                <input type="file" accept="image/*" class="hidden" onchange="uploadImg(this)" />
+                            </label>
+                        </div>
+                    </div>
                     <img id="imgPreview" src="@(Model.Img ?? "/images/hero-car-screen.jpg")"
-                         class="w-20 h-14 rounded-lg object-cover bg-surface flex-shrink-0 border border-border"
+                         class="w-24 h-16 rounded-lg object-cover bg-surface flex-shrink-0 border border-border"
                          onerror="this.src='/images/hero-car-screen.jpg'" />
                 </div>
             </div>
@@ -40,8 +51,8 @@
             </div>
 
             <div>
-                <label class="form-label">Nội dung đầy đủ</label>
-                <textarea name="Content" rows="10" class="form-input resize-y font-mono text-xs">@Model.Content</textarea>
+                <label class="form-label">Nội dung bài viết</label>
+                <textarea name="Content" id="newsContent">@Html.Raw(Model.Content)</textarea>
             </div>
 
             <div class="flex items-center gap-3 pt-1">
@@ -72,11 +83,39 @@
 </div>
 
 @section Scripts {
-    <script>
-        function previewImg(src) {
-            const img = document.getElementById('imgPreview');
-            img.src = src || '/images/hero-car-screen.jpg';
-            img.onerror = () => img.src = '/images/hero-car-screen.jpg';
-        }
-    </script>
+<script src="https://cdn.jsdelivr.net/npm/tinymce@5/tinymce.min.js"></script>
+<script>
+tinymce.init({
+    selector: '#newsContent',
+    base_url: 'https://cdn.jsdelivr.net/npm/tinymce@5',
+    height: 500,
+    menubar: true,
+    plugins: 'lists link image table code fullscreen',
+    toolbar: 'undo redo | formatselect | bold italic underline | forecolor backcolor | alignleft aligncenter alignright | bullist numlist | link image table | code fullscreen',
+    skin: 'oxide-dark',
+    content_css: 'dark',
+    images_upload_handler: function(blobInfo, success, failure) {
+        var fd = new FormData();
+        fd.append('file', blobInfo.blob(), blobInfo.filename());
+        fetch('/Admin/News/UploadImage', { method: 'POST', body: fd })
+            .then(r => r.json())
+            .then(d => { if (d.success) success(d.path); else failure(d.error); })
+            .catch(() => failure('Upload thất bại'));
+    }
+});
+
+async function uploadImg(input) {
+    if (!input.files[0]) return;
+    var fd = new FormData();
+    fd.append('file', input.files[0]);
+    var r = await fetch('/Admin/News/UploadImage', { method: 'POST', body: fd });
+    var d = await r.json();
+    if (d.success) {
+        document.getElementById('imgInput').value = d.path;
+        document.getElementById('imgPreview').src = d.path;
+    } else {
+        alert(d.error);
+    }
+}
+</script>
 }

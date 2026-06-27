@@ -29,8 +29,23 @@ public class Product
     [Column(TypeName = "nvarchar(700)")]
     public string? Img { get; set; }
 
+    [Column(TypeName = "nvarchar(700)")]
+    public string? Img2 { get; set; }
+
+    [Column(TypeName = "nvarchar(700)")]
+    public string? Img3 { get; set; }
+
+    [Column(TypeName = "nvarchar(700)")]
+    public string? Img4 { get; set; }
+
+    [Column(TypeName = "nvarchar(700)")]
+    public string? Img5 { get; set; }
+
     [Column(TypeName = "nvarchar(max)")]
     public string? Spec { get; set; }
+
+    [Column(TypeName = "nvarchar(max)")]
+    public string? ContentHtml { get; set; }
 
     public bool IsActive { get; set; } = true;
 }

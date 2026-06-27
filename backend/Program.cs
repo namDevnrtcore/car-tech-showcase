@@ -66,7 +66,9 @@ using (var scope = app.Services.CreateScope())
         // Reset nếu chưa có data, URL cũ (https://), hoặc chưa có danh mục "Camera Nghị Định 10" (mới)
         needsReset = b == null
             || (b.Banner1 != null && !b.Banner1.StartsWith("/images/"))
-            || !db.Products.Any(p => p.Category == "Camera Nghị Định 10");
+            || !db.Products.Any(p => p.Category == "Camera Nghị Định 10")
+            || !db.Products.Any(p => p.Img2 != null)
+            || !db.Products.Any(p => p.ContentHtml != null);
     }
     catch { needsReset = true; }
 
@@ -87,6 +89,7 @@ using (var scope = app.Services.CreateScope())
         db.Database.ExecuteSqlRaw("IF OBJECT_ID('product', 'U') IS NOT NULL DROP TABLE [product]");
         db.Database.ExecuteSqlRaw("IF OBJECT_ID('carScreen', 'U') IS NOT NULL DROP TABLE [carScreen]");
         db.Database.ExecuteSqlRaw("IF OBJECT_ID('banner', 'U') IS NOT NULL DROP TABLE [banner]");
+        db.Database.ExecuteSqlRaw("IF OBJECT_ID('siteconfig', 'U') IS NOT NULL DROP TABLE [siteconfig]");
         // Tạo lại các bảng (không tạo database, chỉ tạo tables)
         var creator = db.GetService<IDatabaseCreator>() as RelationalDatabaseCreator;
         creator!.CreateTables();
@@ -97,6 +100,16 @@ using (var scope = app.Services.CreateScope())
     else
     {
         Console.WriteLine("✅ Database đã sẵn sàng, load dữ liệu từ DB.");
+    }
+
+    // Thêm cột mới vào bảng product nếu chưa có (không xóa dữ liệu)
+    foreach (var col in new[] { ("Img2", "nvarchar(700)"), ("Img3", "nvarchar(700)"), ("Img4", "nvarchar(700)"), ("Img5", "nvarchar(700)"), ("ContentHtml", "nvarchar(max)") })
+    {
+        db.Database.ExecuteSqlRaw($@"
+            IF OBJECT_ID('product','U') IS NOT NULL AND
+               NOT EXISTS (SELECT 1 FROM sys.columns WHERE object_id=OBJECT_ID('product') AND name='{col.Item1}')
+            ALTER TABLE [product] ADD [{col.Item1}] {col.Item2} NULL
+        ");
     }
 
     // Seed SiteConfig riêng — không bị xóa khi reset sản phẩm/tin tức

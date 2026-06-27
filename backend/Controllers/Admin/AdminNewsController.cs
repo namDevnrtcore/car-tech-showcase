@@ -9,7 +9,8 @@ namespace CarTechShowcase.Controllers.Admin;
 public class AdminNewsController : AdminBaseController
 {
     private readonly AppDbContext _db;
-    public AdminNewsController(AppDbContext db) => _db = db;
+    private readonly IWebHostEnvironment _env;
+    public AdminNewsController(AppDbContext db, IWebHostEnvironment env) { _db = db; _env = env; }
 
     [HttpGet("")]
     public async Task<IActionResult> Index(string? search)
@@ -78,6 +79,25 @@ public class AdminNewsController : AdminBaseController
             TempData["Success"] = $"Đã xóa bài viết \"{news.Title}\"!";
         }
         return Redirect("/Admin/News");
+    }
+
+    [HttpPost("UploadImage")]
+    [IgnoreAntiforgeryToken]
+    public async Task<IActionResult> UploadImage(IFormFile? file)
+    {
+        if (file == null || file.Length == 0)
+            return Ok(new { success = false, error = "Không có file" });
+
+        var ext = Path.GetExtension(file.FileName).ToLower();
+        if (ext is not ".jpg" and not ".jpeg" and not ".png" and not ".webp" and not ".gif")
+            return Ok(new { success = false, error = "Chỉ chấp nhận JPG, PNG, WebP, GIF" });
+
+        var fileName = $"news-{Guid.NewGuid():N}{ext}";
+        var savePath = Path.Combine(_env.WebRootPath, "images", fileName);
+        Directory.CreateDirectory(Path.GetDirectoryName(savePath)!);
+        using var stream = System.IO.File.Create(savePath);
+        await file.CopyToAsync(stream);
+        return Ok(new { success = true, path = $"/images/{fileName}" });
     }
 
     [HttpPost("Toggle/{id:int}")]

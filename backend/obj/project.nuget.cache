@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "oMZYQvlJ0i0=",
+  "dgSpecHash": "1AfCjn338VU=",
   "success": true,
-  "projectFilePath": "D:\\Learn\\car-tech-showcase\\backend\\CarTechShowcase.csproj",
+  "projectFilePath": "D:\\Learn\\web\\car-tech-showcase\\backend\\CarTechShowcase.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\hahoa\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\hahoa\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",

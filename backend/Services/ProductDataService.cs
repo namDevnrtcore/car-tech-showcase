@@ -30,26 +30,20 @@ public class ProductDataService
         var p = await _db.Products.FindAsync(id);
         if (p == null) return new { };
 
+        var images = new[] { p.Img, p.Img2, p.Img3, p.Img4, p.Img5 }
+            .Where(img => !string.IsNullOrEmpty(img))
+            .ToArray();
+        if (images.Length == 0) images = new[] { "" };
+
         return new
         {
-            Id       = p.Id,
-            Name     = p.ProductName,
-            Price    = (long)(p.Price ?? 0),
-            Status   = "Còn hàng",
-            Rating   = 4.8,
-            Reviews  = 0,
-            Images   = new[] { p.Img ?? "" },
-            Description     = p.Description ?? "",
-            Size            = ExtractSize(p.Spec),
-            Specs           = p.Spec ?? "",
-            DetailedSpecs   = ParseDetailedSpecs(p.Spec),
-            ProductFeatures = new object[]
-            {
-                new { Title = "Màn hình IPS Full HD",  Description = "Độ phân giải cao, góc nhìn rộng, sắc nét mọi điều kiện" },
-                new { Title = "Kết nối đa dạng",       Description = "Hỗ trợ CarPlay không dây, Android Auto, Bluetooth, WiFi" },
-                new { Title = "GPS tích hợp",          Description = "Định vị chính xác, dẫn đường thông minh với bản đồ offline" },
-                new { Title = "Bảo hành 2 năm",        Description = "Chính hãng, hỗ trợ kỹ thuật tận nơi" },
-            },
+            Id          = p.Id,
+            Name        = p.ProductName,
+            Price       = (long)(p.Price ?? 0),
+            Status      = "Còn hàng",
+            Images      = images,
+            Description = p.Description ?? "",
+            ContentHtml = p.ContentHtml ?? "",
         };
     }
 

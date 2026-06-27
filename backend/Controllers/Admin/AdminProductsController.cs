@@ -29,11 +29,12 @@ public class AdminProductsController : AdminBaseController
     }
 
     [HttpGet("")]
-    public async Task<IActionResult> Index(string? search, string? category)
+    public async Task<IActionResult> Index(string? search, string? category, int pg = 1)
     {
-        ViewData["Title"] = "Quản lý sản phẩm";
-        ViewBag.Search    = search ?? "";
-        ViewBag.Category  = category ?? "";
+        const int pageSize = 10;
+        ViewData["Title"]  = "Quản lý sản phẩm";
+        ViewBag.Search     = search ?? "";
+        ViewBag.Category   = category ?? "";
         ViewBag.Categories = Categories;
 
         var query = _db.Products.AsQueryable();
@@ -42,7 +43,20 @@ public class AdminProductsController : AdminBaseController
         if (!string.IsNullOrWhiteSpace(category))
             query = query.Where(p => p.Category == category);
 
-        var products = await query.OrderByDescending(p => p.Id).ToListAsync();
+        int total      = await query.CountAsync();
+        int totalPages = (int)Math.Ceiling(total / (double)pageSize);
+        pg             = Math.Clamp(pg, 1, Math.Max(1, totalPages));
+
+        ViewBag.Page       = pg;
+        ViewBag.TotalPages = totalPages;
+        ViewBag.Total      = total;
+
+        var products = await query
+            .OrderByDescending(p => p.Id)
+            .Skip((pg - 1) * pageSize)
+            .Take(pageSize)
+            .ToListAsync();
+
         return View("~/Views/Admin/Products/Index.cshtml", products);
     }
 
@@ -69,6 +83,28 @@ public class AdminProductsController : AdminBaseController
         await _db.SaveChangesAsync();
         TempData["Success"] = $"Đã thêm sản phẩm \"{model.ProductName}\" thành công!";
         return Redirect("/Admin/Products");
+    }
+
+    // ─── UPLOAD IMAGE ─────────────────────────────────────────────────────────
+    [HttpPost("UploadImage")]
+    [IgnoreAntiforgeryToken]
+    public async Task<IActionResult> UploadImage(IFormFile? file)
+    {
+        if (file == null || file.Length == 0)
+            return Ok(new { success = false, error = "Không có file" });
+
+        var ext = Path.GetExtension(file.FileName).ToLower();
+        if (ext is not ".jpg" and not ".jpeg" and not ".png" and not ".webp" and not ".gif")
+            return Ok(new { success = false, error = "Chỉ chấp nhận JPG, PNG, WebP, GIF" });
+
+        var fileName = $"product-{Guid.NewGuid():N}{ext}";
+        var savePath = Path.Combine(_env.WebRootPath, "images", fileName);
+        Directory.CreateDirectory(Path.GetDirectoryName(savePath)!);
+
+        using var stream = System.IO.File.Create(savePath);
+        await file.CopyToAsync(stream);
+
+        return Ok(new { success = true, path = $"/images/{fileName}" });
     }
 
     // ─── SCRAPE FROM URL ───────────────────────────────────────────────────────
